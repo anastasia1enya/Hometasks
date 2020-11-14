@@ -1,4 +1,4 @@
-package com.Lesson3;
+package com.Lesson3.OddNumbers;
 
 public class OddNumbersWhile {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package com.Lesson3;
+package com.Lesson3.OddNumbers;
 
 public class OddNumbersFor {
     public static void main(String[] args) {
@@ -9,8 +9,6 @@ public class OddNumbersFor {
 
             if (i % 2 == 1) { //условие нечетности
                 System.out.println(i);
-            } else {
-                continue;
             }
         }
 

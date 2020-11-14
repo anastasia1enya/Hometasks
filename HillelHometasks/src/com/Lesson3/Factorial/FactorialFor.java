@@ -1,4 +1,4 @@
-package com.Lesson3;
+package com.Lesson3.Factorial;
 
 public class FactorialFor {
     public static void main(String[] args) {

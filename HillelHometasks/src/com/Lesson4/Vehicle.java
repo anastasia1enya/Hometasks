@@ -6,25 +6,25 @@ public class Vehicle {
      double tankBalance;
      double fuelConsumption;
 
-     public Vehicle(double tankVolume,double tankBalance, double fuelConsumption){
+     public Vehicle(double tankVolume, double fuelConsumption){
          this.tankVolume = tankVolume;
-         this.tankBalance = tankBalance;
          this.fuelConsumption = fuelConsumption;
 
      }
 
-     public void fullTank (){
-         double addFuel = tankVolume - tankBalance;
-         System.out.println("Your car is full! We had add  " + addFuel);
-     }
     public void fuelBalance (double n){
         double tankBalance = tankVolume - ((fuelConsumption/100) * n);
         System.out.println("The balance of fuel on the crossed km " + n + " is : " + tankBalance + " liters");
     }
 
+    public void fullTank (){
+        double addFuel = tankVolume - tankBalance;
+        System.out.println("Your car is full! We had add  " + addFuel);
+    }
+
     public void fillUp (double n){
-        double fuel = tankVolume - (  (fuelConsumption/100) * n);
-        System.out.println("Yo need to fill up : " + fuel + " liters, while crossing " + n + " km");
+        double restFuel = tankVolume - (tankVolume - ((fuelConsumption/100) * n));
+        System.out.println("Yo need to fill up : " + restFuel + " liters, while crossing " + n + " km");
 
     }
     /*

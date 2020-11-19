@@ -2,40 +2,40 @@ package com.Lesson4;
 
 public class Vehicle {
 
-     double tankVolume;
-     double tankBalance;
-     double fuelConsumption;
+    double tankVolume;
+    double tankBalance;
+    double fuelConsumption;
 
-     public Vehicle(double tankVolume, double fuelConsumption){
-         this.tankVolume = tankVolume;
-         this.fuelConsumption = fuelConsumption;
+    // создаем конструктор
 
-     }
-
-    public void fuelBalance (double n){
-        double tankBalance = tankVolume - ((fuelConsumption/100) * n);
-        System.out.println("The balance of fuel on the crossed km " + n + " is : " + tankBalance + " liters");
-    }
-
-    public void fullTank (){
-        double addFuel = tankVolume - tankBalance;
-        System.out.println("Your car is full! We had add  " + addFuel);
-    }
-
-    public void fillUp (double n){
-        double restFuel = tankVolume - (tankVolume - ((fuelConsumption/100) * n));
-        System.out.println("Yo need to fill up : " + restFuel + " liters, while crossing " + n + " km");
+    public Vehicle(double tankVolume, double tankBalance, double fuelConsumption) {
+        this.tankVolume = tankVolume;
+        this.fuelConsumption = fuelConsumption;
+        this.tankBalance = tankBalance;
 
     }
-    /*
 
-    Одесса - Киев 478,8 км
-    Одесса - Кривое Озеро 177,8 км
-    Кривое Озеро - Жашков 152,8  км
-    Жашков - Киев 148,2  км
-    топливо - 28 грн/л
-    объем обычной машины -55 л
+    public double Balance(double n) {
+        double tankBalance = tankVolume - Math.round((fuelConsumption / 100) * n); // расчитываем баланс топлива
+        System.out.println("The balance of fuel on the crossed " + n + " km is : " + tankBalance + " liters");
+        return tankBalance;
+    }
 
-    */
+
+    public double fillUp(double n, double tankBalance) {
+        double addFuel = tankVolume - tankBalance; // рассчитывем сколько надо заправить
+        System.out.println("Yo need to fill up : " + addFuel + " liters, while crossing " + n + " km");
+        return addFuel;
+
+    }
+
+    public double fullTank(double price, double tankBalance, double addFuel) {
+        tankBalance = tankBalance + addFuel;// заправляем машину
+        double newPrice = addFuel * price; // считаем стоитмость заправки
+        System.out.println("Your car is full! Your balance is: " + tankBalance + " liters");
+        System.out.println("We had add  " + addFuel + " liters.The price for it is: " + newPrice + " UAH");
+        return newPrice;
+
+    }
 
 }

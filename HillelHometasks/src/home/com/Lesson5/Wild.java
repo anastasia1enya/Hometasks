@@ -12,6 +12,11 @@ public class Wild extends Animals {
         isPredator = predator;
     }
 
+    public Wild(String id, double age, double weight, String color, boolean isPredator) {
+        super(id, age, weight, color);
+        this.isPredator = isPredator;
+    }
+
     // стандартные методы для всех животных + особенности
     @Override
     public String voice() {

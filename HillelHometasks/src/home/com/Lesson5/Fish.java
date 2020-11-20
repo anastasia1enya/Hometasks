@@ -10,4 +10,8 @@ public class Fish extends Pets {
     public String move() {
         return "I like to swim, bool bool ";
     }
+
+    public Fish(String id, double age, double weight, String color, String name, boolean isVaccinated) {
+        super(id, age, weight, color, name, isVaccinated);
+    }
 }

@@ -17,13 +17,7 @@ public class ListOfAnimals {
         switch (a) {
             case "fish":
 
-                Fish fish = new Fish();
-                fish.setId("0056935-F");
-                fish.setAge(1);
-                fish.setColor("Gold");
-                fish.setWeight(0.02);
-                fish.setName("Robert");
-                fish.setVaccinated(false);
+                Fish fish = new Fish("0056935-F",1,0.02,"Gold","Robert",false);
 
                 fish.printInfo();
                 System.out.println(fish.voice());
@@ -33,13 +27,7 @@ public class ListOfAnimals {
                 break;
             case "cat":
 
-                Cat cat = new Cat();
-                cat.setId("5890*96-C");
-                cat.setAge(5);
-                cat.setColor("White");
-                cat.setWeight(4);
-                cat.setName("Murka");
-                cat.setVaccinated(true);
+                Cat cat = new Cat("5890*96-C",5,4,"White","Murka",true );
 
                 cat.printInfo();
                 System.out.println(cat.voice());
@@ -48,26 +36,14 @@ public class ListOfAnimals {
                 break;
             case "hamster":
 
-                Hamster hamster = new Hamster();
-                hamster.setId("012/2020/56 - H");
-                hamster.setAge(1.5);
-                hamster.setColor("Ginger");
-                hamster.setWeight(0.015);
-                hamster.setName("Funtik");
-                hamster.setVaccinated(true);
+                Hamster hamster = new Hamster("012/2020/56 - H",1.5,0.015,"Ginger","Funtik",true);
 
                 hamster.printInfo();
                 System.out.println(hamster.voice());
                 System.out.println(hamster.move());
                 break;
             case "dog":
-                Dog dog = new Dog();
-                dog.setId("85963 - o -D");
-                dog.setAge(4);
-                dog.setColor("Grey");
-                dog.setWeight(10);
-                dog.setName("Vasiliy");
-                dog.setVaccinated(true);
+                Dog dog = new Dog("85963 - o -D",4,10, "Grey","Vasiliy",true);
 
                 dog.printInfo();
                 System.out.println(dog.voice());
@@ -76,14 +52,7 @@ public class ListOfAnimals {
                 break;
             case "guideDog":
 
-                GuideDog guideDog = new GuideDog();
-                guideDog.setId("85963 - o -D");
-                guideDog.setAge(4);
-                guideDog.setColor("Grey");
-                guideDog.setWeight(10);
-                guideDog.setName("Vasiliy");
-                guideDog.setVaccinated(true);
-                guideDog.setTrained(true);
+                GuideDog guideDog = new GuideDog("85963 - o -D",4,10,"Grey","Vasiliy",true,true);
 
                 guideDog.printInfo();
                 System.out.println(guideDog.voice());
@@ -93,11 +62,7 @@ public class ListOfAnimals {
                 break;
 
             case "crocodile":
-                Crocodile crocodile = new Crocodile();
-                crocodile.setId("8569/4556- C");
-                crocodile.setAge(88);
-                crocodile.setColor("Green");
-                crocodile.setWeight(200);
+                Crocodile crocodile = new Crocodile("8569/4556- C",88,200,"Green",true);
 
                 crocodile.printInfo();
                 System.out.println(crocodile.voice());
@@ -105,12 +70,7 @@ public class ListOfAnimals {
                 System.out.println(crocodile.hunt());
                 break;
             case "lion":
-                Lion lion = new Lion();
-                lion.setId("856925-L");
-                lion.setAge(20);
-                lion.setColor("Yellow");
-                lion.setWeight(150);
-                lion.setPredator(true);
+                Lion lion = new Lion("856925-L",20,150,"Yellow",true);
 
                 lion.printInfo();
                 System.out.println(lion.voice());
@@ -118,12 +78,7 @@ public class ListOfAnimals {
                 System.out.println(lion.hunt());
                 break;
             case "wolf":
-                Wolf wolf = new Wolf();
-                wolf.setId("8596-W");
-                wolf.setAge(4);
-                wolf.setColor("Gray");
-                wolf.setWeight(80);
-                wolf.setPredator(true);
+                Wolf wolf = new Wolf("8596-W",4,80,"Gray",true);
 
                 wolf.printInfo();
                 System.out.println(wolf.voice());
@@ -131,12 +86,7 @@ public class ListOfAnimals {
                 System.out.println(wolf.hunt());
                 break;
             case "giraffe":
-                Giraffe giraffe = new Giraffe();
-                giraffe.setId("8596-W");
-                giraffe.setAge(4);
-                giraffe.setColor("Gray");
-                giraffe.setWeight(80);
-                giraffe.setPredator(false);
+                Giraffe giraffe = new Giraffe("115696-G",15,130,"Yellow with brown",false);
 
                 giraffe.printInfo();
                 System.out.println(giraffe.voice());

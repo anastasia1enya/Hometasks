@@ -5,6 +5,12 @@ public class Pets extends Animals {
     private String name;
     private boolean isVaccinated;
 
+    public Pets(String id, double age, double weight, String color, String name, boolean isVaccinated) {
+        super(id, age, weight, color);
+        this.name = name;
+        this.isVaccinated = isVaccinated;
+    }
+
     // геттеры/сеттеры
     public String getName() {
         return name;

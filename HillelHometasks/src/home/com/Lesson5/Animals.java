@@ -4,6 +4,14 @@ package home.com.Lesson5;
 
 public class Animals {
     private String id;
+   // создаем конструктор
+    public Animals(String id, double age, double weight, String color) {
+        this.id = id;
+        this.age = age;
+        this.weight = weight;
+        this.color = color;
+    }
+
     private double age;
     private double weight;
     private String color;

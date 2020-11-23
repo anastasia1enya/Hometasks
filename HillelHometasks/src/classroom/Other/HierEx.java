@@ -1,4 +1,4 @@
-package classroom;
+package classroom.Other;
 
 public class HierEx {
     public static void main(String[] args) {

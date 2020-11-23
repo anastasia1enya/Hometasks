@@ -1,4 +1,4 @@
-package classroom.Test;
+package classroom.Cafe;
 
 import java.math.BigDecimal;
 

@@ -1,4 +1,4 @@
-package classroom.Test;
+package classroom.Cafe;
 
 public class Auto {
     private String model;

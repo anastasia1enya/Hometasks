@@ -1,4 +1,4 @@
-package classroom;
+package classroom.Other;
 
 public class Hier {
     String name;

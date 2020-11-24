@@ -1,5 +1,5 @@
 package home.com.Lesson6;
 
-public interface WildInterface extends AnimalsInterface {
+public interface WildInterface  {
     void Predator();
 }

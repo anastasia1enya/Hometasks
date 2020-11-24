@@ -1,6 +1,6 @@
 package home.com.Lesson6;
 
-public class Animals2 implements AnimalsInterface {
+public class Animals2  {
 
 
     private String id;
@@ -47,28 +47,6 @@ public class Animals2 implements AnimalsInterface {
     public void setColor(String color) {
         this.color = color;
     }
-    //методы, для всех животных
 
-
-    @Override
-    public void voice() {
-        System.out.print("Hello");
-
-    }
-
-    @Override
-    public void move() {
-        System.out.print("I like to move");
-
-    }
-
-    @Override
-    public void printInfo() {
-        System.out.println("ID: " + getId());
-        System.out.println("Age: " + getAge() + " year(s)");
-        System.out.println("Color: " + getColor());
-        System.out.println("Weight: " + getWeight() + " kg(s)");
-
-    }
 
 }

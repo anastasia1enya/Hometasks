@@ -8,5 +8,10 @@ public class Main {
         w.voice();
         w.printInfo();
         w.isPredator();
+        Pets2 p = new Pets2("ppgpp",85,78,"black","Marsik",true);
+        p.love();
+        p.voice();
+        p.printInfo();
+        p.move();
     }
 }

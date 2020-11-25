@@ -1,11 +1,11 @@
 package home.com.Lesson6;
 
-public class Pets2 extends Animals2 implements AnimalsInterface,PetInterface{
+public class Pets extends Animals implements AnimalsInterface,PetInterface{
     // перемнные только для домащних животных:
     private String name;
     private boolean isVaccinated;
 
-    public Pets2(String id, double age, double weight, String color, String name, boolean isVaccinated) {
+    public Pets(String id, double age, double weight, String color, String name, boolean isVaccinated) {
         super(id, age, weight, color);
         this.name = name;
         this.isVaccinated = isVaccinated;
@@ -48,14 +48,14 @@ public class Pets2 extends Animals2 implements AnimalsInterface,PetInterface{
     }
 
     @Override
-    public void IsVaccinated() {
+    public void Vaccinated() {
         System.out.println("IsVaccinated: " + isVaccinated());
 
     }
 
     @Override
     public void love() {
-        System.out.println("I love my owner!");
+        System.out.print("I love my owner!");
 
     }
 }

@@ -1,6 +1,6 @@
 package home.com.Lesson6;
 
-public class Wild2 extends Animals2 implements AnimalsInterface,WildInterface {
+public class Wild extends Animals implements AnimalsInterface,WildInterface {
 
     // перемнная только для хищных животных
     private boolean isPredator;
@@ -13,7 +13,7 @@ public class Wild2 extends Animals2 implements AnimalsInterface,WildInterface {
         isPredator = predator;
     }
 
-    public Wild2(String id, double age, double weight, String color, boolean isPredator) {
+    public Wild(String id, double age, double weight, String color, boolean isPredator) {
         super(id, age, weight, color);
         this.isPredator = isPredator;
     }

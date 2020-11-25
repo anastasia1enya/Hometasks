@@ -1,11 +1,11 @@
 package home.com.Lesson6;
 
-public class Animals2  {
+public class Animals {
 
 
     private String id;
     // создаем конструктор
-    public Animals2(String id, double age, double weight, String color) {
+    public Animals(String id, double age, double weight, String color) {
         this.id = id;
         this.age = age;
         this.weight = weight;

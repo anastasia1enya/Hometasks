@@ -1,9 +1,9 @@
 package home.com.Lesson6;
 
-public class Predators2 extends Wild2 implements PredatorInterface {
+public class Predators extends Wild implements PredatorInterface {
 
 
-    public Predators2(String id, double age, double weight, String color, boolean isPredator) {
+    public Predators(String id, double age, double weight, String color, boolean isPredator) {
         super(id, age, weight, color, isPredator);
     }
 
@@ -15,6 +15,6 @@ public class Predators2 extends Wild2 implements PredatorInterface {
 
     @Override
     public void hunt() {
-        System.out.println("I see you, and I'm gonna catch you up.");
+        System.out.print("I see you, and I'm gonna catch you up.");
     }
 }

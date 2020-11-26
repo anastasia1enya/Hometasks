@@ -1,6 +1,6 @@
 package home.com.Lesson5;
 
-public class Wild extends Animals {
+public class Wild extends Animals  {
     // перемнная только для хищных животных
     private boolean isPredator;
     //// геттеры/сеттеры

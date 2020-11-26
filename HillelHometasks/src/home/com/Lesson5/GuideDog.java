@@ -1,5 +1,7 @@
 package home.com.Lesson5;
 
+
+
 public class GuideDog extends Dog {
     // перемнные только для тренированных животных:
     private boolean isTrained;

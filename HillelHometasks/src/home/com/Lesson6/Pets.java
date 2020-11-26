@@ -55,7 +55,7 @@ public class Pets extends Animals implements AnimalsInterface,PetInterface{
 
     @Override
     public void love() {
-        System.out.print("I love my owner!");
+        System.out.println("I love my owner!");
 
     }
 }

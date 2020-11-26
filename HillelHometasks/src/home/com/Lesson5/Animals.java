@@ -2,7 +2,8 @@ package home.com.Lesson5;
 
     //создаем главный класс
 
-public class Animals {
+
+public class Animals implements Cloneable  {
     private String id;
    // создаем конструктор
     public Animals(String id, double age, double weight, String color) {

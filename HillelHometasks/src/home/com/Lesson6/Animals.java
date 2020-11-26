@@ -1,6 +1,6 @@
 package home.com.Lesson6;
 
-public class Animals {
+public class Animals  {
 
 
     private String id;

@@ -1,6 +1,6 @@
 package home.com.Lesson6;
 
-public class GuideDog extends Pets implements GuideDogInterface {
+public class GuideDog extends Pets implements GuideDogInterface, Cloneable {
 
     // перемнные только для тренированных животных:
     private boolean isTrained;
@@ -23,7 +23,7 @@ public class GuideDog extends Pets implements GuideDogInterface {
     @Override
     public void voice() {
         super.voice() ;
-        System.out.println(". I can take you home");
+        System.out.println("I can take you home");
     }
 
     @Override
@@ -43,10 +43,12 @@ public class GuideDog extends Pets implements GuideDogInterface {
         System.out.println("IsTrained: "+ isTrained());
     }
 
-    
-   
 
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
+}
     
    
 

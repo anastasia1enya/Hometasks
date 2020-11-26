@@ -1,6 +1,7 @@
 package home.com.Lesson5;
 
-public class Pets extends Animals {
+
+public class Pets extends Animals  {
     // перемнные только для домащних животных:
     private String name;
     private boolean isVaccinated;

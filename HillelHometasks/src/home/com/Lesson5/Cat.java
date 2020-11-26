@@ -1,6 +1,8 @@
 package home.com.Lesson5;
 
-public class Cat extends Pets {
+
+
+public class Cat extends Pets  {
     @Override
     public String voice() {
         return super.voice()+ ". Meow! ";

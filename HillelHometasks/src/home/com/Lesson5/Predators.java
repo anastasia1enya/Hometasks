@@ -1,6 +1,7 @@
 package home.com.Lesson5;
 
-public class Predators extends Wild {
+
+public class Predators extends Wild  {
     @Override
     public String voice() {
 

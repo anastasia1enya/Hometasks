@@ -22,7 +22,7 @@ public class Wild extends Animals implements AnimalsInterface,WildInterface {
 
     @Override
     public void voice() {
-        System.out.print("Hello, I am a wild animal");
+        System.out.println("Hello, I am a wild animal");
     }
 
     @Override

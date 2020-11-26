@@ -4,7 +4,7 @@ package home.com.Lesson6;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws CloneNotSupportedException {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Choose you animal");
@@ -23,6 +23,17 @@ public class Main {
                 fish.printInfo();
                 fish.Vaccinated();
 
+                //создаем клонов
+                System.out.println("_________________________ clone:");
+
+                Fish cloneRobert = (Fish) fish.clone();
+                cloneRobert.setName("Angel");
+                cloneRobert.setColor("Red");
+                cloneRobert.move();
+                cloneRobert.voice();
+                cloneRobert.printInfo();
+                cloneRobert.Vaccinated();
+
 
                 break;
             case "cat":
@@ -34,6 +45,20 @@ public class Main {
                cat.printInfo();
                cat.Vaccinated();
 
+               //создаем клонов
+
+                System.out.println("_________________________ clone:");
+
+                Cat cat2 = (Cat) cat.clone();
+                cat2.setName("Vasya");
+                cat2.setAge(98);
+                cat2.setVaccinated(false);
+                cat2.move();
+                cat2.love();
+                cat2.voice();
+                cat2.printInfo();
+                cat2.Vaccinated();
+
                 break;
             case "hamster":
 
@@ -44,6 +69,20 @@ public class Main {
                 hamster.love();
                 hamster.printInfo();
                 hamster.Vaccinated();
+
+                 //создаем клонов
+                System.out.println("_________________________ clone:");
+
+                Hamster h = (Hamster) hamster.clone();
+                h.setId("hamster 2.0");
+                h.setColor("Black as your soul");
+                h.setVaccinated(false);
+                h.move();
+                h.love();
+                h.voice();
+                h.printInfo();
+                h.Vaccinated();
+
                 break;
             case "dog":
                 Dog dog = new Dog("85963 - o -D",4,10, "Grey","Vasiliy",true);
@@ -53,6 +92,17 @@ public class Main {
                 dog.love();
                 dog.printInfo();
                 dog.Vaccinated();
+                //создаем клонов
+                System.out.println("_________________________ clone:");
+
+                Dog dog2 = (Dog) dog.clone();
+                dog2.setName("Horror");
+                dog2.setVaccinated(false);
+                dog2.move();
+                dog2.love();
+                dog2.voice();
+                dog2.printInfo();
+                dog2.Vaccinated();
 
 
                 break;
@@ -66,6 +116,20 @@ public class Main {
                 guideDog.printInfo();
                 guideDog.Vaccinated();
                 guideDog.Trained();
+                //создаем клонов
+
+                System.out.println("_________________________ clone:");
+
+                GuideDog d = (GuideDog) guideDog.clone();
+                d.setName("Careness");
+                d.setWeight(87);
+                d.move();
+                d.love();
+                d.voice();
+                d.goHome();
+                d.printInfo();
+                d.Vaccinated();
+
 
                 break;
 
@@ -76,6 +140,19 @@ public class Main {
                 crocodile.hunt();
                 crocodile.printInfo();
                 crocodile.Predator();
+                //создаем клонов
+
+                System.out.println("_________________________ clone:");
+
+                Crocodile c = (Crocodile) crocodile.clone();
+                c.setAge(156);
+                c.setId("kdfjfjfii");
+                c.move();
+                c.voice();
+                c.hunt();
+                c.printInfo();
+                c.Predator();
+
                 break;
             case "lion":
                 Lion lion = new Lion("856925-L",20,150,"Yellow",true);
@@ -85,6 +162,17 @@ public class Main {
                 lion.hunt();
                 lion.printInfo();
                 lion.Predator();
+                //создаем клонов
+
+                System.out.println("_________________________ clone:");
+
+                Lion lionClone = (Lion) lion.clone();
+                lionClone.setId("4556545/2255");
+                lionClone.move();
+                lionClone.voice();
+                System.out.println("I don't want to hunt, i'm kind");
+                lionClone.printInfo();
+                lionClone.Predator();
 
                 break;
             case "wolf":
@@ -94,6 +182,17 @@ public class Main {
                 wolf.hunt();
                 wolf.printInfo();
                 wolf.Predator();
+                //создаем клонов
+
+                System.out.println("_________________________ clone:");
+
+                Wolf w = (Wolf) wolf.clone();
+
+                w.move();
+                w.voice();
+                System.out.println("But in my soul,  I'm the kitten. Meow!");
+                w.printInfo();
+                w.Predator();
 
                 break;
             case "giraffe":
@@ -102,6 +201,18 @@ public class Main {
                 giraffe.voice();
                 giraffe.printInfo();
                 giraffe.Predator();
+                //создаем клонов
+
+                System.out.println("_________________________ clone:");
+
+                Giraffe g = (Giraffe) giraffe.clone();
+
+                g.setPredator(true);
+                g.move();
+                g.voice();
+                g.printInfo();
+                g.Predator();
+                System.out.println("I am a wild giraffe!!!!");
 
                 break;
 

@@ -10,7 +10,7 @@ public class Predators extends Wild implements PredatorInterface {
     @Override
     public void voice() {
         super.voice() ;
-        System.out.println(", and I am hungry.");
+        System.out.println("And I am hungry.");
     }
 
     @Override

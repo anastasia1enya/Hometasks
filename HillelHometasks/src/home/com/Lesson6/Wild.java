@@ -1,6 +1,7 @@
-package home.com.Lesson5;
+package home.com.Lesson6;
 
-public class Wild extends Animals  {
+public class Wild extends Animals implements AnimalsInterface,WildInterface {
+
     // перемнная только для хищных животных
     private boolean isPredator;
     //// геттеры/сеттеры
@@ -16,25 +17,33 @@ public class Wild extends Animals  {
         super(id, age, weight, color);
         this.isPredator = isPredator;
     }
-
     // стандартные методы для всех животных + особенности
-    @Override
-    public String voice() {
-        return super.voice() + "I am a wild animal ";
 
+
+    @Override
+    public void voice() {
+        System.out.println("Hello, I am a wild animal");
     }
 
     @Override
-    public String move() {
-        return super.move() + " on the fresh air!";
+    public void move() {
+
+        System.out.println("I like to move on the fresh air!");
 
     }
 
     @Override
     public void printInfo() {
-        super.printInfo();
-        System.out.println("IsPredator: " + isPredator);
+        System.out.println("ID: " + getId());
+        System.out.println("Age: " + getAge() + " year(s)");
+        System.out.println("Color: " + getColor());
+        System.out.println("Weight: " + getWeight() + " kg(s)");
 
     }
 
+    @Override
+    public void Predator() {
+        System.out.println("IsPredator: " + isPredator);
+
+    }
 }

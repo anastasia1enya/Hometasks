@@ -1,11 +1,10 @@
-package home.com.Lesson5;
+package home.com.Lesson6;
 
-    //создаем главный класс
+public class Animals  {
 
 
-public class Animals implements Cloneable  {
     private String id;
-   // создаем конструктор
+    // создаем конструктор
     public Animals(String id, double age, double weight, String color) {
         this.id = id;
         this.age = age;
@@ -49,21 +48,5 @@ public class Animals implements Cloneable  {
         this.color = color;
     }
 
-    //методы, для всех животных
-    public String voice() {
-        return "Hello, ";
-    }
-
-    public String move() {
-        return "I like to move";
-    }
-
-    public void printInfo() {
-        System.out.println("ID: " + getId());
-        System.out.println("Age: " + getAge() + " year(s)");
-        System.out.println("Color: " + getColor());
-        System.out.println("Weight: " + getWeight() + " kg(s)");
-
-    }
 
 }

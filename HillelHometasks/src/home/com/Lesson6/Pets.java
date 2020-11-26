@@ -1,7 +1,6 @@
-package home.com.Lesson5;
+package home.com.Lesson6;
 
-
-public class Pets extends Animals  {
+public class Pets extends Animals implements AnimalsInterface,PetInterface{
     // перемнные только для домащних животных:
     private String name;
     private boolean isVaccinated;
@@ -28,26 +27,35 @@ public class Pets extends Animals  {
     public void setVaccinated(boolean vaccinated) {
         isVaccinated = vaccinated;
     }
-   // стандартные методы для всех животных + особенности
+    //// стандартные методы для всех животных + особенности
     @Override
-    public String voice() {
-        return super.voice() + " my name is " + name;
+    public void voice() {
+        System.out.println("Hello, my name is " + name);
     }
 
     @Override
-    public String move() {
-        return super.move() + " around the house";
+    public void move() {
+        System.out.println("I like to move around the house");
     }
 
     @Override
     public void printInfo() {
-        super.printInfo();
+        System.out.println("ID: " + getId());
+        System.out.println("Age: " + getAge() + " year(s)");
+        System.out.println("Color: " + getColor());
+        System.out.println("Weight: " + getWeight() + " kg(s)");
         System.out.println("Name: " + getName());
-        System.out.println("IsVaccinated: " + isVaccinated());
-    }
-    // метод только для домашних животных
-    public String love() {
-        return "I love my owner!";
     }
 
+    @Override
+    public void Vaccinated() {
+        System.out.println("IsVaccinated: " + isVaccinated());
+
+    }
+
+    @Override
+    public void love() {
+        System.out.println("I love my owner!");
+
+    }
 }

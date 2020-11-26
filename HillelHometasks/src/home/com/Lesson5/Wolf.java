@@ -1,6 +1,6 @@
 package home.com.Lesson5;
 
-public class Wolf extends Predators {
+public class Wolf extends Predators  {
 
     @Override
     public String hunt() {

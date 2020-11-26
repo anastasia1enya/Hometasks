@@ -2,7 +2,7 @@ package home.com.Lesson5;
 
 import java.util.Scanner;
 
-public class ListOfAnimals {
+public class ListOfAnimals   {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);

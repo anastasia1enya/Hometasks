@@ -2,6 +2,9 @@ package home.com.Lesson6;
 
 public class Animals  {
 
+    private double age;
+    private double weight;
+    private String color;
 
     private String id;
     // создаем конструктор
@@ -12,9 +15,7 @@ public class Animals  {
         this.color = color;
     }
 
-    private double age;
-    private double weight;
-    private String color;
+
 
     // геттеры / сеттеры
 

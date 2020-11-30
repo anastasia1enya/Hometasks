@@ -9,7 +9,7 @@ public class ArrayString extends Methods {
 
         System.out.println("Original list:");
 
-        String countries [] = {"USA","Canada","Paris","Bulgari","Odessa", "Portugal", "Spain", "Germany"};
+        String[] countries = {"USA","Canada","Paris","Bulgari","Odessa", "Portugal", "Spain", "Germany"};
 
         System.out.println(Arrays.toString(countries));
       // создаем экземпляр класса

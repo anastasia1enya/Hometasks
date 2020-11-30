@@ -6,7 +6,7 @@ public class Methods {
 
     // метод добавления по индексу
     public String[] addIndex(String[] array, int index, String name) {
-        String arrayNew[] = Arrays.copyOfRange(array, 0, array.length + 1); //добавляем новый массив с длинной +1
+        String[] arrayNew = Arrays.copyOfRange(array, 0, array.length + 1); //добавляем новый массив с длинной +1
 
         int j = 0;
         for (int i = 0; i < array.length; i++) {
@@ -25,7 +25,7 @@ public class Methods {
     // метод добавления по значению
 
     public String[] addName(String[] array, String name) {
-        String arrayNew[] = Arrays.copyOfRange(array, 0, array.length + 1);//добавляем новый массив с длинной +1
+        String[] arrayNew = Arrays.copyOfRange(array, 0, array.length + 1);//добавляем новый массив с длинной +1
         int j = 0;
         for (int i = 0; i < array.length; i++) {
             if (i <= array.length) {
@@ -41,7 +41,7 @@ public class Methods {
     // метод удаления по индексу
 
     public String[] deleteIndex(String[] array, int index) {
-        String arrayNew[] = Arrays.copyOfRange(array, 0, array.length - 1);//добавляем новый массив с длинной -1
+        String[] arrayNew = Arrays.copyOfRange(array, 0, array.length - 1);//добавляем новый массив с длинной -1
 
         int j = 0;
         for (int i = 0; i < array.length; i++) {
@@ -59,7 +59,7 @@ public class Methods {
     // метод удаления по значению
     public String[] deleteName(String[] array, String name) {
 
-        String arrayNew[] = Arrays.copyOfRange(array, 0, array.length - 1);//добавляем новый массив с длинной -1
+        String[] arrayNew = Arrays.copyOfRange(array, 0, array.length - 1);//добавляем новый массив с длинной -1
         int j = 0;
         for (int i = 0; i < array.length; i++) {
 

@@ -19,39 +19,29 @@ public class Methods {
     public String[] addIndex(String[] array, int index, String name) {
         this.array = array;
 
-        for (int i = 0; i < array.length ; i++) {
+        for (int i = 0; i < array.length; i++) {
 
-                if (i == index) {
-                    array[i] = name;
+            if (index >= array.length) {
+                String[] arrayNew = Arrays.copyOfRange(array, 0, array.length + 1);
+                //String[] arrayNew = new String[i + (i >> 1)];
 
-                } if (index> array.length){ grow(array,index);}
+                for (int j = 0; j < i; j++) {
 
-            }
+                    arrayNew[j] = array[j];
 
-
-        return array;
-
-}
-
-    public String[] grow (String[] array, int index){
-        this.array = array;
-        for (int i = 0; i < array.length*30 ; i++) {
-
-            if (index> array.length){
-                String[] arrayNew = Arrays.copyOfRange(array,0,array.length+1);
-
-
-                for (int j = 0; j <i; j++) {
-
-                    arrayNew[j]=array[j];
                 }
-
-
                 array = arrayNew;
+
+
             }
+            if (i == index) {
+                    array[i] = name;
+                }
         }
 
+
         return array;
+
     }
 
 

@@ -10,11 +10,10 @@ public class ArrayString  {
 
         Methods methods = new Methods();
 
-        String [] array = new String[1];
+        String [] array = new String[10];
 
-        //array[0] = "kkkk";
 
-        System.out.println("Original list:");
+
         System.out.println(Arrays.toString((methods.addIndex(array,0, "pppp"))));
         System.out.println(Arrays.toString((methods.addIndex(array,1, "Georgia"))));
 
@@ -26,16 +25,13 @@ public class ArrayString  {
         System.out.println(Arrays.toString((methods.addIndex( array,6, "Odessa"))));
         System.out.println(Arrays.toString((methods.addIndex( array,7, "lolofofol"))));
         System.out.println(Arrays.toString((methods.addIndex( array,8, "Odessa"))));
-        //System.out.println(Arrays.toString((methods.addIndex( array,8, "Odessa"))));
-       // System.out.println(Arrays.toString((methods.addIndex( array,9, "Odessa"))));
-        //System.out.println(Arrays.toString((methods.addIndex( array,10, "ppopop"))));
-        //.out.println(Arrays.toString((methods.addIndex( array,11, "ppopop"))));
+        System.out.println(Arrays.toString((methods.addIndex( array,9, "Odessa"))));
+        System.out.println(Arrays.toString((methods.addIndex( array,10, "Houston"))));
+        System.out.println(Arrays.toString((methods.addIndex( array,11, "Janks"))));
+        System.out.println(Arrays.toString((methods.addIndex( array,12, "STar"))));
+        System.out.println(Arrays.toString((methods.addIndex( array,13, "Lalola"))));
+        System.out.println(Arrays.toString((methods.addIndex( array,14, "Johan"))));
 
-
-        /*System.out.println(Arrays.toString(methods.addIndex(0, "Georgia")));
-        System.out.println(Arrays.toString(methods.addIndex(1, "USA")));
-        System.out.println(Arrays.toString(methods.addIndex(2, "Canada")));
-        System.out.println(Arrays.toString(methods.addIndex(3, "Odessa")));*/
 
 
     }

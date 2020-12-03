@@ -16,35 +16,32 @@ public class Methods {
     }
     // метод добавления по индексу
 
+
     public String[] addIndex(String[] array, int index, String name) {
         this.array = array;
 
         for (int i = 0; i < array.length; i++) {
 
             if (index >= array.length) {
+                //System.out.println("i="+i);
                 String[] arrayNew = Arrays.copyOfRange(array, 0, array.length + 1);
-                //String[] arrayNew = new String[i + (i >> 1)];
 
-                for (int j = 0; j < i; j++) {
-
-                    arrayNew[j] = array[j];
-
-                }
+                //for (int j = 0; j < i; j++) {
+                // System.out.println("j="+j);
+                arrayNew[i] = array[i];
+                //}
                 array = arrayNew;
-
-
             }
-            if (i == index) {
-                    array[i] = name;
-                }
         }
-
-
+        for (int i = 0; i < array.length; i++) {
+            if (i == index && array[i] == null) {
+                // System.out.println("i="+i);
+                array[i] = name;
+                return array;
+            }
+        }
         return array;
-
     }
-
-
     // метод добавления по значению
 
     public String[] addName(String[] array, String name) {

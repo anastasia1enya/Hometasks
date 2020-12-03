@@ -12,6 +12,10 @@ public class Methods {
         array = new String[10];
     }
 
+
+
+
+
     public String toString() {
         String res = null;
         for (int i = 0; i < array.length; i++) {
@@ -54,25 +58,22 @@ public class Methods {
 
             if (index < size ) {
 
-                if (i == index || count == index) {
+                if (i == index || array[i]==null) {
 
                     array[index] = name;
                     count++;
 
                 }
-                if (i == index || count != index) {
 
-                    String [] arrayNew = new String[array.length+1];
 
-                    System.arraycopy(array,0,arrayNew,index,array.length);
-                    arrayNew[index] =name;
-                    System.arraycopy(array,index-1,arrayNew,array.length,array.length);
+            }
+            if (i == index || array[i]!=null) {
 
-                    array = arrayNew;
-                    return array;
+                System.arraycopy(array,index,array,index,size-index);
+                array[index] =name;
+                size=size>>1;
 
-                }
-
+                // return array;
             }
 
 

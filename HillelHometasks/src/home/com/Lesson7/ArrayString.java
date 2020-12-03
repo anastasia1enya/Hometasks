@@ -10,27 +10,26 @@ public class ArrayString  {
 
         Methods methods = new Methods();
 
-        String [] array = new String[10];
+//methods.toString();
 
+        System.out.println(Arrays.toString((methods.addIndex(0, "pppp"))));
+        System.out.println(Arrays.toString((methods.addIndex(1, "Georgia"))));
 
+        System.out.println(Arrays.toString((methods.addIndex( 2, "Usa"))));
 
-        System.out.println(Arrays.toString((methods.addIndex(array,0, "pppp"))));
-        System.out.println(Arrays.toString((methods.addIndex(array,1, "Georgia"))));
-
-        System.out.println(Arrays.toString((methods.addIndex( array,2, "Usa"))));
-
-        System.out.println(Arrays.toString((methods.addIndex( array,3, "Odessa"))));
-        System.out.println(Arrays.toString((methods.addIndex( array,4, "Odessa"))));
-        System.out.println(Arrays.toString((methods.addIndex( array,5, "Odessa"))));
-        System.out.println(Arrays.toString((methods.addIndex( array,6, "Odessa"))));
-        System.out.println(Arrays.toString((methods.addIndex( array,7, "lolofofol"))));
-        System.out.println(Arrays.toString((methods.addIndex( array,8, "Odessa"))));
-        System.out.println(Arrays.toString((methods.addIndex( array,9, "Odessa"))));
-        System.out.println(Arrays.toString((methods.addIndex( array,10, "Houston"))));
-        System.out.println(Arrays.toString((methods.addIndex( array,11, "Janks"))));
-        System.out.println(Arrays.toString((methods.addIndex( array,12, "STar"))));
-        System.out.println(Arrays.toString((methods.addIndex( array,13, "Lalola"))));
-        System.out.println(Arrays.toString((methods.addIndex( array,14, "Johan"))));
+        System.out.println(Arrays.toString((methods.addIndex( 3, "Odessa"))));
+        System.out.println(Arrays.toString((methods.addIndex( 4, "Odessa"))));
+        System.out.println(Arrays.toString((methods.addIndex( 5, "Odessa"))));
+        System.out.println(Arrays.toString((methods.addIndex( 6, "Odessa"))));
+        System.out.println(Arrays.toString((methods.addIndex( 7, "lolofofol"))));
+        System.out.println(Arrays.toString((methods.addIndex( 8, "Odessa"))));
+        System.out.println(Arrays.toString((methods.addIndex( 9, "Odessa"))));
+        System.out.println(Arrays.toString((methods.addIndex(10, "Houston"))));
+        System.out.println(Arrays.toString((methods.addIndex( 11, "Janks"))));
+        System.out.println(Arrays.toString((methods.addIndex( 12, "STar"))));
+        System.out.println(Arrays.toString((methods.addIndex( 13, "Lalola"))));
+        System.out.println(Arrays.toString((methods.addIndex( 14, "Johan"))));
+        System.out.println(Arrays.toString((methods.addIndex( 2, "oololoo"))));
 
 
 

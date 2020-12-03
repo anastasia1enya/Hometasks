@@ -1,45 +1,69 @@
 package home.com.Lesson7;
 
 import java.util.Arrays;
+import java.util.stream.Stream;
 
 public class Methods {
 
 
     private String[] array;
 
-    public String[] getArray() {
-        return array;
+Methods(){
+    array =new String[5];
+}
+
+    public String toString(){
+    String res = null;
+        for (int i = 0; i < array.length ; i++) {
+            res+= array[i] + " ";
+        }
+    return res;
     }
 
-    public void setArray(String[] array) {
-        this.array = array;
-    }
+
     // метод добавления по индексу
 
 
-    public String[] addIndex(String[] array, int index, String name) {
-        this.array = array;
+    public String[] addIndex( int index, String name) {
+
 
         for (int i = 0; i < array.length; i++) {
+
+            if (index<0){
+                return null;
+            }
 
             if (index >= array.length) {
-                //System.out.println("i="+i);
-                String[] arrayNew = Arrays.copyOfRange(array, 0, array.length + 1);
 
-                //for (int j = 0; j < i; j++) {
-                // System.out.println("j="+j);
-                arrayNew[i] = array[i];
-                //}
+                String [] arrayNew = Arrays.copyOfRange(array, 0, array.length + 1);
                 array = arrayNew;
             }
-        }
-        for (int i = 0; i < array.length; i++) {
+
             if (i == index && array[i] == null) {
                 // System.out.println("i="+i);
                 array[i] = name;
-                return array;
+
             }
+                if (i == index && array[i] != null){
+
+                    String[] arrayNew = Arrays.copyOfRange(array, 0, index);
+                    //System.out.println(Arrays.toString(arrayNew));
+                    String[] arrayNew1 = Arrays.copyOfRange(array, index, array.length);
+                    //System.out.println(Arrays.toString(arrayNew1));
+                    array[index] = name;
+                    //System.out.println(i +"---"+ index+"---"+name);
+
+                    return Stream.concat(Arrays.stream(arrayNew), Arrays.stream(arrayNew1))
+                            .toArray(String[]::new);
+
+                   // array[index]=name;
+                    //System.out.println(Arrays.toString(array));
+
+
+                }
+
         }
+
         return array;
     }
     // метод добавления по значению
@@ -123,3 +147,5 @@ public class Methods {
     }
 
 }
+
+

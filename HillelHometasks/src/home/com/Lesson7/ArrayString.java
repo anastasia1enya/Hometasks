@@ -30,6 +30,7 @@ public class ArrayString  {
         System.out.println(Arrays.toString((methods.addIndex( 13, "Lalola"))));
         System.out.println(Arrays.toString((methods.addIndex( 14, "Johan"))));
         System.out.println(Arrays.toString((methods.addIndex( 2, "oololoo"))));
+       // System.out.println(Arrays.toString(methods.addName("Joseph")));
 
 
 

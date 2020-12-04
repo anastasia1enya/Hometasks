@@ -5,24 +5,20 @@ import java.util.stream.Stream;
 
 public class Methods {
 
-
     private String[] array;
 
     Methods() {
         array = new String[10];
     }
 
-
-
-
-
-    public String toString() {
-        String res = null;
-        for (int i = 0; i < array.length; i++) {
-            res += array[i] + " ";
-        }
-        return res;
+    public String[] getArray() {
+        return array;
     }
+
+    public void setArray(String[] array) {
+        this.array = array;
+    }
+
 
     private int count = 0;
 
@@ -33,66 +29,62 @@ public class Methods {
     public void setCount(int count) {
         this.count = count;
     }
-// метод добавления по индексу
 
+    public String toString() {
+        String res = null;
+        for (int i = 0; i < array.length; i++) {
+            res += array[i] + " ";
+        }
+        return res;
+    }
+// метод добавления по индексу
 
     public String[] addIndex(int index, String name) {
 
         int size = array.length;
 
         for (int i = 0; i < size; i++) {
-
             if (index < 0) {
                 return null;
             }
             if (index > size ) {
-
                 String [] arrayNew = Arrays.copyOfRange(array, 0, size + 1);
                 arrayNew [index-1]=name;
                 count++;
                 array = arrayNew;
-
                 return array;
-
             }
-
             if (index < size ) {
-
-                if (i == index || array[i]==null) {
-
+                if (i == index || count==index) {
                     array[index] = name;
                     count++;
-
                 }
-
-
             }
-            if (i == index || array[i]!=null) {
+            if (i == index || count!= array.length) {
 
-                System.arraycopy(array,index,array,index,size-index);
+                System.arraycopy(array,index,array,index+1,size-1-index);
                 array[index] =name;
-                size=size>>1;
+                //size++;
+                String [] arrayNew = Arrays.copyOfRange(array,0,array.length+1);
+                array=arrayNew;
 
-                // return array;
+                return array;
             }
-
-
-
         }
-///845454542525
         return array;
     }
+
     // метод добавления по значению
 
     public String[] addName(String name) {
 
         String[] arrayNew = Arrays.copyOfRange(array, 0, array.length + 1);//добавляем новый массив с длинной +1
-        int j = 0;
+        int count = 0;
         for (int i = 0; i < array.length; i++) {
             if (i <= array.length - 1) {
-                arrayNew[j++] = array[i];
+                arrayNew[count++] = array[i];
             }
-            arrayNew[j] = name;
+            arrayNew[count] = name;
 
         }
         //System.out.println(Arrays.toString(arrayNew));
@@ -121,8 +113,8 @@ public class Methods {
     }
 
     // метод удаления по значению
-    public String[] deleteName(String[] array, String name) {
-        this.array = array;
+    public String[] deleteName( String name) {
+
 
         String[] arrayNew = Arrays.copyOfRange(array, 0, array.length - 1);//добавляем новый массив с длинной -1
         int j = 0;
@@ -145,8 +137,8 @@ public class Methods {
 
     //метод получения индекса по значению
 
-    public Integer getIndex(String[] array, String name) {
-        this.array = array;
+    public Integer getIndex(String name) {
+
         Integer index = null;
         for (int i = 0; i < array.length; i++) {
 
@@ -161,6 +153,7 @@ public class Methods {
         return index;
 
     }
+
 
 }
 

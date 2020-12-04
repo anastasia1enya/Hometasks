@@ -1,7 +1,5 @@
 package home.com.Lesson7;
 
-
-
 public class ArrayString  {
 
     public static void main(String[] args) {
@@ -10,7 +8,7 @@ public class ArrayString  {
 
         Methods countries = new Methods();
 
-        // играемся с коллекцией
+        // взаимодействуем с коллекцией
         countries.addIndex(0,"USA");
         countries.addIndex(1,"Odessa");
         countries.addIndex(2,"Canada");
@@ -29,16 +27,16 @@ public class ArrayString  {
         countries.addName("Texas");
         countries.addName("Australia");
         System.out.println(countries.toString());
-        System.out.println(countries.getIndex("Australia"));
+        System.out.println(countries.getIndex(5));
         countries.deleteIndex(1);
         countries.deleteName("Paris");
         countries.deleteName("Texas");
         countries.deleteName("Houston");
         countries.deleteName("Tokyo");
         System.out.println(countries.toString());
-        System.out.println(countries.getIndex("Hong Kong"));
-        System.out.println(countries.getIndex("llll"));
-
+        System.out.println(countries.getIndex(8));
+        System.out.println(countries.getIndex(0));
+        System.out.println(countries.getIndex(28));
 
 
     }

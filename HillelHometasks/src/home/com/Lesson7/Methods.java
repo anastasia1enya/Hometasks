@@ -8,7 +8,7 @@ public class Methods {
     private String[] array;
 
     Methods() {
-        array = new String[1];
+        array = new String[10];
     }
 
     public String[] getArray() {
@@ -52,16 +52,16 @@ public class Methods {
 
     public String[] addName(String name) {
 
-        String[] arrayNew = Arrays.copyOfRange(array, 0, array.length + 1);//добавляем новый массив с длинной +1
-        int j = 0;
-        for (int i = 0; i < array.length; i++) {
-
-            if (i <= array.length - 1) {
-                arrayNew[j++] = array[i];
+        if (count == array.length) {
+            String[] arrayNew = Arrays.copyOfRange(array, 0, array.length + 1);
+            for (int i = array.length - 1; i > count; i--) {
+                arrayNew[i + 1] = arrayNew[i];
             }
-            arrayNew[j] = name;
+            array = arrayNew;
         }
-        array = arrayNew;
+        array[count] = name;
+        count++;
+
         return array;
     }
 
@@ -69,11 +69,10 @@ public class Methods {
 
     public String[] deleteIndex(int index) {
 
+        if (index<0||index> array.length){return null;}
 
         String[] arrayNew = Arrays.copyOfRange(array, 0, array.length - 1);//добавляем новый массив с длинной -1
-        if (index < 0||index> array.length) {
-            System.out.println("Wrong");
-        }
+
         int j = 0;
         for (int i = 0; i < array.length; i++) {
             if (i == index) {
@@ -81,7 +80,7 @@ public class Methods {
             }
             arrayNew[j++] = array[i];
         }
-        array = arrayNew;
+        array=arrayNew;
         return array;
     }
 
@@ -102,22 +101,21 @@ public class Methods {
         return array;
     }
 
-    //метод получения индекса по значению
+    //метод получения  значения по индексу
 
-    public int getIndex(String name) {
+    public String getIndex(int index) {
 
-        int index = 0;
+        String name = null;
 
-        for (int i = 0; i < array.length+1; i++) {
-
-            if (array[i].equals(name)) {
-
-                index = i;
-                System.out.print("The index of element " + array[i] + " is ");
-
+        for (int i = 0; i <array.length ; i++) {
+            if (index < 0||index> array.length) {
+                System.out.print("Wrong,");
+                break;
+            }else if (index==i){
+                name=array[i];
             }
         }
-        return index;
+        return name;
     }
 }
 

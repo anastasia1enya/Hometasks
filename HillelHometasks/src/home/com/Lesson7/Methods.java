@@ -1,14 +1,14 @@
 package home.com.Lesson7;
 
 import java.util.Arrays;
-import java.util.stream.Stream;
+
 
 public class Methods {
 
     private String[] array;
 
     Methods() {
-        array = new String[10];
+        array = new String[1];
     }
 
     public String[] getArray() {
@@ -21,17 +21,9 @@ public class Methods {
 
 
     private int count = 0;
-
-    public int getCount() {
-        return count;
-    }
-
-    public void setCount(int count) {
-        this.count = count;
-    }
-
+// для распечатки массива
     public String toString() {
-        String res = null;
+        String res ="";
         for (int i = 0; i < array.length; i++) {
             res += array[i] + " ";
         }
@@ -41,36 +33,18 @@ public class Methods {
 
     public String[] addIndex(int index, String name) {
 
-        int size = array.length;
+        if (index<0){return null;}
 
-        for (int i = 0; i < size; i++) {
-            if (index < 0) {
-                return null;
-            }
-            if (index > size ) {
-                String [] arrayNew = Arrays.copyOfRange(array, 0, size + 1);
-                arrayNew [index-1]=name;
-                count++;
-                array = arrayNew;
-                return array;
-            }
-            if (index < size ) {
-                if (i == index || count==index) {
-                    array[index] = name;
-                    count++;
+        if (count==array.length){
+            String [] arrayNew = Arrays.copyOfRange(array,0,array.length+1);
+                for (int i = array.length-1; i >index ; i--) {
+                    arrayNew [i+1] = arrayNew[i];
                 }
-            }
-            if (i == index || count!= array.length) {
-
-                System.arraycopy(array,index,array,index+1,size-1-index);
-                array[index] =name;
-                //size++;
-                String [] arrayNew = Arrays.copyOfRange(array,0,array.length+1);
                 array=arrayNew;
-
-                return array;
-            }
         }
+        array[index]=name;
+        count++;
+
         return array;
     }
 
@@ -79,37 +53,36 @@ public class Methods {
     public String[] addName(String name) {
 
         String[] arrayNew = Arrays.copyOfRange(array, 0, array.length + 1);//добавляем новый массив с длинной +1
-        int count = 0;
+        int j = 0;
         for (int i = 0; i < array.length; i++) {
-            if (i <= array.length - 1) {
-                arrayNew[count++] = array[i];
-            }
-            arrayNew[count] = name;
 
+            if (i <= array.length - 1) {
+                arrayNew[j++] = array[i];
+            }
+            arrayNew[j] = name;
         }
-        //System.out.println(Arrays.toString(arrayNew));
-        return arrayNew;
+        array = arrayNew;
+        return array;
     }
 
     // метод удаления по индексу
 
     public String[] deleteIndex(int index) {
 
+
         String[] arrayNew = Arrays.copyOfRange(array, 0, array.length - 1);//добавляем новый массив с длинной -1
-        if (index < 0) {
+        if (index < 0||index> array.length) {
             System.out.println("Wrong");
         }
         int j = 0;
         for (int i = 0; i < array.length; i++) {
             if (i == index) {
                 i++;
-
             }
             arrayNew[j++] = array[i];
         }
-        //System.out.println(Arrays.toString(arrayNew));
-        return arrayNew;
-
+        array = arrayNew;
+        return array;
     }
 
     // метод удаления по значению
@@ -120,41 +93,33 @@ public class Methods {
         int j = 0;
 
         for (int i = 0; i < array.length; i++) {
-
             if (array[i].equals(name)) {
                 i++;
             }
             arrayNew[j++] = array[i];
         }
-        if (!array[array.length - 1].equals(name)) {
-            System.out.println("Wrong");
-        }
-
-        //System.out.println(Arrays.toString(arrayNew));
-        return arrayNew;
-
+        array = arrayNew;
+        return array;
     }
 
     //метод получения индекса по значению
 
-    public Integer getIndex(String name) {
+    public int getIndex(String name) {
 
-        Integer index = null;
-        for (int i = 0; i < array.length; i++) {
+        int index = 0;
+
+        for (int i = 0; i < array.length+1; i++) {
 
             if (array[i].equals(name)) {
+
                 index = i;
                 System.out.print("The index of element " + array[i] + " is ");
-                return index;
+
             }
-
         }
-        System.out.print("Sorry, for " + name + " - no matches, ");
         return index;
-
     }
-
-
 }
+
 
 

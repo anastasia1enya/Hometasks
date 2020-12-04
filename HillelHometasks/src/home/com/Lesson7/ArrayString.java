@@ -1,6 +1,6 @@
 package home.com.Lesson7;
 
-import java.util.Arrays;
+
 
 public class ArrayString  {
 
@@ -8,29 +8,36 @@ public class ArrayString  {
         //создаем экземпляр класса
 
 
-        Methods methods = new Methods();
+        Methods countries = new Methods();
 
-//methods.toString();
-
-        System.out.println(Arrays.toString((methods.addIndex(0, "pppp"))));
-        System.out.println(Arrays.toString((methods.addIndex(1, "Georgia"))));
-
-        System.out.println(Arrays.toString((methods.addIndex( 2, "Usa"))));
-
-        System.out.println(Arrays.toString((methods.addIndex( 3, "Odessa"))));
-        System.out.println(Arrays.toString((methods.addIndex( 4, "Odessa"))));
-        System.out.println(Arrays.toString((methods.addIndex( 5, "Odessa"))));
-        System.out.println(Arrays.toString((methods.addIndex( 6, "Odessa"))));
-        System.out.println(Arrays.toString((methods.addIndex( 7, "lolofofol"))));
-        System.out.println(Arrays.toString((methods.addIndex( 8, "Odessa"))));
-        System.out.println(Arrays.toString((methods.addIndex( 9, "Odessa"))));
-        System.out.println(Arrays.toString((methods.addIndex(10, "Houston"))));
-        System.out.println(Arrays.toString((methods.addIndex( 11, "Janks"))));
-        System.out.println(Arrays.toString((methods.addIndex( 12, "STar"))));
-        System.out.println(Arrays.toString((methods.addIndex( 13, "Lalola"))));
-        System.out.println(Arrays.toString((methods.addIndex( 14, "Johan"))));
-        System.out.println(Arrays.toString((methods.addIndex( 2, "oololoo"))));
-       // System.out.println(Arrays.toString(methods.addName("Joseph")));
+        // играемся с коллекцией
+        countries.addIndex(0,"USA");
+        countries.addIndex(1,"Odessa");
+        countries.addIndex(2,"Canada");
+        countries.addIndex(3,"Houston");
+        countries.addIndex(4,"Tokyo");
+        countries.addIndex(5,"Japan");
+        countries.addIndex(6,"China");
+        countries.addIndex(7,"Argentina");
+        System.out.println(countries.toString());
+        countries.addName("Brazil");
+        countries.addName("France");
+        countries.addName("Paris");
+        countries.addName("Spain");
+        countries.addName("Ukraine");
+        countries.addName("Hong Kong");
+        countries.addName("Texas");
+        countries.addName("Australia");
+        System.out.println(countries.toString());
+        System.out.println(countries.getIndex("Australia"));
+        countries.deleteIndex(1);
+        countries.deleteName("Paris");
+        countries.deleteName("Texas");
+        countries.deleteName("Houston");
+        countries.deleteName("Tokyo");
+        System.out.println(countries.toString());
+        System.out.println(countries.getIndex("Hong Kong"));
+        System.out.println(countries.getIndex("llll"));
 
 
 

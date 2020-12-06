@@ -1,5 +1,6 @@
 package home.com.Lesson8;
 
+
 public interface Collection {
 
     boolean add(int index, Object o);

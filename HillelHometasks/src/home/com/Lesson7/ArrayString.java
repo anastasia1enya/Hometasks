@@ -1,11 +1,5 @@
 package home.com.Lesson7;
 
-import home.com.Lesson8.Collection;
-import home.com.Lesson8.Collections;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-
 public class ArrayString  {
 
 
@@ -43,6 +37,9 @@ public class ArrayString  {
         System.out.println(countries.getIndex(8));
         System.out.println(countries.getIndex(0));
         System.out.println(countries.getIndex(28));
+        System.out.println(args.equals(countries));
+        //System.out.println(countries());
+
 
     }
 

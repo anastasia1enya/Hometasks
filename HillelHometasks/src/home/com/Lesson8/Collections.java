@@ -1,13 +1,11 @@
 package home.com.Lesson8;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
-public class Collections implements Collection{
+public class Collections implements Collection {
 
 
-    Object array[];
+    Object [] array;
 
     public Object[] getArray() {
         return array;
@@ -129,20 +127,31 @@ public class Collections implements Collection{
 
     }
 
-
+//
     @Override
     public boolean equals(Collection str) {
+       if (this==str){return true;}
+        if (this.count == str.size()){
+            for (int i = 0; i < count; i++) {
+                if (!array[i].equals(str.get(i))) System.out.println(i+"i");return false;
+
+            }
+            return true;
+
+        }
         return false;
     }
+
+
 
     // метод удаления значений из коллекции
     @Override
     public boolean clear() {
 
         count++;
-        final Object[] es = array;
+        final Object[] arrayNew = array;
         for (int to = array.length, i = 0; i < to; i++)
-            es[i] = null;
+            arrayNew[i] = null;
 
         return true;
     }

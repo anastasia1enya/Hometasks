@@ -1,11 +1,12 @@
 package home.com.Lesson8;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+
 
 public class Main {
 
     public static void main(String[] args) {
+
+        // взаимодейтсвуем с коллекцией
         Collections coll = new Collections();
 
         coll.add(5);
@@ -14,18 +15,9 @@ public class Main {
         coll.add(8);
         coll.add(9);
         coll.add(10);
-        System.out.println(Arrays.toString(new Collections[]{coll}));
+        System.out.println(coll.toString());
 
         Collections coll2 = coll;
-
-       /* System.out.println(coll.contain(8));
-        System.out.println(coll.size());
-        System.out.println(coll.toString());
-        coll.clear();
-        System.out.println(coll.size());
-
-        System.out.println(coll.toString());*/
-
 
         Collections str = new Collections();
 
@@ -35,14 +27,26 @@ public class Main {
         str.add(8);
         str.add(9);
         str.add(10);
-        System.out.println(Arrays.toString(new Collections[]{str}));
+
+        System.out.println(str.toString());
 
         System.out.println(coll.equals(str));
         System.out.println(coll.equals(coll2));
+        System.out.println( coll.getCount());
+        System.out.println( str.getCount());
 
+        System.out.println(coll.contain(8));
+        System.out.println(coll.size());
+        System.out.println(coll.toString());
+        coll.clear();
+        System.out.println(coll.toString());
+        System.out.println(coll.size());
 
+        str.add(3,90);
+        System.out.println(str.toString());
+        System.out.println(str.get(2));
+        System.out.println(str.get(20));
 
-
-
+        System.out.println(coll.equals(str));
     }
 }

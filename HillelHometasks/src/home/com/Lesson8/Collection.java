@@ -13,7 +13,7 @@ public interface Collection {
 
     boolean contain(Object o);
 
-    boolean equals (Collection str);
+    boolean equals (Collections str);
 
     boolean clear();
 

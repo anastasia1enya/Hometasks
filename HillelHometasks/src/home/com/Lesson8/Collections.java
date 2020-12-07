@@ -57,7 +57,7 @@ public class Collections implements Collection {
     @Override
     public boolean add(int index, Object o) {
 
-        if (index<0){return false;}
+        if (index<0 || index>array.length+2){return false;}
 
         if (count==array.length){
             Object [] arrayNew = Arrays.copyOfRange(array,0,array.length+1);
@@ -76,18 +76,20 @@ public class Collections implements Collection {
     public boolean delete(Object o) {
 
         if (o==null){return false;}
+        boolean delete = false;
         Object[] arrayNew = Arrays.copyOfRange(array, 0, array.length - 1);//добавляем новый массив с длинной -1
         int j = 0;
 
         for (int i = 0; i < array.length; i++) {
             if (array[i].equals(o)) {
                 i++;
+                delete = true;
             }
             arrayNew[j++] = array[i];
         }
         count--;
         array = arrayNew;
-        return true;
+        return delete;
 
     }
     //метод получения  значения по индексу
@@ -128,12 +130,15 @@ public class Collections implements Collection {
     }
 
 //
+
     @Override
-    public boolean equals(Collection str) {
-       if (this==str){return true;}
-        if (this.count == str.size()){
+    public boolean equals(Collections str) {
+
+        Collections that = (Collections)str;
+        if (this==str){return true;}
+        if (count== ((Collections) str).getCount()){
             for (int i = 0; i < count; i++) {
-                if (!array[i].equals(str.get(i))) System.out.println(i+"i");return false;
+                if (!array[i].equals(str.get(i))) return false;
 
             }
             return true;
@@ -148,7 +153,7 @@ public class Collections implements Collection {
     @Override
     public boolean clear() {
 
-        count++;
+        count=0;
         final Object[] arrayNew = array;
         for (int to = array.length, i = 0; i < to; i++)
             arrayNew[i] = null;

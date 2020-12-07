@@ -80,7 +80,7 @@ public class Collections implements Collection {
         Object[] arrayNew = Arrays.copyOfRange(array, 0, array.length - 1);//добавляем новый массив с длинной -1
         int j = 0;
 
-        for (int i = 0; i < array.length; i++) {
+        for (int i = 0; i < array.length-1; i++) {
             if (array[i].equals(o)) {
                 i++;
                 delete = true;

@@ -33,13 +33,13 @@ public class ArrayString  {
         countries.deleteName("Texas");
         countries.deleteName("Houston");
         countries.deleteName("Tokyo");
+        countries.deleteName("Australia");
         System.out.println(countries.toString());
         System.out.println(countries.getIndex(8));
         System.out.println(countries.getIndex(0));
         System.out.println(countries.getIndex(28));
-        System.out.println(args.equals(countries));
-        //System.out.println(countries());
-
+        System.out.println(countries.getIndex(10));
+        System.out.println(countries.deleteName("Ukraine"));
 
     }
 

@@ -12,7 +12,11 @@ public class Main {
         list.iterator();
 
         Collection c = new Collection();
-        System.out.println(Arrays.toString(c.add2("John")));
+        c.add("John");
+        c.add("Tom");
+        c.add("I");
+        System.out.println(c.toString());
+        System.out.println();
 
 
     }

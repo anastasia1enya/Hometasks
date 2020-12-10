@@ -16,7 +16,7 @@ public class Main {
         c.add("Tom");
         c.add("I");
         System.out.println(c.toString());
-        System.out.println(Arrays.toString(c.getNodeArray()));
+       // System.out.println(Arrays.toString(c.getNodeArray()));
 
 
     }

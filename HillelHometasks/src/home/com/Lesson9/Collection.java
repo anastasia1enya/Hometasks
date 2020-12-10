@@ -2,21 +2,22 @@ package home.com.Lesson9;
 
 import java.util.Arrays;
 
+
 class Node {
 
-    private String  next ;
-    private String prev ;
-    private String element ;
+    private String next;
+    private String prev;
+    private String element;
 
-    public String  getNext() {
-        return  next;
+    public String getNext() {
+        return next;
     }
 
     public void setNext(String next) {
         this.next = next;
     }
 
-    public String  getPrev() {
+    public String getPrev() {
         return prev;
     }
 
@@ -32,7 +33,7 @@ class Node {
         this.element = element;
     }
 
-    private String [] nodeArray;
+    private String[] nodeArray;
 
     public String[] getNodeArray() {
         return nodeArray;
@@ -42,32 +43,33 @@ class Node {
         this.nodeArray = nodeArray;
     }
 
-    Node(){
+    Node() {
 
-        String [] nodeArray = {prev,element,next};
+        String[] nodeArray = {prev, element, next};
 
     }
 
-    public String [] info (String [] array) {
+    public String[] info(String[] array) {
 
         for (int i = 0; i < array.length; i++) {
-            if (i==0){
+            if (i == 0) {
                 prev = null;
-            } else { prev = array[i-1];}
-            if (i==array.length-1){
+            } else {
+                prev = array[i - 1];
+            }
+            if (i == array.length - 1) {
                 next = null;
-            } else { next = array[i+1];}
+            } else {
+                next = array[i + 1];
+            }
 
-            element= array[i];
+            element = array[i];
         }
         return nodeArray;
     }
-
-
 }
 
-
-public class Collection extends Node implements CustomCollection {
+public class Collection  implements CustomCollection {
 
 
     public String getStr() {
@@ -95,7 +97,6 @@ public class Collection extends Node implements CustomCollection {
     }
 
 
-
     private String [] array;
     private String str;
     private int count;
@@ -104,6 +105,8 @@ public class Collection extends Node implements CustomCollection {
 
     Collection (){
         array = new String[1];
+        //nodeArray = new String[2];
+
 
     }
     public String toString() {
@@ -115,7 +118,6 @@ public class Collection extends Node implements CustomCollection {
     }
 
 
-
     @Override
     public boolean add(String str) {
 
@@ -123,18 +125,14 @@ public class Collection extends Node implements CustomCollection {
             String[] arrayNew = Arrays.copyOfRange(array, 0, array.length + 1);
             for (int i = array.length - 1; i > count; i--) {
                 arrayNew[i + 1] = arrayNew[i];
-                Node node = new Node();
-                node.info(array);
 
-                System.out.println(Arrays.toString(getNodeArray()));
             }
             array = arrayNew;
 
         }
         array[count]=str;
-
-
         count++;
+        Node node = new Node ();
 
         return true;
 

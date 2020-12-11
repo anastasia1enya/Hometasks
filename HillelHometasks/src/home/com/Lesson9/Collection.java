@@ -1,82 +1,26 @@
 package home.com.Lesson9;
 
+
 import java.util.Arrays;
 
+class Node<E> {
+   public E item;
+    public Node<E> next;
+    public Node<E> prev;
 
-class Node {
-
-    private String next;
-    private String prev;
-    private String element;
-
-    public String getNext() {
-        return next;
-    }
-
-    public void setNext(String next) {
+    Node(Node<E> prev, E element, Node<E> next) {
+        this.item = element;
         this.next = next;
-    }
-
-    public String getPrev() {
-        return prev;
-    }
-
-    public void setPrev(String prev) {
         this.prev = prev;
     }
-
-    public String getElement() {
-        return element;
-    }
-
-    public void setElement(String element) {
-        this.element = element;
-    }
-
-    private String[] nodeArray;
-
-    public String[] getNodeArray() {
-        return nodeArray;
-    }
-
-    public void setNodeArray(String[] nodeArray) {
-        this.nodeArray = nodeArray;
-    }
-
-    Node() {
-
-        String[] nodeArray = {prev, element, next};
-
-    }
-
-    public String[] info(String[] array) {
-
-        for (int i = 0; i < array.length; i++) {
-            if (i == 0) {
-                prev = null;
-            } else {
-                prev = array[i - 1];
-            }
-            if (i == array.length - 1) {
-                next = null;
-            } else {
-                next = array[i + 1];
-            }
-
-            element = array[i];
-        }
-        return nodeArray;
-    }
 }
+public class Collection<E> implements CustomCollection <E> {
 
-public class Collection  implements CustomCollection {
-
-
-    public String getStr() {
+    public E getStr() {
         return str;
     }
 
-    public void setStr(String str) {
+    public void setStr(E str) {
         this.str = str;
     }
 
@@ -88,63 +32,35 @@ public class Collection  implements CustomCollection {
         this.count = count;
     }
 
-    public String[] getArray() {
-        return array;
+    private  E str;
+    private int count =0;
+
+    public E item ;
+    Node<E>  first;
+    Node<E> last;
+   // Node<E> node;
+
+   Collection (){
+       Node<E> node = new Node<E>(first,null,first);
     }
-
-    public void setArray(String[] array) {
-        this.array = array;
-    }
-
-
-    private String [] array;
-    private String str;
-    private int count;
-
-
-
-    Collection (){
-        array = new String[1];
-        //nodeArray = new String[2];
-
-
-    }
-    public String toString() {
-        String res ="";
-        for (int i = 0; i < array.length; i++) {
-            res += array[i] + " ";
-        }
-        return res;
-    }
-
 
     @Override
-    public boolean add(String str) {
+    public boolean add(E str) {
 
-        if (count == array.length) {
-            String[] arrayNew = Arrays.copyOfRange(array, 0, array.length + 1);
-            for (int i = array.length - 1; i > count; i--) {
-                arrayNew[i + 1] = arrayNew[i];
-
-            }
-            array = arrayNew;
-
-        }
-        array[count]=str;
+        Node<E> node1 = new Node<E> (last.next,str, first.prev);
+        first.next=last;
         count++;
-        Node node = new Node ();
 
-        return true;
-
-    }
-
-    @Override
-    public boolean addAll(String[] strArr) {
         return false;
     }
 
     @Override
-    public boolean addAll(Collection strColl) {
+    public boolean addAll(E[] strArr) {
+        return false;
+    }
+
+    @Override
+    public boolean addAll(Collection<E> strColl) {
         return false;
     }
 
@@ -154,7 +70,7 @@ public class Collection  implements CustomCollection {
     }
 
     @Override
-    public boolean delete(String str) {
+    public boolean delete(E str) {
         return false;
     }
 
@@ -164,7 +80,7 @@ public class Collection  implements CustomCollection {
     }
 
     @Override
-    public boolean contains(String str) {
+    public boolean contains(E str) {
         return false;
     }
 
@@ -184,7 +100,16 @@ public class Collection  implements CustomCollection {
     }
 
     @Override
-    public boolean compare(Collection coll) {
+    public boolean compare(Collection<E> coll) {
         return false;
     }
+
+    public String toString() {
+        String res ="";
+        for (int i = 0; i < count; i++) {
+            res += count + " ";
+        }
+        return res;
+    }
+
 }

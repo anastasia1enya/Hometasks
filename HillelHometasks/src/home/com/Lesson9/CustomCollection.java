@@ -1,21 +1,21 @@
 package home.com.Lesson9;
 
-public interface CustomCollection {
+public interface CustomCollection <E> {
 
 
-        boolean add(String str);
+        boolean add(E  str);
 
-        boolean addAll(String[] strArr);
+        boolean addAll(E [] strArr);
 
-        boolean addAll(Collection strColl);
+        boolean addAll(Collection<E> strColl);
 
         boolean delete (int index);
 
-        boolean delete (String str);
+        boolean delete (E str);
 
         String get(int index);
 
-        boolean contains(String str);
+        boolean contains(E  str);
 
         boolean clear();
 
@@ -23,7 +23,7 @@ public interface CustomCollection {
 
         boolean trim();
 
-        boolean compare(Collection coll);
+        boolean compare(Collection<E>  coll);
 
 
 }

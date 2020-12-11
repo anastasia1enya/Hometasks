@@ -7,16 +7,18 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
 
-        List<String> list = new LinkedList<String>();
-        list.add("John");
-        list.iterator();
 
-        Collection c = new Collection();
+
+        Collection<String> c = new Collection<>();
         c.add("John");
-        c.add("Tom");
-        c.add("I");
+        c.add("NHN");
+        c.add("BBB");
+
+
         System.out.println(c.toString());
-       // System.out.println(Arrays.toString(c.getNodeArray()));
+        System.out.println(c.item);
+
+
 
 
     }

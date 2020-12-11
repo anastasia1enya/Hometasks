@@ -1,6 +1,7 @@
 package home.com.Lesson9;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -16,6 +17,7 @@ public class Main {
 
 
         System.out.println(c.toString());
+
         System.out.println(c.item);
 
 

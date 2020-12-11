@@ -38,17 +38,22 @@ public class Collection<E> implements CustomCollection <E> {
     public E item ;
     Node<E>  first;
     Node<E> last;
-   // Node<E> node;
+    Node<E> nodeStart;
 
    Collection (){
-       Node<E> node = new Node<E>(first,null,first);
+       //first=last;
+       Node<E> nodeStart = new Node<E>(first,null,last);
+       first.next = nodeStart;
+       last.prev = nodeStart;
+       count=0;
     }
 
     @Override
     public boolean add(E str) {
 
-        Node<E> node1 = new Node<E> (last.next,str, first.prev);
-        first.next=last;
+        Node<E> node1 = new Node<E> (first.next,str, last.prev);
+       // first=nodeStart;
+        last=node1;
         count++;
 
         return false;
@@ -107,7 +112,7 @@ public class Collection<E> implements CustomCollection <E> {
     public String toString() {
         String res ="";
         for (int i = 0; i < count; i++) {
-            res += count + " ";
+            res += item + " ";
         }
         return res;
     }

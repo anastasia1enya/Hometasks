@@ -13,7 +13,7 @@ public interface CustomCollection <E> {
 
         boolean delete (E str);
 
-        String get(int index);
+        int get(int index);
 
         boolean contains(E  str);
 

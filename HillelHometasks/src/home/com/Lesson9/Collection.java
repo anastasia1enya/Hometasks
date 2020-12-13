@@ -16,52 +16,46 @@ class Node<E> {
 }
 public class Collection<E> implements CustomCollection <E> {
 
-    public E getStr() {
-        return str;
-    }
 
-    public void setStr(E str) {
-        this.str = str;
-    }
-
-    public int getCount() {
-        return count;
-    }
-
-    public void setCount(int count) {
-        this.count = count;
-    }
-
-    private  E str;
+    //private  E str;
     private int count =0;
 
-    public E item ;
     Node<E>  first;
     Node<E> last;
-    Node<E> nodeStart;
+
 
    Collection (){
-       //first=last;
-       Node<E> nodeStart = new Node<E>(first,null,last);
-       first.next = nodeStart;
-       last.prev = nodeStart;
-       count=0;
+
+       first = new Node<E>(first,null,first);
+
+       last= first;
     }
 
     @Override
     public boolean add(E str) {
 
-        Node<E> node1 = new Node<E> (first.next,str, last.prev);
-       // first=nodeStart;
-        last=node1;
+        Node<E> nodeNew = new Node<E> (last,str,first);
+        last.next = nodeNew;
+        first.prev = nodeNew;
+        last = nodeNew;
+
         count++;
 
-        return false;
+        return true;
     }
 
     @Override
     public boolean addAll(E[] strArr) {
-        return false;
+        for (int i = 0; i <strArr.length ; i++) {
+            Node<E> nodeNew = new Node<E> (last,strArr[i],first);
+            last.next = nodeNew;
+            first.prev = nodeNew;
+            last = nodeNew;
+
+            count++;
+
+        }
+        return true;
     }
 
     @Override
@@ -71,37 +65,93 @@ public class Collection<E> implements CustomCollection <E> {
 
     @Override
     public boolean delete(int index) {
-        return false;
+        for (int i = 0; i < count; i++) {
+            if (i==index) {
+
+                first = first.next;
+
+                Node current = first.next;
+                Node previous = first;
+
+                        previous.next = current.next;
+
+                }
+
+            }
+         count--;
+        return true;
     }
 
     @Override
     public boolean delete(E str) {
-        return false;
+
+        if (str.equals(first.item)) {
+                first = first.next;
+
+                Node current = first.next;
+                Node previous = first;
+                while (current != null) {
+                    if (current.item.equals(str)) {
+                        previous.next = current.next;
+                    } else {
+                        previous = current;
+                        current = current.next;
+                    }
+                }
+            count--;
+            }
+        return true;
     }
 
     @Override
-    public String get(int index) {
-        return null;
-    }
+    public int get(int index) {
+        for (int i = 0; i <count ; i++) {
+            if (i == index){
+                return index;
+            }
 
-    @Override
-    public boolean contains(E str) {
-        return false;
-    }
+        }
 
-    @Override
-    public boolean clear() {
-        return false;
-    }
 
-    @Override
-    public int size() {
         return 0;
     }
 
     @Override
+    public boolean contains(E str) {
+        for (int i = 0; i <count ; i++) {
+
+            if (str.equals(first.item)) {
+                return true;
+
+            }
+
+        }
+       return false;
+    }
+
+    @Override
+    public boolean clear() {
+       //удаляем ссылки 
+       first.next.prev = null;
+       last.next = null;
+
+       first.next = first;
+       first.prev = first;
+       last= first;
+       count =0;
+       return true;
+    }
+
+    @Override
+    public int size() {
+
+       return count;
+    }
+
+    @Override
     public boolean trim() {
-        return false;
+
+       return true;
     }
 
     @Override
@@ -109,12 +159,12 @@ public class Collection<E> implements CustomCollection <E> {
         return false;
     }
 
-    public String toString() {
+    /*public String toString() {
         String res ="";
         for (int i = 0; i < count; i++) {
-            res += item + " ";
+          //  res += item + " ";
         }
         return res;
-    }
+    }*/
 
 }

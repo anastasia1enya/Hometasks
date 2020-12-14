@@ -1,6 +1,8 @@
 package home.com.Lesson9;
 
 
+import home.com.Lesson8.Collections;
+
 import java.util.Arrays;
 
 class Node<E> {
@@ -55,20 +57,19 @@ public class Collection<E> implements CustomCollection <E> {
     @Override
     public boolean addAll(E[] strArr) {
         for (int i = 0; i <strArr.length ; i++) {
-            Node<E> nodeNew = new Node<E> (last,strArr[i],first);
-            last.next = nodeNew;
-            first.prev = nodeNew;
-            last = nodeNew;
-
-            count++;
-
+            add(strArr[i]);
         }
         return true;
     }
 
     @Override
     public boolean addAll(Collection<E> strColl) {
-        return false;
+
+        for (int i = 0; i <strColl.size(); i++) {
+            add(strColl.get(i));
+
+        }
+       return true;
     }
 
     @Override
@@ -119,13 +120,13 @@ public class Collection<E> implements CustomCollection <E> {
     @Override
     public E get(int index) {
 
-        Node <E> current = first;
+        Node <E> current = first.next;
         for (int i = 0; i <count ; i++) {
             if (i == index){
-                current = current.next;
+
                 return current.item;
             }
-
+            current = current.next;
         }
 
         return null;
@@ -133,13 +134,14 @@ public class Collection<E> implements CustomCollection <E> {
 
     @Override
     public boolean contains(E str) {
+        Node <E> current = first.next;
         for (int i = 0; i <count ; i++) {
 
-            if (str.equals(first.next.item)) {
+            if (str.equals(current.item)) {
                 return true;
 
             }
-
+            current = current.next;
         }
        return false;
     }
@@ -171,6 +173,18 @@ public class Collection<E> implements CustomCollection <E> {
 
     @Override
     public boolean compare(Collection<E> coll) {
+        Node <E> current = first.next;
+        if (this==coll){return true;}
+        if (count== (coll.size())){
+            for (int i = 0; i < count; i++) {
+                if (!coll.get(i).equals(current.item))
+
+                    return false;
+
+            }
+            return true;
+
+        }
         return false;
     }
 

@@ -15,14 +15,22 @@ public class Main {
         a.add("Joo");
         System.out.println(a.remove("Boo"));*/
         Collection<String> c = new Collection<>();
-
+        Collection<String> d = new Collection<>();
 
         c.add("John");
         c.add("NHN");
         c.add("BBB");
+        d.add("John");
+        d.add("NHN");
+        d.add("BBB");
         //System.out.println(c.delete(1));
-        System.out.println(c.get(3));
+       // System.out.println(c.get(0));
+        //System.out.println(c.contains("John"));
+        //System.out.println(c.contains("NHN"));
+        //System.out.println(c.contains("BBB"));
+        //System.out.println(c.contains("BBBB"));
         //System.out.println(c.contains("MHH"));
+        System.out.println(c.compare(d));
 
 
        /* System.out.println(c.first.item);

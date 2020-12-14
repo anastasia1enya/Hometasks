@@ -184,7 +184,7 @@ public class Collection<E> implements CustomCollection <E> {
         Node <E> current = first.next;
         String res ="";
         for (int i = 0; i < count; i++) {
-            res += first.next.item + " ";
+            res += current.item + " ";
             current = current.next;
         }
         return res;

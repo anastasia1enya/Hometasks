@@ -19,15 +19,6 @@ class Node<E> {
 public class Collection<E> implements CustomCollection <E> {
 
 
-    public int getCount() {
-        return count;
-    }
-
-    public void setCount(int count) {
-        this.count = count;
-    }
-
-    //private  E str;
     private int count =0;
 
     Node<E>  first;
@@ -177,23 +168,26 @@ public class Collection<E> implements CustomCollection <E> {
         if (this==coll){return true;}
         if (count== (coll.size())){
             for (int i = 0; i < count; i++) {
-                if (!coll.get(i).equals(current.item))
+                if (!coll.get(i).equals(current.item)){
 
-                    return false;
-
+                    return false;}
+                current = current.next;
             }
+
             return true;
 
         }
         return false;
     }
 
-    /*public String toString() {
+    public String toString() {
+        Node <E> current = first.next;
         String res ="";
         for (int i = 0; i < count; i++) {
-          //  res += item + " ";
+            res += first.next.item + " ";
+            current = current.next;
         }
         return res;
-    }*/
+    }
 
 }

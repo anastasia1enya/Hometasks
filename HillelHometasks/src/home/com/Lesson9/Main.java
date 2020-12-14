@@ -20,9 +20,12 @@ public class Main {
         c.add("John");
         c.add("NHN");
         c.add("BBB");
+        System.out.println(c.size());
+        System.out.println(c.toString());
         d.add("John");
         d.add("NHN");
-        d.add("BBB");
+        d.add("bbb");
+        System.out.println(d.size());
         //System.out.println(c.delete(1));
        // System.out.println(c.get(0));
         //System.out.println(c.contains("John"));

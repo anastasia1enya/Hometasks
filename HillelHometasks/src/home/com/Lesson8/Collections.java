@@ -119,7 +119,6 @@ public class Collections implements Collection {
         if (count== ((Collections) str).size()){
             for (int i = 0; i < count; i++) {
                 if (!array[i].equals(str.get(i))) return false;
-
             }
             return true;
 
@@ -134,9 +133,6 @@ public class Collections implements Collection {
     public boolean clear() {
         array = new Object[10];
         count=0;
-        /*final Object[] arrayNew = array;
-        for (int to = array.length, i = 0; i < to; i++)
-            arrayNew[i] = null;*/
 
         return true;
     }

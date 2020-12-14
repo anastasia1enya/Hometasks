@@ -17,6 +17,14 @@ class Node<E> {
 public class Collection<E> implements CustomCollection <E> {
 
 
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
+
     //private  E str;
     private int count =0;
 
@@ -65,55 +73,56 @@ public class Collection<E> implements CustomCollection <E> {
 
     @Override
     public boolean delete(int index) {
-        for (int i = 0; i < count; i++) {
-            if (i==index) {
+      /* Node current = first;
+       Node previous = first;
+       while (current.item.!= index){
+           if (current.next== null){
+               return false;
+           } else {
+               previous = current;
+               current = current.next;
+           }
 
-                first = first.next;
-
-                Node current = first.next;
-                Node previous = first;
-
-                        previous.next = current.next;
-
-                }
-
-            }
-         count--;
+       }
+       if (current== first)
+           first = first.next;
+       else
+           previous.next= current.next;*/
         return true;
     }
 
     @Override
     public boolean delete(E str) {
 
-        if (str.equals(first.item)) {
-                first = first.next;
-
-                Node current = first.next;
-                Node previous = first;
-                while (current != null) {
-                    if (current.item.equals(str)) {
-                        previous.next = current.next;
-                    } else {
-                        previous = current;
-                        current = current.next;
-                    }
-                }
-            count--;
+        Node current = first;
+        Node previous = first;
+        while (!current.item.equals(str)){
+            if (current.next== null){
+                return false;
+            } else {
+                previous = current;
+                current = current.next;
             }
+
+        }
+        if (current== first)
+            first = first.next;
+        else
+            previous.next= current.next;
+        count--;
         return true;
     }
 
     @Override
-    public int get(int index) {
+    public E get(int index) {
         for (int i = 0; i <count ; i++) {
             if (i == index){
-                return index;
+                return first.item;
             }
 
         }
 
-
-        return 0;
+        return null;
     }
 
     @Override

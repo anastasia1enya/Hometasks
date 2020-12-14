@@ -20,7 +20,9 @@ a.add("Joo");
         c.add("John");
         c.add("NHN");
         c.add("BBB");
+            System.out.println(c.get(1));
         System.out.println(c.contains("John"));
+
 
         System.out.println(c.first.item);
         System.out.println(c.last.item);

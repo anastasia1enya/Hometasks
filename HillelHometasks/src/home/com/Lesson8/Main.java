@@ -32,10 +32,10 @@ public class Main {
 
         System.out.println(coll.equals(str));
         System.out.println(coll.equals(coll2));
-        System.out.println( coll.getCount());
-        System.out.println( str.getCount());
 
+        System.out.println("contain?");
         System.out.println(coll.contain(8));
+        System.out.println(coll.contain(null));
         System.out.println(coll.size());
         System.out.println(coll.toString());
         coll.clear();

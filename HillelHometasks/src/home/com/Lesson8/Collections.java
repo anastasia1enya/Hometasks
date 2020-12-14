@@ -4,19 +4,12 @@ import java.util.*;
 
 public class Collections implements Collection {
 
+    private int count = 0;
+    private Object [] array;
 
-    Object [] array;
-
-    public Object[] getArray() {
-        return array;
-    }
-
-    public void setArray(Object[] array) {
-        this.array = array;
-    }
 
     Collections() {
-        array = new Object[10];;
+        array = new Object[10];
     }
 
     public String toString() {
@@ -27,15 +20,6 @@ public class Collections implements Collection {
         return res;
     }
 
-    public int getCount() {
-        return count;
-    }
-
-    public void setCount(int count) {
-        this.count = count;
-    }
-
-    private int count = 0;
 
     // метод добавления по значению
     @Override
@@ -112,19 +96,15 @@ public class Collections implements Collection {
     // метод проверки наличия єлемента в коллекции
     @Override
     public boolean contain(Object o) {
-        if (o == null) {
-            for (int i = 0; i < array.length; i++) {
-                if (array[i] == null) {
-                    return true;
-                }
-            }
-        } else {
-            for (int i = 0; i < array.length; i++) {
-                if (o.equals(array[i])) {
-                    return true;
-                }
+
+        for (int i = 0; i <count ; i++) {
+           if (o==null||array[i]==null){return true;}
+
+           if (o.equals(array[i])) {
+                return true;
             }
         }
+
         return false;
 
     }
@@ -134,9 +114,9 @@ public class Collections implements Collection {
     @Override
     public boolean equals(Collections str) {
 
-        Collections that = (Collections)str;
+       // Collections that = (Collections)str;
         if (this==str){return true;}
-        if (count== ((Collections) str).getCount()){
+        if (count== ((Collections) str).size()){
             for (int i = 0; i < count; i++) {
                 if (!array[i].equals(str.get(i))) return false;
 
@@ -152,18 +132,19 @@ public class Collections implements Collection {
     // метод удаления значений из коллекции
     @Override
     public boolean clear() {
-
+        array = new Object[10];
         count=0;
-        final Object[] arrayNew = array;
+        /*final Object[] arrayNew = array;
         for (int to = array.length, i = 0; i < to; i++)
-            arrayNew[i] = null;
+            arrayNew[i] = null;*/
 
         return true;
     }
  // метод получения размера коллекции
     @Override
     public int size(){
-        return array.length;
+
+        return count;
     }
 
 }

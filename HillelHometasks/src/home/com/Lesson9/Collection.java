@@ -73,21 +73,24 @@ public class Collection<E> implements CustomCollection <E> {
 
     @Override
     public boolean delete(int index) {
-      /* Node current = first;
+       Node current = first;
        Node previous = first;
-       while (current.item.!= index){
+       int i =0;
+       while (i!= index){
            if (current.next== null){
                return false;
            } else {
                previous = current;
                current = current.next;
+               i++;
            }
 
        }
        if (current== first)
            first = first.next;
        else
-           previous.next= current.next;*/
+           previous.next= current.next;
+        count--;
         return true;
     }
 
@@ -117,7 +120,7 @@ public class Collection<E> implements CustomCollection <E> {
     public E get(int index) {
         for (int i = 0; i <count ; i++) {
             if (i == index){
-                return first.item;
+                return first.next.item;
             }
 
         }
@@ -129,7 +132,7 @@ public class Collection<E> implements CustomCollection <E> {
     public boolean contains(E str) {
         for (int i = 0; i <count ; i++) {
 
-            if (str.equals(first.item)) {
+            if (str.equals(first.next.item)) {
                 return true;
 
             }

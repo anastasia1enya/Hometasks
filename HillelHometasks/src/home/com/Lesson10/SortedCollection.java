@@ -1,7 +1,8 @@
 package home.com.Lesson10;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Collection;
+import java.util.HashSet;
 
 
 public class SortedCollection {
@@ -9,7 +10,7 @@ public class SortedCollection {
 
     public static void main(String[] args) {
 
-        ArrayList <String> a = new ArrayList<>();
+        Collection <String> a = new ArrayList<>();
         a.add("A");//0
         a.add("B");//1
         a.add("C");//2
@@ -29,36 +30,18 @@ public class SortedCollection {
         System.out.println(a.toString());
 
         Sort s = new Sort();
+        s.deleteDyplicate(a);
 
-        s.sorted(a);
+        System.out.println(s.toString());
 
     }
-
 
 }
 
 class Sort {
 
-    ArrayList<String> s = new ArrayList<>();
-    int count;
-
-    public void sorted( ArrayList<String> str){
-        //str.stream().sorted();
-
-        for (int i = 0; i < str.size() ; i++) {
-            System.out.println("i" + i);
-            for (int j = 0; j <str.size() ; j++) {
-                System.out.println("j" + j);
-                if (str.get(i).equals(str.get(j))){
-
-                    continue;
-                }
-
-            }
-            s.add(str.get(i));
-        }
-
-        System.out.println(s.toString());
+    public  <T> Collection<T> deleteDyplicate(Collection<T> collection) {
+        return new HashSet<>(collection);
     }
 
 }

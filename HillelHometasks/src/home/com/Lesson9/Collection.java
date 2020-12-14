@@ -118,9 +118,12 @@ public class Collection<E> implements CustomCollection <E> {
 
     @Override
     public E get(int index) {
+
+        Node <E> current = first;
         for (int i = 0; i <count ; i++) {
             if (i == index){
-                return first.next.item;
+                current = current.next;
+                return current.item;
             }
 
         }

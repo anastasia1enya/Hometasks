@@ -11,7 +11,10 @@ public class ArrayIterator{
         Object [] array = {5,7,8,9,45,8,5,5};
 
         Iterrator iter = new Iterrator(array);
-        System.out.println(iter.hasNext());
+
+        System.out.println(iter.next());
+        System.out.println(iter.next());
+        System.out.println(iter.next());
 
         while(iter.hasNext()){
 
@@ -26,7 +29,7 @@ class Iterrator <E> implements Iterator<E> {
 
 
         private E[] array;
-        private int index = 0;
+        private int count = 0;
 
         public Iterrator(E[] array) {
             this.array = array;
@@ -34,14 +37,14 @@ class Iterrator <E> implements Iterator<E> {
 
         @Override
         public boolean hasNext() {
-            return index < array.length;
+            return count < array.length;
         }
 
         @Override
         public E next() {
             if(!hasNext())
                 throw new NoSuchElementException();
-            return array[index++];
+            return array[count++];
         }
 
 }

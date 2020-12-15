@@ -1,18 +1,11 @@
 import java.util.Arrays;
 
-
-class CollectionsStart{
-
-    public static void main(String[] args) {
-        
-    }
-}
-
-
 public class Collections {
-    private int count = 0;
-    private Object[] array;
-    
+
+    private static int count = 0;
+    private static Object[] array;
+
+
     Collections() {
         array = new Object[10];
     }
@@ -28,7 +21,8 @@ public class Collections {
 
     // метод добавления по значению
 
-    public boolean add(Object o) {
+    public static boolean add(Object o) {
+
 
         if (count == array.length) {
             Object[] arrayNew = Arrays.copyOfRange(array, 0, array.length + 1);

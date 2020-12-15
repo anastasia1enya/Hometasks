@@ -1,19 +1,10 @@
 package home.com.Lesson9;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.LinkedList;
-import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
 
 
-       LinkedList<String> a = new LinkedList<>();
-       /*a.add("Boo");
-       a.add("Doo");
-        a.add("Joo");
-        System.out.println(a.remove("Boo"));*/
         Collection<String> c = new Collection<>();
         Collection<String> d = new Collection<>();
 

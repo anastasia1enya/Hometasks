@@ -1,9 +1,6 @@
 package home.com.Lesson9;
 
-
-import home.com.Lesson8.Collections;
-
-import java.util.Arrays;
+//создаем класс для ссылок
 
 class Node<E> {
    public E item;
@@ -24,13 +21,14 @@ public class Collection<E> implements CustomCollection <E> {
     Node<E>  first;
     Node<E> last;
 
-
+//дефолтный конструктор
    Collection (){
 
        first = new Node<E>(first,null,first);
 
        last= first;
     }
+//методы:
 
     @Override
     public boolean add(E str) {

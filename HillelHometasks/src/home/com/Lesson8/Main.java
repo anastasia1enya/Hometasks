@@ -15,6 +15,7 @@ public class Main {
         coll.add(8);
         coll.add(9);
         coll.add(10);
+
         System.out.println(coll.toString());
 
         Collections coll2 = coll;
@@ -28,6 +29,7 @@ public class Main {
         str.add(9);
         str.add(10);
 
+
         System.out.println(str.toString());
 
         System.out.println(coll.equals(str));
@@ -38,6 +40,7 @@ public class Main {
         System.out.println(coll.contain(null));
         System.out.println(coll.size());
         System.out.println(coll.toString());
+        System.out.println("clear up!");
         coll.clear();
         System.out.println(coll.toString());
         System.out.println(coll.size());

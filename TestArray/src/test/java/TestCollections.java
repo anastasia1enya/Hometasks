@@ -28,5 +28,11 @@ public class TestCollections {
 
     }
 
+    // ----------------Methods test --------------------------
+@Test
+    public void addd(){
+        Assert.assertEquals("John",Methods.addName("John"));
+}
+
 
 }

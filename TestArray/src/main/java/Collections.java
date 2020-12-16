@@ -3,10 +3,11 @@ import java.util.Arrays;
 public class Collections {
 
     private static int count = 0;
-    private static Object[] array;
+    private static Object[] array=new Object[1];
 
 
     Collections() {
+
         array = new Object[10];
     }
 
@@ -24,22 +25,22 @@ public class Collections {
     public static boolean add(Object o) {
 
 
-        if (count == array.length) {
-            Object[] arrayNew = Arrays.copyOfRange(array, 0, array.length + 1);
-            for (int i = array.length - 1; i > count; i--) {
-                arrayNew[i + 1] = arrayNew[i];
-            }
-            array = arrayNew;
+    if (count == array.length) {
+        Object[] arrayNew = Arrays.copyOfRange(array, 0, array.length + 1);
+        for (int i = array.length - 1; i > count; i--) {
+            arrayNew[i + 1] = arrayNew[i];
         }
-        array[count] = o;
-        count++;
+        array = arrayNew;
+    }
+    array[count] = o;
+    count++;
 
         return true;
     }
 
     // метод добавления по индексу
 
-    public boolean add(int index, Object o) {
+    public static boolean add(int index, Object o) {
 
         if (index < 0 || index > array.length + 2) {
             return false;
@@ -60,7 +61,7 @@ public class Collections {
 
     // метод удаления по значению
 
-    public boolean delete(Object o) {
+    public static boolean delete(Object o) {
 
         if (o == null) {
             return false;
@@ -84,7 +85,7 @@ public class Collections {
 
     //метод получения  значения по индексу
 
-    public Object get(int index) {
+    public static Object get(int index) {
 
         Object o = null;
 
@@ -102,7 +103,7 @@ public class Collections {
 
     // метод проверки наличия єлемента в коллекции
 
-    public boolean contain(Object o) {
+    public static boolean contain(Object o) {
 
         for (int i = 0; i < count; i++) {
 

@@ -62,9 +62,9 @@ public class Array {
    
     public  boolean delete(Object o) {
 
-       /* if (o == null) {
+        if (o == null) {
             return false;
-        }*/
+        }
         boolean delete = false;
         Object[] arrayNew = Arrays.copyOfRange(array, 0, array.length - 1);//добавляем новый массив с длинной -1
         int j = 0;

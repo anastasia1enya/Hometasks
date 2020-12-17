@@ -2,8 +2,8 @@ import java.util.Arrays;
 
 public class Array {
 
-    private static int count = 0;
-    private static Object[] array = new Object[1];
+    private  int count = 0;
+    private  Object[] array ;
 
 
     Array() {
@@ -21,11 +21,11 @@ public class Array {
 
     // метод добавления по значению
     
-    public static boolean add(Object o) {
+    public  boolean add(Object o) {
 
         if (count == array.length) {
             Object[] arrayNew = Arrays.copyOfRange(array, 0, array.length + 1);
-            // Object[] arr = new Object[count+(count>>1)];
+
             for (int i = array.length - 1; i > count; i--) {
                 arrayNew[i + 1] = arrayNew[i];
             }
@@ -39,7 +39,7 @@ public class Array {
 
     // метод добавления по индексу
     
-    public static boolean add(int index, Object o) {
+    public  boolean add(int index, Object o) {
 
         if (index < 0 || index > array.length + 2) {
             return false;
@@ -60,7 +60,7 @@ public class Array {
 
     // метод удаления по значению
    
-    public static boolean delete(Object o) {
+    public  boolean delete(Object o) {
 
        /* if (o == null) {
             return false;
@@ -84,7 +84,7 @@ public class Array {
 
     //метод получения  значения по индексу
     
-    public static Object get(int index) {
+    public  Object get(int index) {
 
         Object o = null;
 
@@ -102,7 +102,7 @@ public class Array {
 
     // метод проверки наличия єлемента в коллекции
     
-    public static boolean contain(Object o) {
+    public  boolean contain(Object o) {
 
         for (int i = 0; i < count; i++) {
 
@@ -118,11 +118,10 @@ public class Array {
 //
 
     
-    public static boolean equals(Array str) {
-
-        /*if (this == str) {
+    public  boolean equals(Array str) {
+        if (this == str) {
             return true;
-        }*/
+        }
         if (count == ((Array) str).size()) {
             for (int i = 0; i < count; i++) {
                 if (array[i] != (str.get(i))) return false;
@@ -136,7 +135,7 @@ public class Array {
 
     // метод удаления значений из коллекции
     
-    public static boolean clear() {
+    public  boolean clear() {
         array = new Object[10];
         count = 0;
 
@@ -145,7 +144,7 @@ public class Array {
 
     // метод получения размера коллекции
     
-    public static int size() {
+    public  int size() {
 
         return count;
     }

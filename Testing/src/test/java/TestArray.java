@@ -7,83 +7,92 @@ import org.mockito.Mockito;
 
 public class TestArray {
 
-    @Test
 
-    public void addTest(){
+    public class ArrayTest {
 
-        Assert.assertTrue(Array.add(3));
-        Assert.assertTrue(Array.add(1,4));
-        Assert.assertTrue(Array.delete(3));
-        Assert.assertEquals(4,Array.get(0));
-        Assert.assertTrue(Array.contain(4));
-        Assert.assertEquals(1,Array.size());
-        Array arr2= new Array();
-        Assert.assertEquals(true,Array.equals(arr2));
-        Assert.assertTrue(Array.clear());
-        Assert.assertEquals(0,Array.size());
+        Array  array ;
+
+        @Before
+        public void init (){
+            array = new Array();
+            array.add(5);
+            array.add(4);
+            array.add(3);
+        }
+
+
+        @Test
+
+        public void addTest(){
+
+            Assert.assertTrue(array.add(5));
+            Assert.assertEquals(4,array.size());
+
+        }
+
+
+        @Test
+        public void addIndexTest(){
+
+            Assert.assertTrue(array.add(1,4));
+            Assert.assertEquals(4,array.size());
+        }
+
+        @Test
+
+        public void deleteTest(){
+
+            Assert.assertTrue(array.delete(5));
+            Assert.assertEquals(2,array.size());
+
+        }
+
+        @Test
+
+        public void getTest(){
+
+            Assert.assertEquals(5,array.get(0));
+
+        }
+
+        @Test
+
+        public void containTest(){
+
+            Assert.assertTrue(array.contain(4));
+
+
+        }
+        @Test
+
+        public void sizeTest(){
+
+            Assert.assertEquals(3,array.size());
+
+
+        }
+
+        @Test
+
+        public void equalsTest(){
+
+            Array arr2= new Array();
+            arr2.add(5);
+            arr2.add(4);
+            arr2.add(3);
+            Assert.assertEquals(true,array.equals(arr2));
+
+
+        }
+        @Test
+        public void clear(){
+            Assert.assertTrue(array.clear());
+            Assert.assertEquals(0,array.size());
+
+        }
     }
 
 
-   /* @Test
-    public void addIndexTest(){
-
-        Assert.assertTrue(Array.add(1,4));
-    }
-
-    @Test
-
-    public void deleteTest(){
-
-        Assert.assertTrue(Array.delete(3));
-
-
-    }
-
-    @Test
-
-    public void getTest(){
-
-        Assert.assertEquals(3,Array.get(0));
-
-    }
-
-   @Test
-
-    public void containTest(){
-
-        Assert.assertTrue(Array.contain(4));
-
-
-    }
-    @Test
-
-    public void sizeTest(){
-
-        Assert.assertEquals(1,Array.size());
-
-
-    }
-
-
-
-  /* @Test
-
-    public void equalsTest(){
-
-        Array arr2= new Array();
-        Assert.assertEquals(true,Array.equals(arr2));
-
-
-    }
-    @Test
-    public void clear(){
-        Assert.assertTrue(Array.clear());
-    }*/
-
-    /*@Mock
-    Array data = new Array();
-    data.add("John");
-Mockito.when(dataService).getData;*/
 
 }
 

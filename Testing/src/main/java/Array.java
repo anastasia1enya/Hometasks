@@ -1,13 +1,12 @@
 import java.util.Arrays;
 
-public class Collections {
+public class Array {
 
     private static int count = 0;
-    private static Object[] array=new Object[1];
+    private static Object[] array = new Object[1];
 
 
-    Collections() {
-
+    Array() {
         array = new Object[10];
     }
 
@@ -21,25 +20,25 @@ public class Collections {
 
 
     // метод добавления по значению
-
+    
     public static boolean add(Object o) {
 
-
-    if (count == array.length) {
-        Object[] arrayNew = Arrays.copyOfRange(array, 0, array.length + 1);
-        for (int i = array.length - 1; i > count; i--) {
-            arrayNew[i + 1] = arrayNew[i];
+        if (count == array.length) {
+            Object[] arrayNew = Arrays.copyOfRange(array, 0, array.length + 1);
+            // Object[] arr = new Object[count+(count>>1)];
+            for (int i = array.length - 1; i > count; i--) {
+                arrayNew[i + 1] = arrayNew[i];
+            }
+            array = arrayNew;
         }
-        array = arrayNew;
-    }
-    array[count] = o;
-    count++;
+        array[count] = o;
+        count++;
 
         return true;
     }
 
     // метод добавления по индексу
-
+    
     public static boolean add(int index, Object o) {
 
         if (index < 0 || index > array.length + 2) {
@@ -60,18 +59,18 @@ public class Collections {
     }
 
     // метод удаления по значению
-
+   
     public static boolean delete(Object o) {
 
-        if (o == null) {
+       /* if (o == null) {
             return false;
-        }
+        }*/
         boolean delete = false;
         Object[] arrayNew = Arrays.copyOfRange(array, 0, array.length - 1);//добавляем новый массив с длинной -1
         int j = 0;
 
         for (int i = 0; i < array.length - 1; i++) {
-            if (array[i].equals(o)) {
+            if (array[i]==o) {
                 i++;
                 delete = true;
             }
@@ -84,7 +83,7 @@ public class Collections {
     }
 
     //метод получения  значения по индексу
-
+    
     public static Object get(int index) {
 
         Object o = null;
@@ -102,7 +101,7 @@ public class Collections {
     }
 
     // метод проверки наличия єлемента в коллекции
-
+    
     public static boolean contain(Object o) {
 
         for (int i = 0; i < count; i++) {
@@ -118,13 +117,13 @@ public class Collections {
 
 //
 
+    
+    public static boolean equals(Array str) {
 
-    public boolean equals(Collections str) {
-
-        if (this == str) {
+        /*if (this == str) {
             return true;
-        }
-        if (count == ((Collections) str).size()) {
+        }*/
+        if (count == ((Array) str).size()) {
             for (int i = 0; i < count; i++) {
                 if (array[i] != (str.get(i))) return false;
             }
@@ -132,12 +131,12 @@ public class Collections {
         }
 
         return false;
-    }
+    } 
 
 
     // метод удаления значений из коллекции
-
-    public boolean clear() {
+    
+    public static boolean clear() {
         array = new Object[10];
         count = 0;
 
@@ -145,9 +144,12 @@ public class Collections {
     }
 
     // метод получения размера коллекции
-
-    public int size() {
+    
+    public static int size() {
 
         return count;
     }
+
+
+
 }

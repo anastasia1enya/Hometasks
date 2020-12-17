@@ -15,6 +15,12 @@ public class Main {
         coll.add(8);
         coll.add(9);
         coll.add(10);
+        coll.add(8);
+        coll.add(8);
+        coll.add(8);
+        coll.add(8);
+        coll.add(8);
+        coll.add(8);
 
         System.out.println(coll.toString());
 

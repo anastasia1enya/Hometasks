@@ -27,6 +27,7 @@ public class Collections implements Collection {
 
         if (count == array.length) {
             Object[] arrayNew = Arrays.copyOfRange(array, 0, array.length + 1);
+           // Object[] arr = new Object[count+(count>>1)];
             for (int i = array.length - 1; i > count; i--) {
                 arrayNew[i + 1] = arrayNew[i];
             }

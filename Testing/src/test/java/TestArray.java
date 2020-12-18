@@ -1,14 +1,10 @@
-import org.junit.After;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mock;
-import org.mockito.Mockito;
+
 
 public class TestArray {
-
-
-    public class ArrayTest {
 
         Array  array ;
 
@@ -60,6 +56,7 @@ public class TestArray {
         public void containTest(){
 
             Assert.assertTrue(array.contain(4));
+            Assert.assertFalse(array.contain(50));
 
 
         }
@@ -80,18 +77,17 @@ public class TestArray {
             arr2.add(5);
             arr2.add(4);
             arr2.add(3);
-            Assert.assertEquals(true,array.equals(arr2));
-
-
+            Assert.assertTrue(array.equals(arr2));
+            arr2.add(10);
+            Assert.assertFalse(array.equals(arr2));
         }
         @Test
         public void clear(){
             Assert.assertTrue(array.clear());
             Assert.assertEquals(0,array.size());
 
-        }
-    }
 
+    }
 
 
 }

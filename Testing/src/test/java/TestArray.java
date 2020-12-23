@@ -23,6 +23,7 @@ public class TestArray {
 
             Assert.assertTrue(array.add(5));
             Assert.assertEquals(4,array.size());
+            Assert.assertTrue(array.contain(5));
 
         }
 
@@ -32,6 +33,8 @@ public class TestArray {
 
             Assert.assertTrue(array.add(1,4));
             Assert.assertEquals(4,array.size());
+            Assert.assertTrue(array.contain(4));
+            Assert.assertEquals(array.get(1),4);
         }
 
         @Test
@@ -40,6 +43,7 @@ public class TestArray {
 
             Assert.assertTrue(array.delete(5));
             Assert.assertEquals(2,array.size());
+            Assert.assertFalse(array.contain(5));
 
         }
 

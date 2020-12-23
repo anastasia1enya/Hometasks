@@ -1,7 +1,10 @@
 package StreamTests;
+import jdk.internal.net.http.common.Pair;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 import java.util.stream.Collectors;
 public class ListPairs {
     public static void main(String[] args) {
@@ -12,6 +15,9 @@ public class ListPairs {
         collection.add("three");
         collection.add("four");
         collection.add("five");
+
+        List<Pair<String,String>> pair;
+
 
 
         String a = new String(String.valueOf(collection));

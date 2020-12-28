@@ -15,7 +15,7 @@ public class Main {
 
         System.out.println(c.calc(collection));
 
-        FilterList filter = new FilterList();
+        StreamTests.FilterList filter = new StreamTests.FilterList();
 
         List<String> list =Arrays.asList("one","two","FOUR","five","ELEVEN","nine","TEN");
 
@@ -28,10 +28,9 @@ public class Main {
             collection1.add("four");
             collection1.add("five");
 
-            ListPairs pairs = new ListPairs();
+            main.java.StreamTests.ListPairs pairs = new main.java.StreamTests.ListPairs();
 
         System.out.println(pairs.pair(collection1));
-
 
     }
 }

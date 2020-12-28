@@ -1,5 +1,4 @@
 import StreamTests.Average;
-import StreamTests.FilterList;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -12,15 +11,16 @@ public class Testing {
 
     Collection<Integer> coll;
     Average average;
-    FilterList filter;
+    StreamTests.FilterList filter;
     List<String> list;
 
     @Before
     public void init (){
         average = new Average();
         coll= Arrays.asList(8,70,5,65);
-        filter = new FilterList();
+        filter = new StreamTests.FilterList();
         list = List.of("aaa","bbbbb","AAAAAAA","ccccc","DDDDDDDDD");
+
     }
 
 
@@ -36,18 +36,22 @@ public class Testing {
 
     @Test
     public void filterTest(){
-        List list2 = filter.filter(list);
+        List<String> list2 = filter.filter(list);
+
+        int count =0;
 
         for (int i = 0; i <list.size() ; i++) {
-            if (list.get(i).equals(list.get(i).toUpperCase())){
-                list.remove(i);
 
+            if (list.get(i) == list.get(i).toUpperCase()){
+                count++;
+                System.out.println(count);
             }
 
+
+
         }
-
-
-        //Assert.assertFalse(list2.contains());
+//Assert.assertTrue(list2.contains(list2.get(i).toUpperCase()));
+       // Assert.assertEquals(list2.size(),count);
 
     }
 }

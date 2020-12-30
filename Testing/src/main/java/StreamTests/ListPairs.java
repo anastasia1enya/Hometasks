@@ -1,4 +1,4 @@
-package  main.java.StreamTests;
+package  StreamTests;
 
 import java.util.Collection;
 import java.util.stream.Collectors;

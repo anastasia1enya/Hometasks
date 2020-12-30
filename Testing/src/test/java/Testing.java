@@ -1,4 +1,5 @@
 import StreamTests.Average;
+import StreamTests.ListPairs;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -14,6 +15,7 @@ public class Testing {
     Average average;
     StreamTests.FilterList filter;
     List<String> list;
+    ListPairs pair;
 
     @Before
     public void init (){
@@ -74,4 +76,21 @@ public class Testing {
 
     }
 
-}
+    @Test
+    public void pairTest() {
+        List<String> list2 = filter.filter(list);
+
+        for (int i = 0; i < list.size(); i++) {
+
+            if (list.get(i).equals(list.get(i).toUpperCase()) || list.get(i).length() != 4) {
+                list.remove(i);
+                i--;
+            }
+
+        }
+
+        Assert.assertEquals(list.size(), list2.size());
+
+    }
+
+    }

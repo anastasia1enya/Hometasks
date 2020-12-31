@@ -5,5 +5,4 @@ public class Hier {
     String phone;
     String age;
 
-
 }

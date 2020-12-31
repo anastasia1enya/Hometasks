@@ -3,6 +3,7 @@ package home.com.Lesson10;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.stream.Collectors;
 
 
 public class SortedCollection {
@@ -10,7 +11,7 @@ public class SortedCollection {
 
     public static void main(String[] args) {
 
-        Collection <String> a = new ArrayList<>();
+        Collection<String> a = new ArrayList<>();
         a.add("A");//0
         a.add("B");//1
         a.add("C");//2
@@ -33,11 +34,8 @@ public class SortedCollection {
         s.deleteDyplicate(a);
 
         System.out.println(s.toString());
-
     }
-
 }
-
 class Sort {
 
     public  <T> Collection<T> deleteDyplicate(Collection<T> collection) {
@@ -45,3 +43,4 @@ class Sort {
     }
 
 }
+

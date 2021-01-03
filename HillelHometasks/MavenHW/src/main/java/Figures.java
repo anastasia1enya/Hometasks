@@ -1,8 +1,8 @@
 public class Figures {
 
-    Figures(int a) {
+   /* Figures(int a) {
 
-    }
+    }*/
 
     char[] print(int a) {
         String b = String.valueOf(a);
@@ -18,6 +18,7 @@ public class Figures {
                                 {"   1"},
                                 {"   1"},
                                 {"   1"}};
+                System.out.println(array);
             }
 
             if (c[i] == 2) {
@@ -28,6 +29,7 @@ public class Figures {
                                 {" 2    "},
                                 {"2     "},
                                 {"2 2 2 "}};
+                System.out.println(array);
             }
 
             if (c[i] == 3) {
@@ -38,6 +40,7 @@ public class Figures {
                                  {"      3"},
                                  {"3     3"},
                                  {"  3 3  "}};
+                System.out.println(array);
             }
 
             if (c[i] == 4) {
@@ -48,12 +51,13 @@ public class Figures {
                                 {"      4"},
                                 {"      4"},
                                 {"      4"}};
+                System.out.println(array);
             }
 
 
-            switch (c[i]){
+           /* switch (c[i]){
                 case 1:
-            }
+            }*/
         }
 
 

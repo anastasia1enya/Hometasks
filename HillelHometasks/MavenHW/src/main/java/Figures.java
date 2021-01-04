@@ -1,22 +1,47 @@
+import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class Figures {
 
-   /* Figures(int a) {
+    Character[][] array;
+    Character[] [] prev;
+   private int count =0;
 
-    }*/
+   Figures(){
+       //array = new Character[4][7];
+   }
 
-    void print(int a) {
-        String b = String.valueOf(a)+ " ";
+    public Character [][] fig (int a) {
+        String b = String.valueOf(a);
         char[] c = b.toCharArray();
-        Character[][] array;
+
 
         for (int i = 0; i < c.length; i++) {
+            System.out.println(i);
+            if (c[i]=='0') {
+
+                Character[][] array1 =
+                               {{'@', '@', '@', '@'},
+                                {'@', ' ', ' ', '@'},
+                                {'@', ' ', ' ', '@'},
+                                {'@', ' ', ' ', '@'},
+                                {'@', ' ', ' ', '@'},
+                                {'@', ' ', ' ', '@'},
+                                {'@', '@', '@', '@'}};
+
+
+                    Character[][] array = (Character[][]) Array.newInstance(array1.getClass().getComponentType(), prev.length + array1.length);
+                    System.arraycopy(array1, 0, array, 0, prev.length);
+                    System.arraycopy(array1, 0, array, array1.length, array1.length);
+                    prev = array;
+
+                count++;
+            }
 
 
             if (c[i]=='1'){
-
-                 array =new Character[][]
+                System.out.println(c[i]);
+                Character[][]  array1 =
                                 {{' ', ' ', ' ', '@'},
                                  {' ', ' ', '@', '@'},
                                  {' ', '@', ' ', '@'},
@@ -24,136 +49,234 @@ public class Figures {
                                  {' ', ' ', ' ', '@'},
                                  {' ', ' ', ' ', '@'},
                                  {' ', ' ', ' ', '@'}};
-                //array = new Character[array.length][];
-                for (int j = 0; j <array.length ; j++) {
-                    for (int k = 0; k <array[0].length ; k++) {
-                        System.out.print(array[j][k]);
-                    }
-                    System.out.println();
-                }
 
+                if (count==0){
+                    prev = array1;
+                    array = prev;
+                    count++;
+                } else {
 
+                Character[][] array = (Character[][]) Array.newInstance(array1.getClass().getComponentType(), prev.length + array1.length);
+                System.arraycopy(array1, 0, array, 0, prev.length);
+                System.arraycopy(array1, 0, array, array1.length, array1.length);
+
+                prev = array;
+                count++;}
             }
 
             if (c[i]=='2'){
-
-                Character[][] array2 =
-                        {{' ','@','@',' '},
+                System.out.println(c[i]);
+                Character[][]  array1 =
+                                {{' ','@','@',' '},
                                 {'@',' ',' ','@'},
                                 {' ',' ','@',' '},
                                 {' ','@',' ',' '},
                                 {'@',' ',' ',' '},
                                 {'@',' ',' ',' '},
                                 {'@','@','@','@'}};
-                for (int j = 0; j <array2.length ; j++) {
-                    for (int k = 0; k <array2[0].length ; k++) {
-                        System.out.print(array2[j][k]);
-                    }
-                    System.out.println();
-                }
+                if (count==0){
+                    prev = array1;
+                    count++;
+
+                } else {
+
+                    Character[][] arrayNew = (Character[][]) Array.newInstance(array1.getClass().getComponentType(), prev.length + array1.length);
+                    System.arraycopy(array1, 0, arrayNew, 0, prev.length);
+                    System.arraycopy(array1, 0, arrayNew, array1.length, array1.length);
+
+                    //  array=arrayNew;
+
+                count++;}
+
 
             }
             if (c[i]=='3'){
 
-                Character[][] array3 =
-                        {{' ','@','@',' '},
+                Character[][]  array1 =
+                               {{' ','@','@',' '},
                                 {'@',' ',' ','@'},
                                 {' ',' ','@',' '},
                                 {' ','@',' ',' '},
                                 {' ',' ','@',' '},
                                 {'@',' ',' ','@'},
                                 {' ','@','@',' '}};
-                for (int j = 0; j <array3.length ; j++) {
-                    for (int k = 0; k <array3[0].length ; k++) {
-                        System.out.print(array3[j][k]);
-                    }
-                    System.out.println();
+                if (count==0){
+                    prev = array1;
+                    array = prev;
+                    count++;
+
                 }
+
+                Character[][] arrayNew = (Character[][]) Array.newInstance(array1.getClass().getComponentType(), prev.length + array1.length);
+                System.arraycopy(array1, 0, arrayNew, 0, prev.length);
+                System.arraycopy(array1, 0, arrayNew, array1.length, array1.length);
+
+                array=arrayNew;
+                count++;
+
+
+            }
+            if (c[i]=='4'){
+
+                Character[][]  array1 =
+                               {{' ',' ',' ','@'},
+                                {' ',' ','@','@'},
+                                {' ','@',' ','@'},
+                                {'@','@','@','@'},
+                                {' ',' ',' ','@'},
+                                {' ',' ',' ','@'},
+                                {' ',' ',' ','@'}};
+                if (count==0){
+                    prev = array1;
+                    array = prev;
+                    count++;
+
+                }
+
+                Character[][] arrayNew = (Character[][]) Array.newInstance(array1.getClass().getComponentType(), prev.length + array1.length);
+                System.arraycopy(array1, 0, arrayNew, 0, prev.length);
+                System.arraycopy(array1, 0, arrayNew, array1.length, array1.length);
+
+                array=arrayNew;
+                count++;
+
+            }
+            if (c[i]=='5'){
+
+                Character[][]  array1 =
+                               {{'@','@','@','@'},
+                                {'@',' ',' ',' '},
+                                {'@','@',' ',' '},
+                                {' ',' ','@',' '},
+                                {' ',' ',' ','@'},
+                                {' ',' ','@',' '},
+                                {'@','@',' ',' '}};
+                if (count==0){
+                    prev = array1;
+                    array = prev;
+                    count++;
+
+                }
+
+                Character[][] arrayNew = (Character[][]) Array.newInstance(array1.getClass().getComponentType(), prev.length + array1.length);
+                System.arraycopy(array1, 0, arrayNew, 0, prev.length);
+                System.arraycopy(array1, 0, arrayNew, array1.length, array1.length);
+
+                array=arrayNew;
+                count++;
+
+            }
+            if (c[i]=='6'){
+
+                Character[][]  array1 =
+                               {{' ','@','@',' '},
+                                {'@',' ',' ','@'},
+                                {'@',' ',' ',' '},
+                                {'@','@','@',' '},
+                                {'@',' ',' ','@'},
+                                {'@',' ',' ','@'},
+                                {' ','@','@',' '}};
+                if (count==0){
+                    prev = array1;
+                    array = prev;
+                    count++;
+                }
+
+                Character[][] arrayNew = (Character[][]) Array.newInstance(array1.getClass().getComponentType(), prev.length + array1.length);
+                System.arraycopy(array1, 0, arrayNew, 0, prev.length);
+                System.arraycopy(array1, 0, arrayNew, array1.length, array1.length);
+
+                array=arrayNew;
+                count++;
 
             }
 
+             if (c[i]=='7'){
 
-           /* switch (c[i]){
-                case '1':
-                    Character[][] array1 =
-                                   {{' ',' ',' ','@'},
-                                    {' ',' ','@','@'},
-                                    {' ','@',' ','@'},
-                                    {'@',' ',' ','@'},
-                                    {' ',' ',' ','@'},
-                                    {' ',' ',' ','@'},
-                                    {' ',' ',' ','@'}};
-                    for (int j = 0; j <array1.length ; j++) {
-                        for (int k = 0; k <array1[0].length ; k++) {
-                            System.out.print(array1[j][k]);
-                        }
-                        System.out.println();
-                    }
+                Character[][]  array1 =
+                               {{'@','@','@','@'},
+                                {' ',' ',' ','@'},
+                                {' ',' ','@',' '},
+                                {' ','@',' ',' '},
+                                {'@',' ',' ',' '},
+                                {'@',' ',' ',' '},
+                                {'@',' ',' ',' '}};
+                if (count==0){
+                    prev = array1;
+                    array = prev;
+                    count++;
+                }
 
-                case '2':
-                    Character[][] array2 =
-                                   {{' ','@','@',' '},
-                                    {'@',' ',' ','@'},
-                                    {' ',' ','@',' '},
-                                    {' ','@',' ',' '},
-                                    {'@',' ',' ',' '},
-                                    {'@',' ',' ',' '},
-                                    {'@','@','@','@'}};
-                    for (int j = 0; j <array2.length ; j++) {
-                        for (int k = 0; k <array2[0].length ; k++) {
-                            System.out.print(array2[j][k]);
-                        }
-                        System.out.println();
-                    }
-                case '3':
-                    Character[][] array3 =
-                                 {{' ','@','@',' '},
-                                  {'@',' ',' ','@'},
-                                  {' ',' ','@',' '},
-                                  {' ','@',' ',' '},
-                                  {' ',' ','@',' '},
-                                  {'@',' ',' ','@'},
-                                  {' ','@','@',' '}};
-                    for (int j = 0; j <array3.length ; j++) {
-                        for (int k = 0; k <array3[0].length ; k++) {
-                            System.out.print(array3[j][k]);
-                        }
-                        System.out.println();
-                    }
-                case '4':
-                    Character[][] array4 =
-                                   {{' ',' ',' ','@'},
-                                    {' ',' ','@','@'},
-                                    {' ','@',' ','@'},
-                                    {'@','@','@','@'},
-                                    {' ',' ',' ','@'},
-                                    {' ',' ',' ','@'},
-                                    {' ',' ',' ','@'}};
-                case '5':
-                    Character[][] array5 =
-                                   {{'@','@','@','@'},
-                                    {'@',' ',' ',' '},
-                                    {'@','@',' ',' '},
-                                    {' ',' ','@',' '},
-                                    {' ',' ',' ','@'},
-                                    {' ',' ','@',' '},
-                                    {'@','@',' ',' '}};
+                Character[][] arrayNew = (Character[][]) Array.newInstance(array1.getClass().getComponentType(), prev.length + array1.length);
+                System.arraycopy(array1, 0, arrayNew, 0, prev.length);
+                System.arraycopy(array1, 0, arrayNew, array1.length, array1.length);
 
-                case '6':
-                    Character[][] array6 =
-                                   {{' ','@','@',' '},
-                                    {'@',' ',' ','@'},
-                                    {'@',' ',' ',' '},
-                                    {'@','@','@',' '},
-                                    {'@',' ',' ','@'},
-                                    {'@',' ',' ','@'},
-                                    {' ','@','@',' '}};
-            }*/
+                array=arrayNew;
+                count++;
 
+            }
+
+            if (c[i]=='8'){
+                Character[][]  array1   =
+                               {{'@', '@', '@', '@'},
+                                {'@', ' ', ' ', '@'},
+                                {'@', ' ', ' ', '@'},
+                                {'@', '@', '@', '@'},
+                                {'@', ' ', ' ', '@'},
+                                {'@', ' ', ' ', '@'},
+                                {'@', '@', '@', '@'}};
+
+                if (count==0){
+                    prev = array1;
+                    array = prev;
+                    count++;
+                }
+
+                Character[][] arrayNew = (Character[][]) Array.newInstance(array1.getClass().getComponentType(), prev.length + array1.length);
+                System.arraycopy(array1, 0, arrayNew, 0, prev.length);
+                System.arraycopy(array1, 0, arrayNew, array1.length, array1.length);
+
+                array=arrayNew;
+                count++;
+
+            }
+
+            if (c[i]=='9'){
+                Character[][]  array1   =
+                               {{'@', '@', '@', '@'},
+                                {'@', ' ', ' ', '@'},
+                                {'@', ' ', ' ', '@'},
+                                {'@', '@', '@', '@'},
+                                {' ', ' ', ' ', '@'},
+                                {' ', ' ', ' ', '@'},
+                                {'@', '@', '@', '@'}};
+
+                if (count==0){
+                    prev = array1;
+                    array = prev;
+                    count++;
+                }
+
+                Character[][] arrayNew = (Character[][]) Array.newInstance(array1.getClass().getComponentType(), prev.length + array1.length);
+                System.arraycopy(array1, 0, arrayNew, 0, prev.length);
+                System.arraycopy(array1, 0, arrayNew, array1.length, array1.length);
+
+                array=arrayNew;
+                count++;
+
+            }
 
         }
 
-
+return array;
     }
 
+    void print() {
+        for (int j = 0; j < array.length; j++) {
+            for (int k = 0; k < array[0].length; k++) {
+                System.out.print(array[j][k]);
+            }
+            System.out.println();
+        }
+    }
 }

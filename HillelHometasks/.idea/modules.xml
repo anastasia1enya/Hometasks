@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/HillelHometasks.iml" filepath="$PROJECT_DIR$/HillelHometasks.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MavenHW/MavenHW.iml" filepath="$PROJECT_DIR$/MavenHW/MavenHW.iml" />
+    </modules>
+  </component>
+</project>

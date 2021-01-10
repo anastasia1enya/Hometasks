@@ -62,26 +62,25 @@ public class Fight {
                 robotPass = (int) (Math.random() * 3 + 1);
                 System.out.print("Robo pass is ");
                 print(robotPass);
-                file.write("Robo pass is ");
-                file.write(robotPass);
+
 
                 if (playerPass == 1 && robotPass == 2 || playerPass == 2 && robotPass == 3 || playerPass == 3 && robotPass == 1) {
                     playerWins++;
                     System.out.println("------------------");
-                    System.out.println("Player won in round " + games);
+                    System.out.println("Player "+ player.getName() + " won in round " + games );
                     System.out.println("------------------");
-                   file.write("------------------");
-                   file.write("Player won in round " + games);
-                   file.write("------------------");
+                   file.write("------------------\n");
+                   file.write("Player "+ player.getName() + " won in round " + games+ "\n");
+                   file.write("------------------\n");
                     games++;
                 } else if (playerPass == 2 && robotPass == 1 || playerPass == 3 && robotPass == 2 || playerPass == 1 && robotPass == 3) {
                     robotWins++;
                     System.out.println("------------------");
                     System.out.println("Robot won in round " + games);
                     System.out.println("------------------");
-                   file.write("------------------");
-                    file.write("Robot won in round " + games);
-                    file.write("------------------");
+                   file.write("------------------\n");
+                    file.write("Robot won in round " + games+ "\n");
+                    file.write("------------------\n");
 
                     games++;
 
@@ -89,9 +88,9 @@ public class Fight {
                     System.out.println("------------------");
                     System.out.println("No wins in round "+ games);
                     System.out.println("------------------");
-                   file.write("------------------");
-                    file.write("No wins in round "+ games);
-                   file.write("------------------");
+                   file.write("------------------\n");
+                    file.write("No wins in round "+ games+ "\n");
+                   file.write("------------------\n");
 
                     games++;
 
@@ -100,62 +99,62 @@ public class Fight {
                 System.out.println("------------------");
                 System.out.println("Game is stop");
                 System.out.println("------------------");
-                file.write("------------------");
-                file.write("Game is stop");
-                file.write("------------------");
-                file.close();
+                file.write("------------------\n");
+                file.write("Game is stop\n");
+                file.write("------------------\n");
+              //  file.close();
 
                 break;
             } else {
                 System.out.println("------------------");
                 System.out.println("Wrong number, Game is stop");
                 System.out.println("------------------");
-                file.write("------------------");
-                file.write("Wrong number, Game is stop");
-               file.write("------------------");
+                file.write("------------------\n");
+                file.write("Wrong number, Game is stop\n");
+               file.write("------------------\n");
 
-                file.close();
+                //file.close();
 
                 break;
             }
         }
-        result();
+        result(player);
         }
 
 
-    public void result () throws IOException {
+    public void result (Player player) throws IOException {
         if (getRobotWins()>getPlayerWins()){
             System.out.println("------------------");
             System.out.println("Robot is winner of the game with count = " +getRobotWins());
-            System.out.println("Player's count = " +getPlayerWins());
+            System.out.println("Player's " +player.getName()+ " count = " +getPlayerWins());
             System.out.println("------------------");
-            file.write("------------------");
-            file.write("Robot is winner of the game with count = " +getRobotWins());
-            file.write("Player's count = " +getPlayerWins());
-            file.write("------------------");
+            file.write("------------------\n");
+            file.write("Robot is winner of the game with count = " +getRobotWins()+ "\n");
+            file.write("Player's " +player.getName()+ " count = " +getPlayerWins()+ "\n");
+            file.write("------------------\n");
             file.close();
 
         } else if (getRobotWins()<getPlayerWins()){
             System.out.println("------------------");
-            System.out.println("Player is winner of the game with count = " +getPlayerWins());
+            System.out.println("Player's " +player.getName()+ " count" +getPlayerWins());
             System.out.println("Robot's count = " +getRobotWins());
             System.out.println("------------------");
-            file.write("------------------");
-            file.write("Player is winner of the game with count = " +getPlayerWins());
-            file.write("Robot's count = " +getRobotWins());
-            file.write("------------------");
+            file.write("------------------\n");
+            file.write("Player's " +player.getName()+ " count = " +getPlayerWins()+ "\n");
+            file.write("Robot's count = " +getRobotWins()+ "\n");
+            file.write("------------------\n");
             file.close();
         } else {
             System.out.println("------------------");
             System.out.println("No winners...");
             System.out.println("Robo count = "+getRobotWins());
-            System.out.println("Players count = "+getPlayerWins());
+            System.out.println("Player's "+player.getName()+ " count = "+getPlayerWins());
             System.out.println("------------------");
-            file.write("------------------");
+            file.write("------------------\n");
             file.write("No winners...");
-            file.write("Robo count = "+getRobotWins());
-            file.write("Players count = "+getPlayerWins());
-            file.write("------------------");
+            file.write("Robo count = "+getRobotWins()+ "\n");
+            file.write("Player's "+player.getName()+ " count = "+getPlayerWins()+ "\n");
+            file.write("------------------\n");
             file.close();
         }
 

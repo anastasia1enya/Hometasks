@@ -1,0 +1,16 @@
+------------------
+Robot won in round 1
+------------------
+------------------
+Player Lolawon in round 2
+------------------
+------------------
+Player Lolawon in round 3
+------------------
+------------------
+Robot won in round 4
+------------------
+------------------
+No winners...Robo count = 2
+Player's Lola count = 2
+------------------

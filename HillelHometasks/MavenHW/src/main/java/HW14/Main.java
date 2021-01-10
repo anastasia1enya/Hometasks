@@ -1,10 +1,11 @@
 package HW14;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Pls set your name");
@@ -17,7 +18,7 @@ public class Main {
 
         Fight fight = new Fight();
 
-        fight.setGames(0);
+        fight.setGames(1);
         fight.setRobotWins(0);
         fight.setPlayerWins(0);
 

@@ -46,9 +46,7 @@ public class Main {
         coll2.add("world");
         coll2.add("java");
 
-
         List<String> pairedColl = new ArrayList<>();
-
 
         for (String s : coll2) {
 
@@ -64,20 +62,38 @@ public class Main {
 
         }
 
-
-        System.out.println(collUpper);
-        System.out.println(pairedColl);
-        System.out.println(collUpper.getClass());
-        System.out.println(pairedColl.getClass());
-
-        System.out.println(collUpper.size());
-        System.out.println(pairedColl.size());
-
+        System.out.println(pairedColl.hashCode());
         System.out.println(collUpper.hashCode());
 
-        System.out.println(pairedColl.hashCode());
 
-        System.out.println(collUpper.equals(pairedColl));
+    }
 
+    @Override
+    public int hashCode() {
+        final int PRIME = 31;
+        int result = 1;
+        result = PRIME * result;
+
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+
+        if(obj == null)
+        {
+            return false;
+        }
+        if (obj == this)
+        {
+            return true;
+        }
+        if (getClass() != obj.getClass())
+        {
+            return false;
+        }
+        ListPairs e = (ListPairs) obj;
+        return (this.toString().equals(e.toString()));
+        // return super.equals(obj);
     }
 }

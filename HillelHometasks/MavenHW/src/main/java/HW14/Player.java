@@ -1,6 +1,6 @@
 package HW14;
 
-public class Player extends Players  {
+public class Player   {
     private String name;
 
     public String getName() {

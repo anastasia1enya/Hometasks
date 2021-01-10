@@ -1,17 +1,17 @@
 ------------------
-Robot won in round 1
+Player Black Jack won in round 1
 ------------------
 ------------------
-Player Lola won in round 2
+Robot won in round 2
 ------------------
 ------------------
-Player Lola won in round 3
+No wins in round 3
 ------------------
 ------------------
-Robot won in round 4
+Game is stop
 ------------------
 ------------------
 No winners...
-Robo count = 2
-Player's Lola count = 2
+Robo count = 1
+Player's Black Jack count = 1
 ------------------

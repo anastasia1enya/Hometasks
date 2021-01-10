@@ -84,8 +84,8 @@ public class Fight {
 
                     games++;
 
-                } else if (playerPass == 1 && robotPass == 1 || playerPass == 2 && robotPass == 2 || playerPass == 3 && robotPass == 3) {
-                    System.out.println("------------------");
+                } else //if (playerPass == 1 && robotPass == 1 || playerPass == 2 && robotPass == 2 || playerPass == 3 && robotPass == 3) {
+                {System.out.println("------------------");
                     System.out.println("No wins in round "+ games);
                     System.out.println("------------------");
                    file.write("------------------\n");
@@ -102,7 +102,6 @@ public class Fight {
                 file.write("------------------\n");
                 file.write("Game is stop\n");
                 file.write("------------------\n");
-              //  file.close();
 
                 break;
             } else {
@@ -112,8 +111,6 @@ public class Fight {
                 file.write("------------------\n");
                 file.write("Wrong number, Game is stop\n");
                file.write("------------------\n");
-
-                //file.close();
 
                 break;
             }

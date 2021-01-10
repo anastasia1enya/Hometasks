@@ -96,17 +96,13 @@ public class Testing {
     public void pairTest() {
 
         List<String> pairedColl = new ArrayList<>();
-        for (int i = 0; i <coll2.size(); i++) {
+        for (String s : coll2) {
 
-            pairedColl.add("(" +coll2.get(i) +", " +coll2.get(i).toUpperCase()+")");
+            pairedColl.add("(" + s + ", " + s.toUpperCase() + ")");
 
         }
 
-        for (int i = 0; i <pairedColl.size() ; i++) {
-
-            Assert.assertSame(pairedColl.get(i), pair.pair(coll2).get(i));
-        }
-
+            Assert.assertEquals(pairedColl, pair.pair(coll2));
 
 
     }

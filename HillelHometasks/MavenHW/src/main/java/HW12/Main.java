@@ -5,7 +5,8 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
-public class main {
+public class Main {
+
     public static void main(String[] args) {
 
         Collection<Integer> collection = Arrays.asList(5,4,3,2,10);
@@ -49,13 +50,21 @@ public class main {
         List<String> pairedColl = new ArrayList<>();
 
 
-        for (int i = 0; i<coll2.size(); i++) {
+        for (String s : coll2) {
 
-            pairedColl.add("(" +coll2.get(i) +", " +coll2.get(i).toUpperCase()+")");
+            pairedColl.add("(" + s + ", " + s.toUpperCase() + ")");
 
         }
 
-        List <String> collUpper = pairs.pair(coll2);
+        List collUpper = pairs.pair(coll2);
+
+        for (int i = 0; i <coll2.size() ; i++) {
+
+            System.out.println(coll2.get(i)==collUpper.get(i));
+
+        }
+
+
         System.out.println(collUpper);
         System.out.println(pairedColl);
         System.out.println(collUpper.getClass());
@@ -65,7 +74,7 @@ public class main {
         System.out.println(pairedColl.size());
 
         System.out.println(collUpper.hashCode());
-        collUpper.hashCode();
+
         System.out.println(pairedColl.hashCode());
 
         System.out.println(collUpper.equals(pairedColl));

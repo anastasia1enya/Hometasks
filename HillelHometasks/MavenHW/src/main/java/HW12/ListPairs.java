@@ -1,14 +1,9 @@
 package HW12;
 
-
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 public class ListPairs {
-
-
-
 
 
 
@@ -22,6 +17,21 @@ public class ListPairs {
     }
 }
 class Pair {
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Pair pair = (Pair) o;
+        return Objects.equals(first, pair.first) &&
+                Objects.equals(second, pair.second) &&
+                Objects.equals(array, pair.array);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(first, second, array);
+    }
 
     private final String first;
     private final String second;
@@ -46,7 +56,7 @@ class Pair {
         return "(" + first + ", " + second + ")";
     }
 
-    @Override
+   /* @Override
     public int hashCode() {
         final int PRIME = 31;
         int result = 1;
@@ -75,5 +85,5 @@ class Pair {
         Pair e = (Pair) obj;
         return (this.toString().equals(e.toString()));
         // return super.equals(obj);
-    }
+    }*/
 }

@@ -51,7 +51,7 @@ public class Testing {
     }
 
 
-
+//тест среднеарифмет.число
     @Test
     public void averageTest(){
 
@@ -60,7 +60,7 @@ public class Testing {
 
         Assert.assertEquals(java.util.Optional.of(res),java.util.Optional.of(average.calc(coll)));
     }
-
+    //тесты фильтров
     @Test
     public void filterTest1(){
         List<String> list2 = filter.filter(list);
@@ -91,19 +91,18 @@ public class Testing {
         }
 
     }
-
+//тест парной коллекции
     @Test
     public void pairTest() {
 
-        List<String> pairedColl = new ArrayList<>();
+        List<Pair> pairedColl = new ArrayList<>();
         for (String s : coll2) {
 
-            pairedColl.add("(" + s + ", " + s.toUpperCase() + ")");
+            pairedColl.add(new Pair(s, s.toUpperCase()));
 
         }
 
             Assert.assertEquals(pairedColl, pair.pair(coll2));
-
 
     }
 

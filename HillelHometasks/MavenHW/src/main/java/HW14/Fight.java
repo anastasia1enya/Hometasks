@@ -151,7 +151,7 @@ public class Fight {
             System.out.println("Player's "+player.getName()+ " count = "+getPlayerWins());
             System.out.println("------------------");
             file.write("------------------\n");
-            file.write("No winners...");
+            file.write("No winners...\n");
             file.write("Robo count = "+getRobotWins()+ "\n");
             file.write("Player's "+player.getName()+ " count = "+getPlayerWins()+ "\n");
             file.write("------------------\n");

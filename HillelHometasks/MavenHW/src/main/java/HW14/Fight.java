@@ -133,7 +133,7 @@ public class Fight {
 
         } else if (getRobotWins()<getPlayerWins()){
             System.out.println("------------------");
-            System.out.println("Player's " +player.getName()+ " count" +getPlayerWins());
+            System.out.println("Player's " +player.getName()+ " count = " +getPlayerWins());
             System.out.println("Robot's count = " +getRobotWins());
             System.out.println("------------------");
             file.write("------------------\n");

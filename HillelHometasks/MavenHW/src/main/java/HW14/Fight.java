@@ -3,6 +3,7 @@ package HW14;
 import javax.xml.crypto.Data;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.FileSystems;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -11,7 +12,14 @@ public class Fight {
     private int playerWins;
     private int robotWins;
 
-    FileWriter file = new FileWriter("C:\\Users\\admin\\Desktop\\Java 2\\Hometasks\\HillelHometasks\\MavenHW\\src\\main\\java\\HW14\\results.txt", true);
+    String textDirectory = FileSystems.getDefault()
+            .getPath("")
+            .toAbsolutePath()
+            .toString()
+            +"MavenHW\\src\\main\\java\\HW14\\results.txt";
+
+    FileWriter file = new FileWriter(textDirectory, true);
+
 
     public Fight() throws IOException {
     }

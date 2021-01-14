@@ -16,7 +16,7 @@ public class Fight {
             .getPath("")
             .toAbsolutePath()
             .toString()
-            +"MavenHW\\src\\main\\java\\HW14\\results.txt";
+            +"\\src\\main\\java\\HW14\\results.txt";
 
     FileWriter file = new FileWriter(textDirectory, true);
 

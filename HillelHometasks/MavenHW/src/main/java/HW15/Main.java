@@ -14,18 +14,6 @@ public class Main {
         File file = new File("\\src\\main\\java\\HW15\\Files\\20_item.json");
         System.out.println("Расширение файла: " + getFileExtension(file));
 
-        //проверяем метод на файле без расширения
-      /*  file = new File("\\src\\main\\java\\HW15\\100_item.json");
-        System.out.println("Расширение файла: " + getFileExtension(file));
-
-        //проверяем метод на файле с точкой в имени
-        file = new File("\\src\\main\\java\\HW15\\test1.yaml");
-        System.out.println("Расширение файла: " + getFileExtension(file));
-
-        //проверяем метод на файле без расширения
-        file = new File("\\src\\main\\java\\HW15\\test2.yaml");
-        System.out.println("Расширение файла: " + getFileExtension(file));*/
-
 type(file);
 
     }
@@ -57,15 +45,29 @@ if (getFileExtension(file).equals("json")){
     for (String str : set) {
         System.out.println("-----------------------");
         System.out.print(str + " ... ");
-        System.out.println(map.get(str));
-        System.out.println(map.get(str).getClass());
+        //System.out.println(map.get(str));
+      //  System.out.println(map.get(str).getClass());
 
     }
+
+
     Yaml yaml = new Yaml();
   //  String yamlStr = ReadFromFile.readToString("C:\\Users\\Yuliia\\Desktop\\Hometasks\\HillelHometasks\\MavenHW\\src\\main\\java\\HW15\\Files\\20_item.json");
-    Map<String, Object> obj = yaml.load((InputStream) map);
-    System.out.println(obj);
-    System.out.println(yaml.dump(obj));
+ //   Map<String, Object> obj = yaml.load((InputStream) set);
+   // System.out.println(obj);
+
+
+    Set<String> set1 = map.keySet();
+
+    for (String str : set1) {
+        System.out.println("-----------------------");
+        System.out.print(str + " ... ");
+        //System.out.println(map.get(str));
+        //  System.out.println(map.get(str).getClass());
+
+    }
+    yaml.dump(set1);
+
 }else{
     System.out.println("6yaml");
 }

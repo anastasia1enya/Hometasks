@@ -10,6 +10,7 @@ import com.google.gson.stream.JsonReader;
 import org.yaml.snakeyaml.Yaml;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.FileSystems;
 import java.util.ArrayList;
@@ -17,12 +18,6 @@ import java.util.Map;
 
 public class Converter {
 
-
-    String textDirectory = FileSystems.getDefault()
-            .getPath("")
-            .toAbsolutePath()
-            .toString()
-            +"\\src\\main\\java\\HW15\\results.txt";
 
     //метод определения расширения файла
     public  String getFileExtension(File file) {
@@ -34,19 +29,33 @@ public class Converter {
             // в противном случае возвращаем заглушку, то есть расширение не найдено
         else return "";
     }
-    //
+
     public  void type(File file, String path) throws IOException {
 // from JSON to YML
         if (getFileExtension(file).equals("json")) {
             String json = ReadFromFile.readToString(path);
             Yaml yaml = new Yaml();
-            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            Gson gson = new Gson();
 
             Map map = gson.fromJson(json, Map.class);
 
-            System.out.println(map);
+          // System.out.println(map);
             String outputYaml = yaml.dump(map);
             System.out.println(outputYaml);
+
+            String pathNew = FileSystems.getDefault()
+                    .getPath("")
+                    .toAbsolutePath()
+                    .toString()
+                    +"\\src\\main\\java\\HW15\\Converteeed.Files\\";
+
+            try {
+                FileWriter fileNew = new FileWriter(pathNew+"Converted"+file.getName() , true);
+                fileNew.write(outputYaml);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
 
 // from  YML to JSON
         } else if (getFileExtension(file).equals("yaml")) {
@@ -56,27 +65,21 @@ public class Converter {
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
             Object obj = yaml.load(yml);
-            Object obj1 = new JsonParser().parse(obj.toString());
+            String obj1 =gson.toJson(obj);
             System.out.println(obj1);
 
-          /*  Map<String, Object> obj = (Map<String, Object>) yaml.load(yml);
-            String outputYaml = yaml.dump(obj);
-            System.out.println(outputYaml);
+            String pathNew = FileSystems.getDefault()
+                    .getPath("")
+                    .toAbsolutePath()
+                    .toString()
+                    +"\\src\\main\\java\\HW16\\Converteeed.Files";
 
-            ObjectMapper yamlReader = new ObjectMapper(new YAMLFactory());
-            Object obj1 = yamlReader.readValue(yml, Object.class);
-
-
-            ObjectMapper jsonWriter = new ObjectMapper();
-            String outputJson = jsonWriter.writeValueAsString(obj1);
-
-            Map map = gson.fromJson(outputJson, Map.class);
-
-
-            System.out.println(map);*/
-
+            try {
+                FileWriter fileNew = new FileWriter(pathNew+getFileExtension(file)+"Converted" +".yml", true);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
-
 
     }
 }

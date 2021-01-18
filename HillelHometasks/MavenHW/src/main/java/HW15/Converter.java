@@ -3,6 +3,10 @@ package HW15;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import com.google.gson.stream.JsonReader;
 import org.yaml.snakeyaml.Yaml;
 
 import java.io.File;
@@ -36,7 +40,7 @@ public class Converter {
         if (getFileExtension(file).equals("json")) {
             String json = ReadFromFile.readToString(path);
             Yaml yaml = new Yaml();
-            Gson gson = new Gson();
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
             Map map = gson.fromJson(json, Map.class);
 
@@ -49,9 +53,13 @@ public class Converter {
 
             String yml = ReadFromFile.readToString(path);
             Yaml yaml = new Yaml();
-            Gson gson = new Gson();
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
-            Map<String, Object> obj = (Map<String, Object>) yaml.load(yml);
+            Object obj = yaml.load(yml);
+            Object obj1 = new JsonParser().parse(obj.toString());
+            System.out.println(obj1);
+
+          /*  Map<String, Object> obj = (Map<String, Object>) yaml.load(yml);
             String outputYaml = yaml.dump(obj);
             System.out.println(outputYaml);
 
@@ -65,7 +73,7 @@ public class Converter {
             Map map = gson.fromJson(outputJson, Map.class);
 
 
-            System.out.println(map);
+            System.out.println(map);*/
 
         }
 

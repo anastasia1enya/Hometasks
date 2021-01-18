@@ -47,10 +47,10 @@ public class Converter {
                     .getPath("")
                     .toAbsolutePath()
                     .toString()
-                    +"\\src\\main\\java\\HW15\\Converteeed.Files\\";
+                    +"\\src\\main\\java\\HW15\\Converteeed.Files";
 
             try {
-                FileWriter fileNew = new FileWriter(pathNew+"Converted"+file.getName() , true);
+                FileWriter fileNew = new FileWriter(pathNew+"\\Converted"+file.getName() , true);
                 fileNew.write(outputYaml);
             } catch (IOException e) {
                 e.printStackTrace();

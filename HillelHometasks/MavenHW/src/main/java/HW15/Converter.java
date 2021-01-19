@@ -22,11 +22,15 @@ public class Converter {
     //метод определения расширения файла
     public  String getFileExtension(File file) {
         String fileName = file.getName();
-        // если в имени файла есть точка и она не является первым символом в названии файла
         if (fileName.lastIndexOf(".") != -1 && fileName.lastIndexOf(".") != 0)
-            // то вырезаем все знаки после последней точки в названии файла, то есть ХХХХХ.txt -> txt
             return fileName.substring(fileName.lastIndexOf(".") +1);
-            // в противном случае возвращаем заглушку, то есть расширение не найдено
+        else return "";
+    }
+//метод вырезания названия
+    public  String сutFileExtension(File file) {
+        String fileName = file.getName();
+        if (fileName.contains(".") )
+            return fileName.substring(0,fileName.indexOf("."));
         else return "";
     }
 
@@ -39,23 +43,30 @@ public class Converter {
 
             Map map = gson.fromJson(json, Map.class);
 
-          // System.out.println(map);
+            // System.out.println(map);
             String outputYaml = yaml.dump(map);
             System.out.println(outputYaml);
 
+            System.out.println(file.getTotalSpace()/(1024*1024));
+
+// saving new files
             String pathNew = FileSystems.getDefault()
                     .getPath("")
                     .toAbsolutePath()
                     .toString()
-                    +"\\src\\main\\java\\HW15\\Converteeed.Files";
+                    + "\\src\\main\\java\\HW15\\СonverteeedFiles\\";
 
-            try {
-                FileWriter fileNew = new FileWriter(pathNew+"\\Converted"+file.getName() , true);
+            String name = file.getName();
+
+
+
+            try (FileWriter fileNew = new FileWriter(((pathNew) + сutFileExtension(file) + ".yaml"), true)) {
+
                 fileNew.write(outputYaml);
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
 
 // from  YML to JSON
         } else if (getFileExtension(file).equals("yaml")) {
@@ -65,21 +76,26 @@ public class Converter {
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
             Object obj = yaml.load(yml);
-            String obj1 =gson.toJson(obj);
+            String obj1 = gson.toJson(obj);
             System.out.println(obj1);
 
+
+// saving new files
             String pathNew = FileSystems.getDefault()
                     .getPath("")
                     .toAbsolutePath()
                     .toString()
-                    +"\\src\\main\\java\\HW16\\Converteeed.Files";
+                    + "\\src\\main\\java\\HW15\\СonverteeedFiles\\";
 
-            try {
-                FileWriter fileNew = new FileWriter(pathNew+getFileExtension(file)+"Converted" +".yml", true);
+            try (FileWriter fileNew = new FileWriter(((pathNew) + сutFileExtension(file) + ".json"), true)) {
+
+                fileNew.write(obj1);
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
-
     }
+
+
 }

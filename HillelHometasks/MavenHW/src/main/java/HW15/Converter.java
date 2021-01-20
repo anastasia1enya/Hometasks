@@ -66,6 +66,16 @@ public class Converter {
 
         } else {
             System.out.println("Your file is wrong");
+            try (FileWriter fileNew = new FileWriter(((FileSystems.getDefault()
+                    .getPath("")
+                    .toAbsolutePath()
+                    .toString()
+                    + "\\src\\main\\java\\HW15\\") + "results.text"), true)) {
+                fileNew.write("No converataion possible");
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 

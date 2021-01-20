@@ -35,18 +35,20 @@ public class Main {
 
 
         File file1 = new File(textDirectory1);
-      //  System.out.println("Расширение файла: " + converter.getFileExtension(file1));
+//        System.out.println("Расширение файла: " + converter.getFileExtension(file1));
         File file2 = new File(textDirectory2);
-       // System.out.println("Расширение файла: " +converter.getFileExtension(file2));
+//        System.out.println("Расширение файла: " +converter.getFileExtension(file2));
         File file3 = new File(textDirectory3);
-      //  System.out.println("Расширение файла: " + converter.getFileExtension(file3));
+//        System.out.println("Расширение файла: " + converter.getFileExtension(file3));
         File file4 = new File(textDirectory4);
-    //    System.out.println("Расширение файла: " +converter.getFileExtension(file4));
+//        System.out.println("Расширение файла: " +converter.getFileExtension(file4));
 
-      converter.type(file1,textDirectory1);
-      converter.type(file2,textDirectory2);
-      converter.type(file3,textDirectory3);
-      converter.type(file4,textDirectory4);
+        converter.type(file1,textDirectory1);
+        converter.type(file2,textDirectory2);
+        converter.type(file3,textDirectory3);
+        converter.type(file4,textDirectory4);
+
+
 
     }
 

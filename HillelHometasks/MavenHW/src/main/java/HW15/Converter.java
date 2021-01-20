@@ -1,23 +1,20 @@
 package HW15;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-import com.google.gson.stream.JsonReader;
 import org.yaml.snakeyaml.Yaml;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.FileSystems;
-import java.util.ArrayList;
+
 import java.util.Map;
 
 public class Converter {
 
+  private   long time = System.currentTimeMillis();
 
     //метод определения расширения файла
     public  String getFileExtension(File file) {
@@ -43,30 +40,29 @@ public class Converter {
 
             Map map = gson.fromJson(json, Map.class);
 
-            // System.out.println(map);
+
             String outputYaml = yaml.dump(map);
             System.out.println(outputYaml);
 
-            System.out.println(file.getTotalSpace()/(1024*1024));
-
 // saving new files
-            String pathNew = FileSystems.getDefault()
-                    .getPath("")
-                    .toAbsolutePath()
-                    .toString()
-                    + "\\src\\main\\java\\HW15\\СonverteeedFiles\\";
+//            String pathNew = FileSystems.getDefault()
+//                    .getPath("")
+//                    .toAbsolutePath()
+//                    .toString()
+//                    + "\\src\\main\\java\\HW15\\СonverteeedFiles\\";
+//
+//
+//            try (FileWriter fileNew = new FileWriter(((pathNew) + сutFileExtension(file) + ".yaml"), true)) {
+//
+//                fileNew.write(outputYaml);
+//
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
 
-            String name = file.getName();
+            save1(file, outputYaml);
+            results(file, save1(file, outputYaml));
 
-
-
-            try (FileWriter fileNew = new FileWriter(((pathNew) + сutFileExtension(file) + ".yaml"), true)) {
-
-                fileNew.write(outputYaml);
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
 
 // from  YML to JSON
         } else if (getFileExtension(file).equals("yaml")) {
@@ -79,23 +75,86 @@ public class Converter {
             String obj1 = gson.toJson(obj);
             System.out.println(obj1);
 
+            save1(file, obj1);
+            results(file, save1(file, obj1));
 
 // saving new files
-            String pathNew = FileSystems.getDefault()
-                    .getPath("")
-                    .toAbsolutePath()
-                    .toString()
-                    + "\\src\\main\\java\\HW15\\СonverteeedFiles\\";
+//            String pathNew = FileSystems.getDefault()
+//                    .getPath("")
+//                    .toAbsolutePath()
+//                    .toString()
+//                    + "\\src\\main\\java\\HW15\\СonverteeedFiles\\";
+//
+//            try (FileWriter fileNew = new FileWriter(((pathNew) + сutFileExtension(file) + ".json"), true)) {
+//
+//                fileNew.write(obj1);
+//
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//        } else {
+//            System.out.println("Your type of file is non co,pliciable");
+//        }
+        }
+    }
+    public File save1(File file, String str){
+        String pathNew = FileSystems.getDefault()
+                .getPath("")
+                .toAbsolutePath()
+                .toString()
+                + "\\src\\main\\java\\HW15\\СonverteeedFiles\\";
+        if (getFileExtension(file).equals("json")) {
+            try (FileWriter fileNew = new FileWriter(((pathNew) + сutFileExtension(file) + ".yaml"), true)) {
 
-            try (FileWriter fileNew = new FileWriter(((pathNew) + сutFileExtension(file) + ".json"), true)) {
-
-                fileNew.write(obj1);
+                fileNew.write(str);
+                return new File(((pathNew) + сutFileExtension(file)) + ".yaml");
 
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
-    }
+        else if (getFileExtension(file).equals("yaml")){
 
+            try (FileWriter fileNew = new FileWriter(((pathNew) + сutFileExtension(file) + ".json"), true)) {
+
+                fileNew.write(str);
+                return new File(((pathNew) + сutFileExtension(file)) + ".json");
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
+        return null;
+    }
+    public void results(File file,File file1){
+
+        // вывод результатов
+        try (FileWriter fileNew = new FileWriter(((FileSystems.getDefault()
+                .getPath("")
+                .toAbsolutePath()
+                .toString()
+                + "\\src\\main\\java\\HW15\\") +  "results.text"), true)) {
+
+                fileNew.write("The old name of file is "+ file.getName()+" \n");
+                fileNew.write("The old size of file is "+ file.length()+" bytes \n");
+                fileNew.write("The new name of file is "+file1.getName()+" \n");
+                fileNew.write("The  new size of file is "+ file1.length()+" bytes \n");
+                fileNew.write("The time of operation is : "+ (System.currentTimeMillis() - time)+" mseconds\n");
+                fileNew.write("--------------------\n");
+
+
+//                fileNew.write("The old name of file is "+ file.getName()+" ");
+//                fileNew.write("The old size of file is "+ file.length()+" bytes  ");
+//                fileNew.write("The new name of file is "+file1.getName()+" \n");
+//                fileNew.write("The  new size of file is "+ file.length()+" bytes ");
+//                fileNew.write("The time of operation is : "+ (System.currentTimeMillis() - time)+" mseconds ");
+//                fileNew.write("--------------------\n");
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
 
 }

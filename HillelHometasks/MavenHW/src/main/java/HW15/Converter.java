@@ -70,7 +70,7 @@ public class Converter {
                     .getPath("")
                     .toAbsolutePath()
                     .toString()
-                    + "\\src\\main\\java\\HW15\\") + "results.text"), true)) {
+                    + "\\src\\main\\java\\HW15\\") + "results.txt"), true)) {
                 fileNew.write("No converataion possible");
 
             } catch (IOException e) {
@@ -117,7 +117,7 @@ public class Converter {
                 .getPath("")
                 .toAbsolutePath()
                 .toString()
-                + "\\src\\main\\java\\HW15\\") + "results.text"), true)) {
+                + "\\src\\main\\java\\HW15\\") + "results.txt"), true)) {
 
             fileNew.write("The old name of file is " + file.getName() + " \n");
             fileNew.write("The old size of file is " + file.length() + " bytes \n");

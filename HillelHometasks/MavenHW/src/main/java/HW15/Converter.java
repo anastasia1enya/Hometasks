@@ -14,24 +14,25 @@ import java.util.Map;
 
 public class Converter {
 
-  private   long time = System.currentTimeMillis();
+    private long time = System.currentTimeMillis();
 
     //метод определения расширения файла
-    public  String getFileExtension(File file) {
+    public String getFileExtension(File file) {
         String fileName = file.getName();
         if (fileName.lastIndexOf(".") != -1 && fileName.lastIndexOf(".") != 0)
-            return fileName.substring(fileName.lastIndexOf(".") +1);
-        else return "";
-    }
-//метод вырезания названия
-    public  String сutFileExtension(File file) {
-        String fileName = file.getName();
-        if (fileName.contains(".") )
-            return fileName.substring(0,fileName.indexOf("."));
+            return fileName.substring(fileName.lastIndexOf(".") + 1);
         else return "";
     }
 
-    public  void type(File file, String path) throws IOException {
+    //метод вырезания названия
+    public String сutFileExtension(File file) {
+        String fileName = file.getName();
+        if (fileName.contains("."))
+            return fileName.substring(0, fileName.indexOf("."));
+        else return "";
+    }
+
+    public void type(File file, String path) throws IOException {
 // from JSON to YML
         if (getFileExtension(file).equals("json")) {
             String json = ReadFromFile.readToString(path);
@@ -44,25 +45,9 @@ public class Converter {
             String outputYaml = yaml.dump(map);
             System.out.println(outputYaml);
 
-// saving new files
-//            String pathNew = FileSystems.getDefault()
-//                    .getPath("")
-//                    .toAbsolutePath()
-//                    .toString()
-//                    + "\\src\\main\\java\\HW15\\СonverteeedFiles\\";
-//
-//
-//            try (FileWriter fileNew = new FileWriter(((pathNew) + сutFileExtension(file) + ".yaml"), true)) {
-//
-//                fileNew.write(outputYaml);
-//
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-
+            Long timeFile = System.currentTimeMillis() - time;
             save1(file, outputYaml);
-            results(file, save1(file, outputYaml));
-
+            results(file, save1(file, outputYaml), timeFile);
 
 // from  YML to JSON
         } else if (getFileExtension(file).equals("yaml")) {
@@ -75,29 +60,17 @@ public class Converter {
             String obj1 = gson.toJson(obj);
             System.out.println(obj1);
 
+            Long timeFile = System.currentTimeMillis() - time;
             save1(file, obj1);
-            results(file, save1(file, obj1));
+            results(file, save1(file, obj1), timeFile);
 
-// saving new files
-//            String pathNew = FileSystems.getDefault()
-//                    .getPath("")
-//                    .toAbsolutePath()
-//                    .toString()
-//                    + "\\src\\main\\java\\HW15\\СonverteeedFiles\\";
-//
-//            try (FileWriter fileNew = new FileWriter(((pathNew) + сutFileExtension(file) + ".json"), true)) {
-//
-//                fileNew.write(obj1);
-//
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//        } else {
-//            System.out.println("Your type of file is non co,pliciable");
-//        }
+        } else {
+            System.out.println("Your file is wrong");
         }
     }
-    public File save1(File file, String str){
+
+    // сохраняем новые файлы
+    public File save1(File file, String str) {
         String pathNew = FileSystems.getDefault()
                 .getPath("")
                 .toAbsolutePath()
@@ -112,8 +85,7 @@ public class Converter {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }
-        else if (getFileExtension(file).equals("yaml")){
+        } else if (getFileExtension(file).equals("yaml")) {
 
             try (FileWriter fileNew = new FileWriter(((pathNew) + сutFileExtension(file) + ".json"), true)) {
 
@@ -127,34 +99,25 @@ public class Converter {
         }
         return null;
     }
-    public void results(File file,File file1){
 
-        // вывод результатов
+    // вывод результатов
+    public void results(File file, File file1, Long timeFile) {
+
         try (FileWriter fileNew = new FileWriter(((FileSystems.getDefault()
                 .getPath("")
                 .toAbsolutePath()
                 .toString()
-                + "\\src\\main\\java\\HW15\\") +  "results.text"), true)) {
+                + "\\src\\main\\java\\HW15\\") + "results.text"), true)) {
 
-                fileNew.write("The old name of file is "+ file.getName()+" \n");
-                fileNew.write("The old size of file is "+ file.length()+" bytes \n");
-                fileNew.write("The new name of file is "+file1.getName()+" \n");
-                fileNew.write("The  new size of file is "+ file1.length()+" bytes \n");
-                fileNew.write("The time of operation is : "+ (System.currentTimeMillis() - time)+" mseconds\n");
-                fileNew.write("--------------------\n");
+            fileNew.write("The old name of file is " + file.getName() + " \n");
+            fileNew.write("The old size of file is " + file.length() + " bytes \n");
+            fileNew.write("The new name of file is " + file1.getName() + " \n");
+            fileNew.write("The  new size of file is " + file1.length() + " bytes \n");
+            fileNew.write("The time of operation is : " + timeFile + " mseconds\n");
+            fileNew.write("--------------------\n");
 
-
-//                fileNew.write("The old name of file is "+ file.getName()+" ");
-//                fileNew.write("The old size of file is "+ file.length()+" bytes  ");
-//                fileNew.write("The new name of file is "+file1.getName()+" \n");
-//                fileNew.write("The  new size of file is "+ file.length()+" bytes ");
-//                fileNew.write("The time of operation is : "+ (System.currentTimeMillis() - time)+" mseconds ");
-//                fileNew.write("--------------------\n");
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
-
 }

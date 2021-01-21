@@ -41,6 +41,7 @@ public class TreadTh extends Thread {
     @Override
     public void run() {
 
+
         try {
             Thread.sleep(3);
         } catch (InterruptedException e) {
@@ -55,7 +56,7 @@ public class TreadTh extends Thread {
 
         setTotalSum(getTotalSum()+sum);
         System.out.println("You put " + sum + " usd on your balance  ");
-        run();
+
         return  totalSum;
 
     }
@@ -63,7 +64,7 @@ public class TreadTh extends Thread {
 
         setTotalSum(getTotalSum()-sum);
         System.out.println("You put " + sum + " usd on your balance  ");
-        run();
+
         return  totalSum;
 
     }

@@ -123,7 +123,7 @@ public class Fight {
                 break;
             }
         }
-        result(player);
+        result(player) ;
         }
 
 

@@ -85,7 +85,7 @@ public class Converter {
                 .getPath("")
                 .toAbsolutePath()
                 .toString()
-                + "\\src\\main\\java\\HW15\\СonverteeedFiles\\";
+                + "\\src\\main\\java\\HW15\\ConvertedFiles\\";
         if (getFileExtension(file).equals("json")) {
             try (FileWriter fileNew = new FileWriter(((pathNew) + сutFileExtension(file) + ".yaml"), true)) {
 

@@ -41,10 +41,10 @@ public class Main {
         File file4 = new File(textDirectory4);
 //        System.out.println("Расширение файла: " +converter.getFileExtension(file4));
 
-        converter.type(file1, textDirectory1);
-        converter.type(file2, textDirectory2);
-        converter.type(file3, textDirectory3);
-        converter.type(file4, textDirectory4);
+        converter.getFileStructure(file1, textDirectory1);
+        converter.getFileStructure(file2, textDirectory2);
+        converter.getFileStructure(file3, textDirectory3);
+        converter.getFileStructure(file4, textDirectory4);
 
     }
 }

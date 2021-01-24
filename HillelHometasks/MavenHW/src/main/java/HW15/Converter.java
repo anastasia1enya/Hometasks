@@ -14,19 +14,6 @@ import java.util.Map;
 
 public class Converter {
 
-    public void getFileStructure(File file, String path) throws IOException {
-        File path1 = new File(FileSystems.getDefault()
-//                .getPath("")
-//                .toAbsolutePath()
-                .toString());
-        type(file,path);
-
-        if (file.isFile()) {
-            type(file,path);
-        }
-
-
-    }
 
     private long time = System.currentTimeMillis();
 

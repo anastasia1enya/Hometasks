@@ -6,8 +6,8 @@ public class Main {
         TreadGet t = new TreadGet("Get");
         TreadPut d = new TreadPut("Put");
         t.setTotalSum(1000);
+        d.setTotalSum(t.getTotalSum());
         t.setSum(50);
-        d.setTotalSum(1000);
         d.setSum(30);
         t.start();
         d.start();

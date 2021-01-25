@@ -21,33 +21,30 @@ public class Main {
                 .toAbsolutePath()
                 .toString()
                 + "\\src\\main\\java\\HW15\\Files");
-
+        System.out.println(workDir);
         if (args.length!=0){
             workDir = new File(args[0]);
         } else {
-            workDir = new File (String.valueOf(textDirectory));
+            workDir = new File (String.valueOf(workDir));
         }
 
-//        System.out.println(workDir);
+        System.out.println(workDir);
 //        System.out.println(textDirectory);
 //        System.out.println("----------");
 int i = 0;
 
-        String a = textDirectory + "\\src\\main\\java\\HW15\\Files";
+        String a = textDirectory + "\\src\\main\\java\\HW15\\Files\\";
 
             for (File f : workDir.listFiles()) {
 
                     if (f.isFile()) {
 
                     System.out.println("-----" + i++);
-                    converter.type(f, f.getAbsolutePath());
+                    converter.type(f, String.valueOf(workDir));
                     System.out.println(f.getAbsolutePath());
                 } else {
 //
-                    converter.type(f, a);
-                    System.out.println("////////" + i++);
-                    System.out.println(f.getPath());
-                    System.out.println(a);
+                        System.out.println("Not a file");
                 }
             }
 

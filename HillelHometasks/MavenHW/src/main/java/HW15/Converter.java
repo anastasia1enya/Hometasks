@@ -14,6 +14,7 @@ import java.util.Map;
 
 public class Converter {
 
+    //java -jar C:\Users\admin\Desktop\Java_2\Hometasks\HillelHometasks\MavenHW\src\main\java\HW15\Files Homework15-1.0-SNAPSHOT-shaded.jar
 
     private long time = System.currentTimeMillis();
 

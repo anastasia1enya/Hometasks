@@ -88,7 +88,7 @@ public class Converter {
                 .getPath("")
                 .toAbsolutePath()
                 .toString()
-                +"\\src\\main\\java\\HW15\\ConvertedFiles\\";
+                +"\\ConvertedFiles\\";
 
         File direct = new File(pathNew);
         if (!direct.exists()) {
@@ -132,7 +132,7 @@ public class Converter {
                 .getPath("")
                 .toAbsolutePath()
                 .toString()
-               ) + "\\src\\main\\java\\HW15\\results.txt"), true)) {
+               ) + "\\results.txt"), true)) {
 // + "\\src\\main\\java\\HW15\\"
             fileNew.write("The old name of file is " + file.getName() + " \n");
             fileNew.write("The old size of file is " + file.length() + " bytes \n");

@@ -44,10 +44,10 @@ public class Converter {
 
 
             String outputYaml = yaml.dump(map);
-            System.out.println(outputYaml);
+//            System.out.println(outputYaml);
 
             Long timeFile = System.currentTimeMillis() - time;
-            save1(file, outputYaml);
+         //   save1(file, outputYaml);
             results(file, save1(file, outputYaml), timeFile);
 
 // from  YML to JSON
@@ -59,10 +59,10 @@ public class Converter {
 
             Object obj = yaml.load(yml);
             String obj1 = gson.toJson(obj);
-            System.out.println(obj1);
+//            System.out.println(obj1);
 
             Long timeFile = System.currentTimeMillis() - time;
-            save1(file, obj1);
+           // save1(file, obj1);
             results(file, save1(file, obj1), timeFile);
 
         } else {
@@ -70,8 +70,9 @@ public class Converter {
             try (FileWriter fileNew = new FileWriter(((FileSystems.getDefault()
                     .getPath("")
                     .toAbsolutePath()
-                    .toString()
-                    + "\\src\\main\\java\\HW15\\") + "results.txt"), true)) {
+                    .toString()) + "\\results.txt"), true))
+                    //"\\src\\main\\java\\HW15\\"
+            {
                 fileNew.write("No converataion possible");
 
             } catch (IOException e) {
@@ -82,26 +83,39 @@ public class Converter {
 
     // сохраняем новые файлы
     public File save1(File file, String str) {
+
         String pathNew = FileSystems.getDefault()
                 .getPath("")
                 .toAbsolutePath()
                 .toString()
-                + "\\src\\main\\java\\HW15\\ConvertedFiles\\";
+                +"\\src\\main\\java\\HW15\\ConvertedFiles\\";
+
+        File direct = new File(pathNew);
+        if (!direct.exists()) {
+            if (direct.mkdir()) {
+                System.out.println("Directory is created!");
+                System.out.println(direct.getAbsolutePath());
+            } else {
+                System.out.println("Failed to create directory!");
+            }
+        }
+
+//                + "\\src\\main\\java\\HW15\\ConvertedFiles\\";
         if (getFileExtension(file).equals("json")) {
-            try (FileWriter fileNew = new FileWriter(((pathNew) + сutFileExtension(file) + ".yaml"), true)) {
+            try (FileWriter fileNew = new FileWriter(((direct.getAbsolutePath()) +"\\"+ сutFileExtension(file) + ".yaml"), true)) {
 
                 fileNew.write(str);
-                return new File(((pathNew) + сutFileExtension(file)) + ".yaml");
+                return new File(((direct.getAbsolutePath())+"\\" + сutFileExtension(file)) + ".yaml");
 
             } catch (IOException e) {
                 e.printStackTrace();
             }
         } else if (getFileExtension(file).equals("yaml")) {
 
-            try (FileWriter fileNew = new FileWriter(((pathNew) + сutFileExtension(file) + ".json"), true)) {
+            try (FileWriter fileNew = new FileWriter(((direct.getAbsolutePath())+"\\" + сutFileExtension(file) + ".json"), true)) {
 
                 fileNew.write(str);
-                return new File(((pathNew) + сutFileExtension(file)) + ".json");
+                return new File(((direct.getAbsolutePath()) +"\\"+ сutFileExtension(file)) + ".json");
 
             } catch (IOException e) {
                 e.printStackTrace();
@@ -118,8 +132,8 @@ public class Converter {
                 .getPath("")
                 .toAbsolutePath()
                 .toString()
-                + "\\src\\main\\java\\HW15\\") + "results.txt"), true)) {
-
+               ) + "\\src\\main\\java\\HW15\\results.txt"), true)) {
+// + "\\src\\main\\java\\HW15\\"
             fileNew.write("The old name of file is " + file.getName() + " \n");
             fileNew.write("The old size of file is " + file.length() + " bytes \n");
             fileNew.write("The new name of file is " + file1.getName() + " \n");

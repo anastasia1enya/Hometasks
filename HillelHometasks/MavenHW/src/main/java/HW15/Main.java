@@ -15,17 +15,31 @@ public class Main {
                 .getPath("")
                 .toAbsolutePath()
                 .toString());
-        String textDirectory = FileSystems.getDefault()
+        File textDirectory =new File( FileSystems.getDefault()
                 .getPath("")
                 .toAbsolutePath()
                 .toString()
-                + "\\src\\main\\java\\HW15\\Files";
+                + "\\src\\main\\java\\HW15\\Files");
 
-        String s = "C:\\Users\\admin\\Desktop\\Java 2\\Hometasks\\HillelHometasks\\MavenHW\\src\\main\\java\\HW15\\Files";
+//        System.out.println(workDir);
+//        System.out.println(textDirectory);
+//        System.out.println("----------");
+int i = 0;
+
+        String a = textDirectory + "\\src\\main\\java\\HW15\\Files";
         for (File f :workDir.listFiles()){
-if (f.isFile()){
-    converter.type(f,f.getPath());
-} converter.type(f,s);
+        if (f.isFile()){
+
+            System.out.println("-----"+i++);
+    converter.type(f,f.getAbsolutePath());
+    System.out.println(f.getAbsolutePath());
+}
+   else {
+            converter.type(f, a);
+            System.out.println("////////" + i++);
+            System.out.println(f.getPath());
+            System.out.println(a);
+        }
         }
 
 

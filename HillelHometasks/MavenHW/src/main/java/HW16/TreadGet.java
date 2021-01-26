@@ -2,6 +2,12 @@ package HW16;
 
 public class TreadGet extends Thread {
 
+
+    TreadGet(String name, int totalSum) {
+        super(name);
+        this.totalSum=totalSum;
+    }
+
     private int totalSum ;
 
     public int getSum() {
@@ -23,12 +29,10 @@ public class TreadGet extends Thread {
         this.totalSum = totalSum;
     }
 
-    public TreadGet(String name){
-        super(name);
-    }
 
     @Override
     public void run() {
+
 
         while (totalSum != 0)  {
             try {
@@ -37,11 +41,15 @@ public class TreadGet extends Thread {
                 e.printStackTrace();
             }
             setTotalSum(getTotalSum() - sum);
-            System.out.println("You put " + sum + " usd on your balance  ");
+
+            System.out.println(Thread.currentThread().getName()+ "--" + "You get " + sum + " usd from your balance  ");
+            System.out.println(totalSum);
 
         }
         System.out.println("0 money");
 
+
     }
+
 
 }

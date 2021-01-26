@@ -2,6 +2,11 @@ package HW16;
 
 public class TreadPut extends Thread {
 
+    TreadPut(String name, int totalSum) {
+        super(name);
+        this.totalSum=totalSum;
+    }
+
     private int totalSum ;
 
     public int getSum() {
@@ -22,24 +27,21 @@ public class TreadPut extends Thread {
     public void setTotalSum(int totalSum) {
         this.totalSum = totalSum;
     }
-
-    public TreadPut(String name){
-        super(name);
-    }
-
     @Override
     public void run() {
 
-while (totalSum!=0){
+while (totalSum < 10_500){
         try {
-            Thread.sleep(3);
+            Thread.sleep(5);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         setTotalSum(getTotalSum()+sum);
-        System.out.println( Thread.currentThread().getName() + "You put " + sum + " usd on your balance  ");
+
+        System.out.println( Thread.currentThread().getName()+ "--" + "You put " + sum + " usd on your balance  ");
+    System.out.println(totalSum);
     }
-        System.out.println("0 money");
+        System.out.println("Limit is full");
     }
 
 

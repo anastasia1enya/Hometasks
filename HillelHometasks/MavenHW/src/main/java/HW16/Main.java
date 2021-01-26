@@ -3,14 +3,19 @@ package HW16;
 public class Main {
     public static void main(String[] args) {
 
-        TreadGet t = new TreadGet("Get");
-        TreadPut d = new TreadPut("Put");
-        t.setTotalSum(1000);
-        d.setTotalSum(t.getTotalSum());
-        t.setSum(50);
+        int totalSum = 1000;
+        int putSum = 30;
+        int getSum = 30;
+
+        TreadGet t = new TreadGet("GetThread",totalSum);
+        TreadPut d = new TreadPut("PutThread",t.getTotalSum());
+
         d.setSum(30);
-        t.start();
+        t.setSum(50);
+        System.out.println(t.getTotalSum());
         d.start();
+        t.start();
+
 
 
     }

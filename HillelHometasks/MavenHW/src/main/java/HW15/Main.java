@@ -7,15 +7,15 @@ import java.nio.file.Files;
 
 public class Main {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args  ) throws IOException {
 
         Converter converter = new Converter();
-
+//для смд
         File workDir = new File(FileSystems.getDefault()
                 .getPath("")
                 .toAbsolutePath()
                 .toString());
-
+//для идеии
         File textDirectory =new File( FileSystems.getDefault()
                 .getPath("")
                 .toAbsolutePath()
@@ -24,26 +24,20 @@ public class Main {
         System.out.println(workDir);
         if (args.length!=0){
             workDir = new File(args[0]);
-        } else {
-            workDir = new File (String.valueOf(workDir));
+        }   else {
+            workDir = new File (workDir.getAbsolutePath());
         }
 
-        System.out.println(workDir);
-//        System.out.println(textDirectory);
-//        System.out.println("----------");
-int i = 0;
+        int i = 1;
 
-        String a = textDirectory + "\\src\\main\\java\\HW15\\Files\\";
 
             for (File f : workDir.listFiles()) {
 
                     if (f.isFile()) {
+                        System.out.println("---File " + i++ + " "+ f.getName()+ " ---converted" );
+                        converter.type(f, f.getAbsolutePath());
 
-                    System.out.println("-----" + i++);
-                    converter.type(f, String.valueOf(workDir));
-                    System.out.println(f.getAbsolutePath());
                 } else {
-//
                         System.out.println("Not a file");
                 }
             }

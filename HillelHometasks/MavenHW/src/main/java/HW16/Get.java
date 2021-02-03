@@ -38,6 +38,7 @@ public class Get extends Thread {
 //            } else {
 //                System.out.println("you have no money");
 //                break;
+//            555
 //            }
         }
     }

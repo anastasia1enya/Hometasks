@@ -8,7 +8,7 @@ public class TreadGet extends Thread {
         this.totalSum=totalSum;
     }
 
-    private int totalSum ;
+    private static int totalSum ;
 
     public int getSum() {
         return sum;

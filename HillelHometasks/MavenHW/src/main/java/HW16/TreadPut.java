@@ -7,7 +7,7 @@ public class TreadPut extends Thread {
         this.totalSum=totalSum;
     }
 
-    private int totalSum ;
+    private static int totalSum ;
 
     public int getSum() {
         return sum;
@@ -43,7 +43,5 @@ while (totalSum < 10_500){
     }
         System.out.println("Limit is full");
     }
-
-
 
 }

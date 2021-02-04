@@ -10,5 +10,9 @@ public class SQLbase {
         Statement statement = connect.createStatement();
         ResultSet resultset = statement.executeQuery("select*from Students.Groups");
         System.out.println(resultset.getMetaData());
+
+        PreparedStatement preparedStatement = connect.prepareStatement("insert into student " );
+
+
     }
 }

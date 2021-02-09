@@ -2,7 +2,7 @@
 
 <configuration>
     <include resource="org/springframework/boot/logging/logback/base.xml"/>
-    <property name="LOG_FOLDER" value="/C:/Users/admin/Desktop/Java_2/Hometasks/HillelHometasks/MavenHW/src/main/java/HW14logs"/>
+    <property name="LOG_FOLDER" value="C:/Users/Yuliia/Desktop/Hometasks/HillelHometasks/MavenHW/logs"/>
 
     <appender name="debug_log"
               class="ch.qos.logback.core.rolling.RollingFileAppender">

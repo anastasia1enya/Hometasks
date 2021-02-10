@@ -52,6 +52,30 @@
         </encoder>
     </appender>
 
+    <appender name="infoRes_log"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_FOLDER}/infoRes/infoRes.log</file>
+
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>INFO</level>
+        </filter>
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_FOLDER}/infoRes/archive/info-%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy
+                    class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <!-- or whenever the file size reaches 100MB -->
+                <maxFileSize>1MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+            <!-- keep 1 days' worth of history -->
+            <maxHistory>1</maxHistory>
+            <totalSizeCap>10MB</totalSizeCap>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d [%-5level] [%-14.14thread] - %msg%n</pattern>
+        </encoder>
+    </appender>
+
     <appender name="error_log"
               class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${LOG_FOLDER}/error/errors.log</file>
@@ -111,7 +135,11 @@
     </logger>
 
     <logger name="logger.info" level="INFO">
-        <appender-ref ref="FILE"/>
+        <appender-ref ref="info_log"/>
+    </logger>
+
+    <logger name="logger.res" level="INFO">
+        <appender-ref ref="infoRes_log"/>
     </logger>
 
     <logger name="logger.warn" level="WARN">

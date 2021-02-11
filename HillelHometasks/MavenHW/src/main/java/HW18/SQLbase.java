@@ -11,23 +11,27 @@ public class SQLbase {
         ResultSet resultset = statement.executeQuery("select*from Students.Student");
         System.out.println(resultset.getMetaData());
 
-        PreparedStatement preparedStatement = connect.prepareStatement("INSERT into student(name_surname) values (?)" );
+        PreparedStatement preparedStatement = connect.prepareStatement("INSERT into Students.Student(studId,name_surname, group) values (?,?,?)" );
+        PreparedStatement preparedStatement1 = connect.prepareStatement("INSERT into Students.Student(name_surname) values (?)" );
 
         try{
-            preparedStatement.setString(1,"8");
+            preparedStatement.setInt(1,15);
+            preparedStatement.setString(2,"Johanson Steam");
+            preparedStatement.setInt(3,1);
+//            preparedStatement.setInt(4,2020);
 //            preparedStatement.setString(1,"Petrov Ivan");
 //            preparedStatement.setString(1,"3");
 //            preparedStatement.setString(1,"2015");
-//            preparedStatement.executeUpdate();
+            preparedStatement.executeUpdate();
 
-            ResultSet result2 = preparedStatement.executeQuery();
+//            ResultSet result2 = preparedStatement.executeQuery();
 
             System.out.println("Выводим PreparedStatement");
-            while (result2.next()) {
-                System.out.println("Номер в выборке #" + result2.getRow()
-                        + "\t Номер в базе #" + result2.getInt("id")
-                        + "\t" + result2.getString("username"));
-            }
+//            while (result2.next()) {
+//                System.out.println("Номер в выборке #" + result2.getRow()
+//                        + "\t Номер в базе #" + result2.getInt("id")
+//                        + "\t" + result2.getString("username"));
+//            }
 
         }catch (SQLException e){
             e.printStackTrace();

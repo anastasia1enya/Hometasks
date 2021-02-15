@@ -45,6 +45,9 @@ public class SQLbase {
                 "        AND referenced_table_name = 'group'\n" +
                 "        AND delete_rule = 'CASCADE'" );
 
+        PreparedStatement preparedStatement3 = connect.prepareStatement("ALTER table Students.Student on delete cascade " );
+
+
         try{
 ////          preparedStatement.setInt(1,100);
 //            preparedStatement1.setString(1,"Johanson Steam");
@@ -55,15 +58,8 @@ public class SQLbase {
 //            preparedStatement.setString(1,"2015");
 
 
-            ResultSet result3 = preparedStatement1.executeQuery("\"SELECT \\n\" +\n" +
-                    "                \"    Student\\n\" +\n" +
-                    "                \"FROM\\n\" +\n" +
-                    "                \"    referential_constraints\\n\" +\n" +
-                    "                \"WHERE\\n\" +\n" +
-                    "                \"    constraint_schema = 'Students'\\n\" +\n" +
-                    "                \"        AND referenced_table_name = 'group'\\n\" +\n" +
-                    "                \"        AND delete_rule = 'CASCADE'\" ");
-//            preparedStatement1.executeUpdate();
+            ResultSet result3 = preparedStatement1.executeQuery("select*from Students.Student ");
+            preparedStatement1.executeUpdate();
 
 //            System.out.println(result2.getMetaData());
 

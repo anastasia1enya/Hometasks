@@ -33,7 +33,7 @@ public class Student {
 
 //        (mappedBY="group",cascade = CasscadeTypeAll)
         @OneToOne (mappedBy ="group")
-        @JoinColumn (name = "group")
+        @JoinColumn (name = "group", referencedColumnName = "idGroups")
         private Groups groups;
 
 

@@ -1,8 +1,10 @@
 package HibernateHW;
 
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 
+import java.util.List;
 
 
 public class Main {
@@ -13,24 +15,19 @@ public class Main {
 
 
 //        System.out.println(
-                session.createQuery("From Student ")
-                        .list()
-                        .forEach(System.out::println);
+//                session.createQuery("From student ")
+//                        .list()
+//                        .forEach(System.out::println);
 
-//        Query q = session.createQuery("From Students.Student");
+        Query q = session.createQuery("From Students.Student");
 
-//        List<User> resultList = q.list();
-//        System.out.println("num of users :" + resultList.size());
-//        for (User usr : resultList) {
-//            System.out.println(usr);
-//        }
-//
-//        q = session.createQuery("From UserShort");
-//
-//        List<UserShort> rList = q.list();
-//        for (UserShort usr : rList) {
-//            System.out.println(usr);
-//        }
+        List<Student> resultList = q.list();
+        System.out.println("num of users :" + resultList.size());
+        for (Student std : resultList) {
+            System.out.println(std);
+        }
+
+        q = session.createQuery("From UserShort");
 
 
     }

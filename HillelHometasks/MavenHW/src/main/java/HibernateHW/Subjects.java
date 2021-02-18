@@ -32,7 +32,7 @@ public class Subjects {
     @Column(name="year")
     private Integer year;
 
-    @OneToOne
-    @JoinColumn(name = "teacher")
-    private Integer idTeachers;;
+//    @OneToOne
+//    @JoinColumn(name = "teacher")
+//    private Integer idTeachers;;
 }

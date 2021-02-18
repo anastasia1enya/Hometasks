@@ -29,8 +29,8 @@ public class Teachers {
     private Integer department;
 
 
-    @OneToOne
-    @JoinColumn(name = "department")
-    private Integer idDepartments;
+//    @OneToOne
+//    @JoinColumn(name = "department")
+//    private Integer idDepartments;
 
 }

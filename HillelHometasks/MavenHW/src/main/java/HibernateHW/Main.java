@@ -15,19 +15,19 @@ public class Main {
 
 
 //        System.out.println(
-//                session.createQuery("From student ")
-//                        .list()
-//                        .forEach(System.out::println);
+                session.createQuery("From student ")
+                        .list()
+                        .forEach(System.out::println);
 
-        Query q = session.createQuery("From Students.Student");
+//        Query q = session.createQuery("From Students.Groups");
+//
+//        List<Groups> resultList = q.list();
+//        System.out.println("num of users :" + resultList.size());
+//        for (Groups std : resultList) {
+//            System.out.println(std);
+//        }
 
-        List<Student> resultList = q.list();
-        System.out.println("num of users :" + resultList.size());
-        for (Student std : resultList) {
-            System.out.println(std);
-        }
 
-        q = session.createQuery("From UserShort");
 
 
     }

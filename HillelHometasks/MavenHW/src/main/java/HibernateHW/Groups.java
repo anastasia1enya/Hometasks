@@ -24,8 +24,4 @@ public class Groups {
     @Column(name = "group")
     private Integer group;
 
-
-//    @OneToOne
-//    @JoinColumn(name = "group")
-//    private Integer idGroups;;
 }

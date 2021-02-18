@@ -30,12 +30,12 @@
 		<property name="connection.pool_size">1</property>
 		<property name="current_session_context_class">thread</property>
 
-		<mapping class="com.projects.example.hibernate.base.entity.Student" />
-		<mapping class="com.projects.example.hibernate.base.entity.Marks" />
-		<mapping class="com.projects.example.hibernate.base.entity.Subjects" />
-		<mapping class="com.projects.example.hibernate.base.entity.Teachers" />
-		<mapping class="com.projects.example.hibernate.base.entity.Departments" />
-		<mapping class="com.projects.example.hibernate.base.entity.Groups" />
+		<mapping class="HibernateHW.Student" />
+		<mapping class="HibernateHW.Marks" />
+		<mapping class="HibernateHW.Subjects" />
+		<mapping class="HibernateHW.Teachers" />
+		<mapping class="HibernateHW.Departments" />
+		<mapping class="HibernateHW.Groups" />
 
 
 	</session-factory>

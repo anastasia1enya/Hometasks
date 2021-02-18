@@ -31,9 +31,10 @@ public class Student {
         private Integer yearOfEntering;
 
 
-        @OneToOne
-        @JoinColumn(name = "group")
-        private Integer idGroups;;
+//        (mappedBY="group",cascade = CasscadeTypeAll)
+        @OneToOne (mappedBy ="group")
+        @JoinColumn (name = "group")
+        private Groups groups;
 
 
     }

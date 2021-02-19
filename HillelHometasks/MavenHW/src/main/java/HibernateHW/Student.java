@@ -25,16 +25,20 @@ public class Student {
         private String name_surname;
 
         @Column(name = "group")
-        private Integer group;
+        private String group;
 
         @Column(name="yearOfEntering")
         private Integer yearOfEntering;
 
-
-//        (mappedBY="group",cascade = CasscadeTypeAll)
-        @OneToOne (mappedBy ="group")
-        @JoinColumn (name = "group", referencedColumnName = "idGroups")
-        private Groups groups;
+        @Override
+        public String toString() {
+                return "Student{" +
+                        "studId=" + studId +
+                        ", name_surname='" + name_surname + '\'' +
+                        ", group='" + group + '\'' +
+                        ", yearOfEntering=" + yearOfEntering +
+                        '}';
+        }
 
 
     }

@@ -31,10 +31,6 @@
 		<property name="current_session_context_class">thread</property>
 
 		<mapping class="HibernateHW.Student" />
-		<mapping class="HibernateHW.Marks" />
-		<mapping class="HibernateHW.Subjects" />
-		<mapping class="HibernateHW.Teachers" />
-		<mapping class="HibernateHW.Departments" />
 		<mapping class="HibernateHW.Groups" />
 
 

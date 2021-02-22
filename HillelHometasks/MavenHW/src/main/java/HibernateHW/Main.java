@@ -20,8 +20,8 @@ public class Main {
 //
 //
 
-Creation c = new Creation();
-c.recordsAdd("Vasya Petrov","2",1999);
+Creation c = new Creation("Vasya Petrov","2",1999);
+c.recordsAdd();
 
     }
 }

@@ -9,10 +9,10 @@ import javax.transaction.Transaction;
 public class Creation {
 
     String name;
-    String group;
+    int group;
     int year;
 
-    Creation(String name,String group, int year){
+    Creation(String name,int group, int year){
         this.name=name;
         this.group=group;
         this.year=year;
@@ -30,7 +30,7 @@ public class Creation {
 //                    "VALUES \n" +
 //                 name+group+year
 //                    );
-            Query query2=  session.createQuery("INSERT INTO student\n" +
+            Object query2=  session.createQuery("INSERT INTO student\n" +
                     "(name_surname,group,yearOfEntering) \n" +
                             "VALUES \n" +
                             name+group+year
@@ -39,11 +39,18 @@ public class Creation {
 //                        .forEach(System.out::println);
 
 //            query2.executeUpdate();
-            session.save(query2);
+
+            Student s = new Student();
+            s.setName_surname(name);
+            s.setGroup(group);
+            s.setYearOfEntering(year);
+
+            session.save(s);
             session.getTransaction().commit();
 
-            query2.list()
-                        .forEach(System.out::println);
+//            query2.list()
+//                        .forEach(System.out::println);
+            System.out.println(query2.toString());
             session.close();
             System.out.println("Succsess!");
 

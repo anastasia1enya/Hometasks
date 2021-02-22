@@ -24,8 +24,32 @@ public class Student {
         @Column(name = "name_surname")
         private String name_surname;
 
-        @Column(name = "group")
-        private String group;
+        @Column(name = "'group'")
+        private int group;
+
+        public String getName_surname() {
+                return name_surname;
+        }
+
+        public void setName_surname(String name_surname) {
+                this.name_surname = name_surname;
+        }
+
+        public int getGroup() {
+                return group;
+        }
+
+        public void setGroup(int group) {
+                this.group = group;
+        }
+
+        public Integer getYearOfEntering() {
+                return yearOfEntering;
+        }
+
+        public void setYearOfEntering(Integer yearOfEntering) {
+                this.yearOfEntering = yearOfEntering;
+        }
 
         @Column(name="yearOfEntering")
         private Integer yearOfEntering;

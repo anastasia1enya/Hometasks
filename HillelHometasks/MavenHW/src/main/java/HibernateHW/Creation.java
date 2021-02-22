@@ -29,7 +29,7 @@ public class Creation {
             session.getTransaction().commit();
 
             System.out.println(s.toString());
-            session.close();
+            shutdown();
             System.out.println("Succsess!");
 
         } catch (Exception e) {
@@ -51,7 +51,6 @@ public class Creation {
             List<Student> studentList = query.list();
             studentList.forEach(System.out::println);
 
-            session.close();
             shutdown();
             System.out.println("Succsess!");
 
@@ -72,7 +71,6 @@ public class Creation {
             List<Student> studentList = query.list();
             studentList.forEach(System.out::println);
 
-            session.close();
             shutdown();
             System.out.println("Succsess!");
 

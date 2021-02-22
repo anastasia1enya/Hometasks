@@ -21,7 +21,7 @@ public class Groups {
     private Long idGroups;
 
 
-    @Column(name = "group")
-    private Integer group;
+    @Column(name = "`group`")
+    private String group;
 
 }

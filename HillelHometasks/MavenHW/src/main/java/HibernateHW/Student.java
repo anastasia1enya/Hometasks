@@ -19,12 +19,12 @@ public class Student {
         @Id
         @GeneratedValue
         @Column(name = "studId", unique = true)
-        private Long studId;
+        private int studId;
 
         @Column(name = "name_surname")
         private String name_surname;
 
-        @Column(name = "'group'")
+        @Column(name = "`group`")
         private int group;
 
         public String getName_surname() {

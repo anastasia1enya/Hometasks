@@ -3,55 +3,77 @@ package HibernateHW;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
-import javax.transaction.Transaction;
+import java.util.List;
+
+import static HibernateHW.HibernateUtil.shutdown;
 
 
 public class Creation {
 
-    String name;
-    int group;
-    int year;
 
-    Creation(String name,int group, int year){
-        this.name=name;
-        this.group=group;
-        this.year=year;
-    }
-
-    public void recordsAdd( )
+    public void recordsAdd( String name,int group, int year)
     {
         try {
             System.out.println("Добавление записи в таблицу БД");
 
             Session session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
-//            Query query1 = session.createSQLQuery("INSERT INTO Student\n" +
-//                    "(name_surname,group,yearOfEntering) \n" +
-//                    "VALUES \n" +
-//                 name+group+year
-//                    );
-            Object query2=  session.createQuery("INSERT INTO student\n" +
-                    "(name_surname,group,yearOfEntering) \n" +
-                            "VALUES \n" +
-                            name+group+year
-            );
-//                        .list();
-//                        .forEach(System.out::println);
-
-//            query2.executeUpdate();
 
             Student s = new Student();
-            s.setName_surname(name);
+
             s.setGroup(group);
+            s.setName_surname(name);
             s.setYearOfEntering(year);
 
             session.save(s);
             session.getTransaction().commit();
 
-//            query2.list()
-//                        .forEach(System.out::println);
-            System.out.println(query2.toString());
+            System.out.println(s.toString());
             session.close();
+            System.out.println("Succsess!");
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void recordsFindName( String name_surname)
+    {
+        try {
+            System.out.println("Поиск студента");
+
+            Session session = HibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();
+
+            String hql = "FROM Student where name_surname = :paramName";
+            Query query = session.createQuery(hql);
+            query.setParameter("paramName", name_surname);
+            List<Student> studentList = query.list();
+            studentList.forEach(System.out::println);
+
+            session.close();
+            shutdown();
+            System.out.println("Succsess!");
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    public void recordsFindId( int id)
+    {
+        try {
+            System.out.println("Поиск студента");
+
+            Session session = HibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();
+
+            String hql = "FROM Student where studId = " + id;
+            Query query = session.createQuery(hql);
+            List<Student> studentList = query.list();
+            studentList.forEach(System.out::println);
+
+            session.close();
+            shutdown();
             System.out.println("Succsess!");
 
         } catch (Exception e) {

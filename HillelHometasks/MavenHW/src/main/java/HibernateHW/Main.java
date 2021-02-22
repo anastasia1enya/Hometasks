@@ -10,18 +10,10 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
 
-//        Session session = HibernateUtil.getSessionFactory().openSession();
-//        session.beginTransaction();
-//
-//
-//                session.createQuery("From Student")
-//                        .list()
-//                        .forEach(System.out::println);
-//
-//
-
-Creation c = new Creation("Vasya Petrov",2,1999);
-c.recordsAdd();
+Creation c = new Creation();
+////c.recordsAdd("Artem Petyk",2,2006);
+c.recordsFindName("Artem Petyk");
+//c.recordsFindId(2);
 
     }
 }

@@ -45,9 +45,10 @@ public class Creation {
             Session session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
 
-            String hql = "FROM Student where name_surname = :paramName";
-            Query query = session.createQuery(hql);
-            query.setParameter("paramName", name_surname);
+//            String hql = "FROM Student where name_surname = :paramName";
+            String hql1 = "FROM Student where name_surname = "+ "'" + name_surname+ "'";
+            Query query = session.createQuery(hql1);
+//            query.setParameter("paramName", name_surname);
             List<Student> studentList = query.list();
             studentList.forEach(System.out::println);
 

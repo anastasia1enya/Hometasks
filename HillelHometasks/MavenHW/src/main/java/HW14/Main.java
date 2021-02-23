@@ -4,6 +4,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import java.util.Scanner;
 
 public class Main {
@@ -14,6 +16,10 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
+        ResourceBundle
+                resourceBundle = ResourceBundle.getBundle("com.hillel.lesson_26.i18n.messagesBundle.Day", new Locale("ua"));
+        System.out.println(resourceBundle.getString("day1"));
+        System.out.println(resourceBundle.getString("day2"));
 
 
         Scanner sc = new Scanner(System.in);

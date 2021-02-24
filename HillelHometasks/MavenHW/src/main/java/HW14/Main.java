@@ -17,11 +17,11 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        List<Locale> localeList = List.of(new Locale("de"), new Locale("ru"), new Locale("Fight_en"));
+        List<Locale> localeList = List.of(new Locale("de"), new Locale("ru"), new Locale("en"));
         Locale.setDefault(Locale.ENGLISH);
 
         ResourceBundle
-                resourceBundle = ResourceBundle.getBundle("C:\\Users\\Yuliia\\Desktop\\Hometasks\\HillelHometasks\\MavenHW\\src\\main\\resources");
+                resourceBundle = ResourceBundle.getBundle("Fight");
 
 
 

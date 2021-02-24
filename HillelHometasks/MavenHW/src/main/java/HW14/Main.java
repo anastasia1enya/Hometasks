@@ -17,7 +17,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        List<Locale> localeList = List.of(new Locale("de"), new Locale("ru"), new Locale("en"));
+        List<Locale> localeList = List.of(new Locale("de"), new Locale("ru"), new Locale("Fight_en"));
         Locale.setDefault(Locale.ENGLISH);
 
         ResourceBundle

@@ -35,6 +35,7 @@ Creation d = new Creation();
             case 2:
                 System.out.println("Pls enter the student's name&surname");
                 String e = scanner.next();
+                e += " " + scanner.next();
 
                 d.recordsFindName(e);
                 break;

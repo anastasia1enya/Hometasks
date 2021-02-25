@@ -9,20 +9,22 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 
+
+
 public class Main {
-//    private static final Logger loggerDebug = LoggerFactory.getLogger("logger.debug");
-//    private static final Logger loggerWarn = LoggerFactory.getLogger("logger.warn");
-    private static final Logger loggerInfo = LoggerFactory.getLogger("logger.info");
-    private static final Logger loggerError = LoggerFactory.getLogger("logger.error");
+
+     static final Logger loggerWarn = LoggerFactory.getLogger("logger.warn");
+     static final Logger loggerInfo = LoggerFactory.getLogger("logger.info");
+     static final Logger loggerInfoRes = LoggerFactory.getLogger("logger.res");
+     static final Logger loggerError = LoggerFactory.getLogger("logger.error");
+
+     static List<Locale> localeList = List.of(new Locale("de"), new Locale("ru"), new Locale("en"));
+     static ResourceBundle resourceBundle = ResourceBundle.getBundle("Fight");
+
 
     public static void main(String[] args) throws IOException {
 
-        List<Locale> localeList = List.of(new Locale("de"), new Locale("ru"), new Locale("en"));
         Locale.setDefault(Locale.GERMAN);
-
-        ResourceBundle
-                resourceBundle = ResourceBundle.getBundle("Fight");
-
 
 
         Scanner sc = new Scanner(System.in);

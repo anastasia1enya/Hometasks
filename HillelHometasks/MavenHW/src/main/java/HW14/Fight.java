@@ -9,16 +9,18 @@ import java.io.IOException;
 import java.nio.file.FileSystems;
 import java.util.*;
 
+import static HW14.Main.*;
+
 public class Fight {
     private int games;
     private int playerWins;
     private int robotWins;
 
 
-    private static final Logger loggerWarn = LoggerFactory.getLogger("logger.warn");
-    private static final Logger loggerInfo = LoggerFactory.getLogger("logger.info");
-    private static final Logger loggerInfoRes = LoggerFactory.getLogger("logger.res");
-    private static final Logger loggerError = LoggerFactory.getLogger("logger.error");
+//    private static final Logger loggerWarn = LoggerFactory.getLogger("logger.warn");
+//    private static final Logger loggerInfo = LoggerFactory.getLogger("logger.info");
+//    private static final Logger loggerInfoRes = LoggerFactory.getLogger("logger.res");
+//    private static final Logger loggerError = LoggerFactory.getLogger("logger.error");
 
     String textDirectory = FileSystems.getDefault()
             .getPath("")
@@ -63,11 +65,11 @@ public class Fight {
     public void fight (Player player,Robot robot, int n) throws IOException {
 
 
-        List<Locale> localeList = List.of(new Locale("de"), new Locale("ru"), new Locale("en"));
-        Locale.setDefault(Locale.GERMAN);
-
-        ResourceBundle
-                resourceBundle = ResourceBundle.getBundle("Fight");
+//        List<Locale> localeList = List.of(new Locale("de"), new Locale("ru"), new Locale("en"));
+//        Locale.setDefault(Locale.GERMAN);
+//
+//        ResourceBundle
+//                resourceBundle = ResourceBundle.getBundle("Fight");
 
         while (games!=n+1) {
 
@@ -89,7 +91,7 @@ public class Fight {
 
                 robotPass = (int) (Math.random() * 3 + 1);
 //                System.out.print("Robo pass is ");
-                print(robotPass);
+//                print(robotPass);
 
 
                 if (playerPass == 1 && robotPass == 2 || playerPass == 2 && robotPass == 3 || playerPass == 3 && robotPass == 1) {
@@ -173,6 +175,7 @@ public class Fight {
         if (getRobotWins()>getPlayerWins()){
             loggerInfoRes.info("------------------");
             loggerInfoRes.info("Robot is winner of the game with count = " +getRobotWins());
+            System.out.println(resourceBundle.getString("winnerR"));
             loggerInfoRes.info("Player's " +player.getName()+ " count = " +getPlayerWins());
             loggerInfoRes.info("Robot's count = " +getRobotWins());
             loggerInfoRes.info("------------------");
@@ -191,6 +194,7 @@ public class Fight {
         } else if (getRobotWins()<getPlayerWins()){
             loggerInfoRes.info("------------------");
             loggerInfoRes.info("Player " +player.getName()+" is winner of the game with count = " +getPlayerWins());
+            System.out.println(resourceBundle.getString("winnerP"));
             loggerInfoRes.info("Player's " +player.getName()+ " count = " +getPlayerWins());
             loggerInfoRes.info("Robot's count = " +getRobotWins());
             loggerInfoRes.info("------------------");
@@ -207,6 +211,7 @@ public class Fight {
         } else {
             loggerInfoRes.info("------------------");
             loggerInfoRes.info("No winners...");
+            System.out.println(resourceBundle.getString("nowin"));
             loggerInfoRes.info("Robot's count = " +getRobotWins());
             loggerInfoRes.info("Player's "+player.getName()+ " count = "+getPlayerWins());
             loggerInfoRes.info("------------------");
@@ -229,17 +234,18 @@ public class Fight {
     public String print ( int pass) {
 
         if (pass == 1) {
-            System.out.println("ROCK");
+//            System.out.println("ROCK");
             return "ROCK";
         } else if (pass == 2) {
-            System.out.println("SCISSORS");
+//            System.out.println("SCISSORS");
             return "SCISSORS";
         } else if (pass == 3) {
-            System.out.println("PAPER");
+//            System.out.println("PAPER");
             return "PAPER";
         }
 
         return null;
     }
+
 
 }

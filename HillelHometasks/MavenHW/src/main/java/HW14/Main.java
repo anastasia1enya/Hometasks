@@ -18,7 +18,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
         List<Locale> localeList = List.of(new Locale("de"), new Locale("ru"), new Locale("en"));
-        Locale.setDefault(Locale.ENGLISH);
+        Locale.setDefault(Locale.GERMAN);
 
         ResourceBundle
                 resourceBundle = ResourceBundle.getBundle("Fight");
@@ -27,16 +27,16 @@ public class Main {
 
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Pls set your name");
+//        System.out.println("Pls set your name");
         System.out.println(resourceBundle.getString("setName"));
         String name = sc.nextLine();
         loggerInfo.info("The player "+name + " entered the game");
-        System.out.println(resourceBundle.getString("pEnter"));
-        System.out.println("Select the number of games");
+        System.out.println(resourceBundle.getString("pName") +" "+ name+ " " +resourceBundle.getString("pEnter") );
+//        System.out.println("Select the number of games");
         System.out.println(resourceBundle.getString("setNummber"));
         int n = sc.nextInt();
-        loggerInfo.info("The player chose amount of games : "+n );
-        System.out.println(resourceBundle.getString("pChoice"));
+//        loggerInfo.info("The player chose amount of games : "+n );
+        System.out.println(resourceBundle.getString("pChoice") +" "+n);
         Player player = new Player(name);
         Robot robot = new Robot();
 //        System.out.println("Game is start!");

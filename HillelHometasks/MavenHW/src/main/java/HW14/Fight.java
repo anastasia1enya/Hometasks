@@ -7,8 +7,7 @@ import javax.xml.crypto.Data;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.FileSystems;
-import java.util.Date;
-import java.util.Scanner;
+import java.util.*;
 
 public class Fight {
     private int games;
@@ -64,13 +63,25 @@ public class Fight {
     public void fight (Player player,Robot robot, int n) throws IOException {
 
 
+        List<Locale> localeList = List.of(new Locale("de"), new Locale("ru"), new Locale("en"));
+        Locale.setDefault(Locale.GERMAN);
+
+        ResourceBundle
+                resourceBundle = ResourceBundle.getBundle("Fight");
+
         while (games!=n+1) {
 
-            System.out.println("Choose your item: ");
-            System.out.println("1.ROCK ");
-            System.out.println("2.SCISSORS");
-            System.out.println("3.PAPER ");
-            System.out.println("4.STOP ");
+//            System.out.println("Choose your item: ");
+//            System.out.println("1.ROCK ");
+//            System.out.println("2.SCISSORS");
+//            System.out.println("3.PAPER ");
+//            System.out.println("4.STOP ");
+
+            System.out.println(resourceBundle.getString("choice"));
+            System.out.println(resourceBundle.getString("ROCK"));
+            System.out.println(resourceBundle.getString("SCISSORS"));
+            System.out.println(resourceBundle.getString("PAPER"));
+            System.out.println(resourceBundle.getString("STOP"));
 
             playerPass = scanner.nextInt();
 

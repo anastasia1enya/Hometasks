@@ -12,7 +12,7 @@ public class Player   {
 
     Player(String name){
         this.name=name;
-        System.out.println("Welcome to  the game, "+name);
+//        System.out.println("Welcome to  the game, "+name);
     }
 
 

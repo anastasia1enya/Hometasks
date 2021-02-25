@@ -16,12 +16,6 @@ public class Fight {
     private int playerWins;
     private int robotWins;
 
-
-//    private static final Logger loggerWarn = LoggerFactory.getLogger("logger.warn");
-//    private static final Logger loggerInfo = LoggerFactory.getLogger("logger.info");
-//    private static final Logger loggerInfoRes = LoggerFactory.getLogger("logger.res");
-//    private static final Logger loggerError = LoggerFactory.getLogger("logger.error");
-
     String textDirectory = FileSystems.getDefault()
             .getPath("")
             .toAbsolutePath()
@@ -64,12 +58,6 @@ public class Fight {
 
     public void fight (Player player,Robot robot, int n) throws IOException {
 
-
-//        List<Locale> localeList = List.of(new Locale("de"), new Locale("ru"), new Locale("en"));
-//        Locale.setDefault(Locale.GERMAN);
-//
-//        ResourceBundle
-//                resourceBundle = ResourceBundle.getBundle("Fight");
 
         while (games!=n+1) {
 

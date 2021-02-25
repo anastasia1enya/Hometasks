@@ -19,13 +19,13 @@ public class Main {
      static final Logger loggerError = LoggerFactory.getLogger("logger.error");
 
      static List<Locale> localeList = List.of(new Locale("de"), new Locale("ru"), new Locale("en"));
-     static ResourceBundle resourceBundle = ResourceBundle.getBundle("Fight");
+     static ResourceBundle resourceBundle;
 
 
     public static void main(String[] args) throws IOException {
 
-        Locale.setDefault(Locale.GERMAN);
-
+        Locale.setDefault(Locale.ENGLISH);
+        resourceBundle= ResourceBundle.getBundle("Fight");
 
         Scanner sc = new Scanner(System.in);
 

@@ -12,7 +12,8 @@ import java.util.concurrent.TimeUnit;
 
 public class CacheHelper {
     private CacheManager cacheManager;
-    private Cache<Integer, User> userCache;
+    private Cache<String,User> userCache;
+//    private Cache<String,userCache> userCache1;
 
     public CacheHelper() {
         cacheManager = CacheManagerBuilder
@@ -22,16 +23,16 @@ public class CacheHelper {
         userCache = cacheManager
                 .createCache("user-cache", CacheConfigurationBuilder
                         .newCacheConfigurationBuilder(
-                                Integer.class, User.class,
+                                String.class, User.class,
                                 ResourcePoolsBuilder.heap(10))
                         .withExpiry(Expirations.timeToLiveExpiration(Duration.of(10, TimeUnit.SECONDS))));
     }
 
-    public Cache<Integer, User> getUserCache() {
-        return cacheManager.getCache("user-cache", Integer.class, User.class);
+    public Cache<String, User> getUserCache() {
+        return cacheManager.getCache("user-cache", String.class, User.class);
     }
 
     public void clearCache(){
-        cacheManager.getCache("user-cache", Integer.class, User.class).clear();
+        cacheManager.getCache("user-cache", String.class, User.class).clear();
     }
 }

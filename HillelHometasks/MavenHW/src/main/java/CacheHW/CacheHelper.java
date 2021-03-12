@@ -1,6 +1,8 @@
 package CacheHW;
 
 import CacheClass.User;
+import lombok.Data;
+import lombok.Getter;
 import org.ehcache.Cache;
 import org.ehcache.CacheManager;
 import org.ehcache.config.builders.CacheConfigurationBuilder;
@@ -19,13 +21,22 @@ public class CacheHelper {
     private Cache<String,Object> userCache;
 //    private Cache<String,userCache> userCache1;
 
-    private String name;
+//    @Getter
+    public String name ;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public CacheHelper(String name) {
 
         this.name = name;
 
-//        userCache.put(name,new HashMap<String,Object>());
+        userCache.put(name,new HashMap<String,Object>());
         cacheManager = CacheManagerBuilder
                 .newCacheManagerBuilder().build();
         cacheManager.init();
@@ -39,10 +50,10 @@ public class CacheHelper {
     }
 
     public Cache<String, Object> getUserCache() {
-        return cacheManager.getCache("user-cache", String.class, Object.class);
+        return cacheManager.getCache(name, String.class, Object.class);
     }
 
     public void clearCache(){
-        cacheManager.getCache("user-cache", String.class, Object.class).clear();
+        cacheManager.getCache(name, String.class, Object.class).clear();
     }
 }

@@ -1,4 +1,4 @@
-package CacheHW;
+package CacheClass;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;

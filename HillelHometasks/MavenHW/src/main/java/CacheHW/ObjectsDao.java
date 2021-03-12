@@ -1,9 +1,10 @@
 package CacheHW;
+import CacheClass.CacheHelper;
 import lombok.AllArgsConstructor;
 import org.ehcache.Cache;
 
 @AllArgsConstructor
-public class UserDao {
+public class ObjectsDao {
 
     private CacheHelper cache;
 
@@ -11,11 +12,11 @@ public class UserDao {
 //        this.cache = cache;
 //    }
 
-    public User getUserById(int id) throws InterruptedException {
+    public Objects getUserById(int id) throws InterruptedException {
         Cache ch = cache.getUserCache();
         if (ch.containsKey(id)) {
             System.out.println("get value from cache");
-            return (User) ch.get(id);
+            return (Objects) ch.get(id);
         } else {
             System.out.println(String.format("value not found in cache with id : %s", id));
         }
@@ -26,7 +27,7 @@ public class UserDao {
         }
         System.out.println();
         System.out.println("get value from DB");
-        User user = new User(id, "Ivan", "Ivanov", 27, "phone", "email");
+        Objects user = new Objects(id, "Ivan", "Ivanov", 27, "phone", "email");
         ch.put(id, user);
 
         return user;

@@ -3,6 +3,7 @@ package CacheHW;
 import CacheClass.User;
 import lombok.Data;
 import lombok.Getter;
+import lombok.Setter;
 import org.ehcache.Cache;
 import org.ehcache.CacheManager;
 import org.ehcache.config.builders.CacheConfigurationBuilder;
@@ -17,26 +18,20 @@ import java.util.concurrent.TimeUnit;
 
 public class CacheHelper {
     private CacheManager cacheManager;
-//    private Cache<String, User> userCache1;
+
     private Cache<String,Object> userCache;
-//    private Cache<String,userCache> userCache1;
 
-//    @Getter
-    public String name ;
+//    private Cache <String, Map<String, Object>> userCache;
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
+    @Getter
+    @Setter
+    private String name ;
 
     public CacheHelper(String name) {
 
         this.name = name;
 
-        userCache.put(name,new HashMap<String,Object>());
+
         cacheManager = CacheManagerBuilder
                 .newCacheManagerBuilder().build();
         cacheManager.init();
@@ -47,6 +42,9 @@ public class CacheHelper {
                                 String.class, Object.class,
                                 ResourcePoolsBuilder.heap(10))
                         .withExpiry(Expirations.timeToLiveExpiration(Duration.of(10, TimeUnit.SECONDS))));
+
+
+        userCache.put(name,new HashMap<String,Object>());
     }
 
     public Cache<String, Object> getUserCache() {

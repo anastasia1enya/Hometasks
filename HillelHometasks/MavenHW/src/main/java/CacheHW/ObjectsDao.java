@@ -5,7 +5,7 @@ import org.ehcache.Cache;
 
 import java.util.HashMap;
 
-@AllArgsConstructor
+//@AllArgsConstructor
 public class ObjectsDao {
 
     private CacheHelper cache;
@@ -38,16 +38,17 @@ public class ObjectsDao {
 
 
     }
-    public Object putCache(String cacheName, String key, Object o) throws InterruptedException {
+    public boolean putCache(String cacheName, String key, Object o) throws InterruptedException{
         Cache ch = cache.getUserCache();
 
 
-        if (ch.containsKey(cacheName) && ch.containsKey(key)) {
-            System.out.println("get value from cache");
-            return (Object) ch.get(key);
+        if (ch.containsKey(cacheName) ) {
+            ch.put(cacheName,new HashMap<String,Object>());
+            System.out.println("sucses");
+            return true;
         } else {
-
-            return String.format("value not found in cache with id : %s", key);
+            System.out.println("false");
+            return false;
 
         }
 

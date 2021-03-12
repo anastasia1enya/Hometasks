@@ -1,10 +1,12 @@
 package CacheHW;
 
-import CacheClass.CacheHelper;
-
 public class Main {
-    public static void main(String[] args) {
-        CacheClass.CacheHelper cache1 = new CacheHelper();
-        System.out.println(cache1.getClass());
+    public static void main(String[] args) throws InterruptedException {
+        CacheHelper ch = new CacheHelper("put");
+
+        ObjectsDao dao = new ObjectsDao();
+
+        System.out.println(dao.putCache(ch.getName(), "1", 85));
+
     }
 }

@@ -10,7 +10,9 @@ public class Main {
         System.out.println(ch.toString());
         ch.putCache("lol","3", "Andrew");
         System.out.println(ch.toString());
-        System.out.println(ch.getCache1("names", "2"));
+        System.out.println(ch.getCache("names", "2"));
 
+//        ch.clearCache("lol");
+//        System.out.println(ch.toString());
     }
 }

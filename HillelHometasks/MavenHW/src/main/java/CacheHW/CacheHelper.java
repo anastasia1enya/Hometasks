@@ -1,5 +1,7 @@
 package CacheHW;
 
+import CacheClass.User;
+
 import java.util.HashMap;
 
 public class CacheHelper {
@@ -41,23 +43,36 @@ public class CacheHelper {
 
     public Object getCache(String cacheName, String key) throws InterruptedException {
 
-
-
         if (userCache.containsKey(cacheName) && userCache1.containsKey(key)) {
             System.out.println("get value from cache");
-            return (Object) userCache1.get(key);
+            return (Object) userCache.get(cacheName).get(key);
         } else {
 
             return String.format("value not found in cache with id : %s", key);
-
         }
     }
 
     public Object getCache1(String cacheName, String key) throws InterruptedException {
 
-        System.out.println(userCache1.get(cacheName));
-        return userCache1.get(cacheName);
+        System.out.println(userCache1.get(key));
+        return userCache1.get(key);
 
     }
+
+    public void clearCache(){
+
+       userCache.clear();
+    }
+
+    public void clearCache(String cacheName){
+      if (userCache.containsKey(cacheName)){
+          userCache1.clear();
+          userCache.remove(cacheName);
+      } else {
+          System.out.println("fail");
+      }
+
+    }
+
 }
 

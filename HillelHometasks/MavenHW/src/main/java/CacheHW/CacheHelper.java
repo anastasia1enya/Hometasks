@@ -25,7 +25,7 @@ public class CacheHelper {
         if (userCache.containsKey(cacheName)) {
 
             userCache.get(cacheName).put(key, o);
-            loggerInfo.info("Put into cache"+userCache.get(cacheName)+" was success ");
+            loggerInfo.info("Put into cache "+cacheName+" was success ");
             return true;
         } else {
 
@@ -33,7 +33,7 @@ public class CacheHelper {
             userCache.put(cacheName, new HashMap<>());
             userCache.get(cacheName).put(key, o);
 
-            loggerInfo.info("Creation and Put into cache"+userCache.get(cacheName)+" was success ");
+            loggerInfo.info("Creation and Put into cache "+cacheName+" was success ");
 
             return true;
 
@@ -50,7 +50,7 @@ public class CacheHelper {
     public Object getCache(String cacheName, String key) throws InterruptedException {
 
         if (userCache.containsKey(cacheName) && userCache.get(cacheName).containsKey(key)) {
-            loggerWarn.warn("Get value from cache" +userCache.get(cacheName));
+            loggerWarn.warn("Get value from cache " +cacheName);
             return (Object) userCache.get(cacheName).get(key);
         } else {
 
@@ -69,7 +69,7 @@ public class CacheHelper {
       if (userCache.containsKey(cacheName)){
           userCache.get(cacheName).clear();
           userCache.remove(cacheName);
-          loggerWarn.warn("Delete of "+userCache.get(cacheName)+" was success ");
+          loggerWarn.warn("Delete of "+cacheName+" was success ");
 
       } else {
 //          System.out.println("fail");

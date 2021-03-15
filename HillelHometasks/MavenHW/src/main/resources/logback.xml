@@ -2,7 +2,7 @@
 
 <configuration>
     <include resource="org/springframework/boot/logging/logback/base.xml"/>
-    <property name="LOG_FOLDER" value="C:/Users/Yuliia/Desktop/Hometasks/HillelHometasks/MavenHW/logs"/>
+    <property name="LOG_FOLDER" value="C:/Users/Yuliia/Desktop/Hometasks/HillelHometasks/MavenHW/src/main/java/CacheHW/logs"/>
 
     <appender name="debug_log"
               class="ch.qos.logback.core.rolling.RollingFileAppender">
@@ -52,29 +52,29 @@
         </encoder>
     </appender>
 
-    <appender name="infoRes_log"
-              class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${LOG_FOLDER}/infoRes/infoRes.log</file>
+<!--    <appender name="infoRes_log"-->
+<!--              class="ch.qos.logback.core.rolling.RollingFileAppender">-->
+<!--        <file>${LOG_FOLDER}/infoRes/infoRes.log</file>-->
 
-        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
-            <level>INFO</level>
-        </filter>
+<!--        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">-->
+<!--            <level>INFO</level>-->
+<!--        </filter>-->
 
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${LOG_FOLDER}/infoRes/archive/info-%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
-            <timeBasedFileNamingAndTriggeringPolicy
-                    class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
-                <!-- or whenever the file size reaches 100MB -->
-                <maxFileSize>1MB</maxFileSize>
-            </timeBasedFileNamingAndTriggeringPolicy>
-            <!-- keep 1 days' worth of history -->
-            <maxHistory>1</maxHistory>
-            <totalSizeCap>10MB</totalSizeCap>
-        </rollingPolicy>
-        <encoder>
-            <pattern>%d [%-5level] [%-14.14thread] - %msg%n</pattern>
-        </encoder>
-    </appender>
+<!--        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">-->
+<!--            <fileNamePattern>${LOG_FOLDER}/infoRes/archive/info-%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>-->
+<!--            <timeBasedFileNamingAndTriggeringPolicy-->
+<!--                    class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">-->
+<!--                &lt;!&ndash; or whenever the file size reaches 100MB &ndash;&gt;-->
+<!--                <maxFileSize>1MB</maxFileSize>-->
+<!--            </timeBasedFileNamingAndTriggeringPolicy>-->
+<!--            &lt;!&ndash; keep 1 days' worth of history &ndash;&gt;-->
+<!--            <maxHistory>1</maxHistory>-->
+<!--            <totalSizeCap>10MB</totalSizeCap>-->
+<!--        </rollingPolicy>-->
+<!--        <encoder>-->
+<!--            <pattern>%d [%-5level] [%-14.14thread] - %msg%n</pattern>-->
+<!--        </encoder>-->
+<!--    </appender>-->
 
     <appender name="error_log"
               class="ch.qos.logback.core.rolling.RollingFileAppender">
@@ -138,9 +138,9 @@
         <appender-ref ref="info_log"/>
     </logger>
 
-    <logger name="logger.res" level="INFO">
-        <appender-ref ref="infoRes_log"/>
-    </logger>
+<!--    <logger name="logger.res" level="INFO">-->
+<!--        <appender-ref ref="infoRes_log"/>-->
+<!--    </logger>-->
 
     <logger name="logger.warn" level="WARN">
         <appender-ref ref="warn_log"/>

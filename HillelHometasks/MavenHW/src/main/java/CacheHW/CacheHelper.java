@@ -18,21 +18,23 @@ import java.util.concurrent.TimeUnit;
 
 public class CacheHelper {
 
+    private  HashMap<String, HashMap<String, Object>> userCache;
 
-    private HashMap <String,Object> userCache;
-
-
-    public void createCache(String name){
-
-        userCache.put(name,new HashMap <String,Object>() );
-
+    CacheHelper(){
+        HashMap<String, Object> userCache = new HashMap<>();
     }
+
+
 
     public boolean putCache(String cacheName, String key, Object o) throws InterruptedException {
 
 
+        HashMap<String, Object> userCache1 = new HashMap<>();
+
+        userCache1.put(key,o);
+
         if (userCache.containsKey(cacheName)) {
-            userCache.put(key, o);
+            userCache.put( cacheName,userCache1);
             System.out.println("sucses");
             return true;
         } else {

@@ -12,7 +12,7 @@ public class Main {
         System.out.println(ch.toString());
         System.out.println(ch.getCache("names", "2"));
 
-//        ch.clearCache("lol");
-//        System.out.println(ch.toString());
+        ch.clearCache("lol");
+        System.out.println(ch.toString());
     }
 }

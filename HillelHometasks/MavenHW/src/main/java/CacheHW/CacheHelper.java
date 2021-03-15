@@ -3,6 +3,7 @@ package CacheHW;
 import CacheClass.User;
 
 import java.util.HashMap;
+import java.util.Objects;
 
 public class CacheHelper {
 
@@ -12,21 +13,35 @@ public class CacheHelper {
 
     CacheHelper() {
         userCache = new HashMap<>();
-        userCache1 = new HashMap<>();
     }
 
 
     public boolean putCache(String cacheName, String key, Object o) throws InterruptedException {
 
         if (userCache.containsKey(cacheName)) {
-            userCache1.put(key, o);
-            userCache.put(cacheName, userCache1);
+
+            userCache.get(cacheName).put(key, o);
+//            userCache1.put(key, o);
+//            userCache.put(cacheName, userCache1);
             System.out.println("sucses");
             return true;
         } else {
+
+            // 1 option
+//            userCache.put(cacheName, new HashMap<>());
+//            userCache.get(cacheName).put(key, o);
+
+            // 2 option
+
+//            userCache1 = new HashMap<>();
+//            userCache1.put(key, o);
+//            userCache.put(cacheName,userCache1);
+
+           // 3 option
             userCache1 = new HashMap<>();
-            userCache1.put(key, o);
             userCache.put(cacheName, userCache1);
+            userCache.get(cacheName).put(key, o);
+
             System.out.println("sucses and create");
 
             return true;
@@ -45,7 +60,7 @@ public class CacheHelper {
 
         if (userCache.containsKey(cacheName) && userCache1.containsKey(key)) {
             System.out.println("get value from cache");
-            return (Object) userCache.get(cacheName).get(key);
+            return (Object) userCache1.get(key);
         } else {
 
             return String.format("value not found in cache with id : %s", key);

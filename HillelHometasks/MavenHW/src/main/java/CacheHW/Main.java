@@ -2,11 +2,11 @@ package CacheHW;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
-        CacheHelper ch = new CacheHelper("put");
+        CacheHelper ch = new CacheHelper();
 
-        ObjectsDao dao = new ObjectsDao();
-
-        System.out.println(dao.putCache(ch.getName(), "1", 85));
+        ch.createCache("names");
+        ch.putCache("names","1", "Petrov");
+        ch.getCache("names","1");
 
     }
 }

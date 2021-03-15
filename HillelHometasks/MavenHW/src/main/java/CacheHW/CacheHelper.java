@@ -17,41 +17,57 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 public class CacheHelper {
-    private CacheManager cacheManager;
-
-    private Cache<String,Object> userCache;
-
-//    private Cache <String, Map<String, Object>> userCache;
-
-    @Getter
-    @Setter
-    private String name ;
-
-    public CacheHelper(String name) {
-
-        this.name = name;
 
 
-        cacheManager = CacheManagerBuilder
-                .newCacheManagerBuilder().build();
-        cacheManager.init();
-
-        userCache = cacheManager
-                .createCache(name, CacheConfigurationBuilder
-                        .newCacheConfigurationBuilder(
-                                String.class, Object.class,
-                                ResourcePoolsBuilder.heap(10))
-                        .withExpiry(Expirations.timeToLiveExpiration(Duration.of(10, TimeUnit.SECONDS))));
+    private HashMap <String,Object> userCache;
 
 
-        userCache.put(name,new HashMap<String,Object>());
+    public void createCache(String name){
+
+        userCache.put(name,new HashMap <String,Object>() );
+
     }
 
-    public Cache<String, Object> getUserCache() {
-        return cacheManager.getCache(name, String.class, Object.class);
+    public boolean putCache(String cacheName, String key, Object o) throws InterruptedException {
+
+
+        if (userCache.containsKey(cacheName)) {
+            userCache.put(key, o);
+            System.out.println("sucses");
+            return true;
+        } else {
+            System.out.println("false");
+            return false;
+
+        }
     }
 
-    public void clearCache(){
-        cacheManager.getCache(name, String.class, Object.class).clear();
-    }
+        public Object getCache(String cacheName, String key) throws InterruptedException {
+
+            if (userCache.containsKey(cacheName) && userCache.containsValue(key)) {
+                System.out.println("get value from cache");
+                return (Object) userCache.get(key);
+            } else {
+
+                return String.format("value not found in cache with id : %s", key);
+
+            }
+
+//    public Cache<String, Object> getUserCache() {
+//        return cacheManager.getCache(name, String.class, Object.class);
+//    }
+//
+//    public void clearCache(){
+//        cacheManager.getCache(name, String.class, Object.class).clear();
+//    }
+
+//    public CacheHelper(String name) {
+//
+//        this.name = name;
+//
+//
+//        userCache.put(name,new HashMap<String,Object>());
+//    }
+
+}
 }

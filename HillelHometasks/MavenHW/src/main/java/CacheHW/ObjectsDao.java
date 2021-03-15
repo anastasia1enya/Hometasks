@@ -14,6 +14,8 @@ public class ObjectsDao {
 //        this.cache = cache;
 //    }
 
+
+
     public Object getCache(String cacheName, String key) throws InterruptedException {
         Cache ch = cache.getUserCache();
 

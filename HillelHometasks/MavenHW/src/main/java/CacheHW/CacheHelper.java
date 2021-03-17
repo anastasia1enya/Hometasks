@@ -6,7 +6,16 @@ import org.slf4j.LoggerFactory;
 
 import java.util.HashMap;
 
+/**
+ * @Author Anastasia.enya
+ * @version 1.0
 
+ */
+
+/**
+ * Конструктор по умолчанию который создает дефолтную мапу
+ *      * @param userCache
+ */
 public class CacheHelper {
 
     private HashMap<String, HashMap<String, Object>> userCache;
@@ -14,12 +23,22 @@ public class CacheHelper {
     CacheHelper() {
         userCache = new HashMap<>();
     }
+    /**
+     * Логгеры для записей
+     */
 
 
     static final Logger loggerWarn = LoggerFactory.getLogger("logger.warn");
     static final Logger loggerInfo = LoggerFactory.getLogger("logger.info");
     static final Logger loggerError = LoggerFactory.getLogger("logger.error");
 
+    /**
+     * Этот метод  кладет значение в определенный кэш
+     * @param cacheName - имя кэша
+     * @param key - ключ к объекту
+     * @param o - объект
+     * @throws InterruptedException
+     */
     public boolean putCache(String cacheName, String key, Object o) throws InterruptedException {
 
         if (userCache.containsKey(cacheName)) {
@@ -40,6 +59,10 @@ public class CacheHelper {
         }
     }
 
+    /**
+     *
+     * @return расспечатывает кэш
+     */
     @Override
     public String toString() {
         return
@@ -47,6 +70,13 @@ public class CacheHelper {
                 ;
     }
 
+    /**
+     * Этот метод возвращает объект по запрашиваему ключу
+     * @param cacheName - имя кэша
+     * @param key - ключ к объекту
+     * @return - возвращает объект
+     * @throws InterruptedException
+     */
     public Object getCache(String cacheName, String key) throws InterruptedException {
 
         if (userCache.containsKey(cacheName) && userCache.get(cacheName).containsKey(key)) {
@@ -58,12 +88,19 @@ public class CacheHelper {
         }
     }
 
-
+    /**
+     * этот метод очищает весь кэш
+     */
     public void clearCache(){
 
        userCache.clear();
        loggerWarn.warn("All is clear");
     }
+
+    /**
+     * этот метод очищает заданный кэш по имени
+     * @param cacheName - имя кэша
+     */
 
     public void clearCache(String cacheName){
       if (userCache.containsKey(cacheName)){

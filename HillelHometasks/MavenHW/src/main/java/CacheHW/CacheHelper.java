@@ -13,7 +13,7 @@ import java.util.HashMap;
  */
 
 /**
- * Конструктор по умолчанию который создает дефолтную мапу
+ * Default constructor, creates  the default map
  *      * @param userCache
  */
 public class CacheHelper {
@@ -24,7 +24,7 @@ public class CacheHelper {
         userCache = new HashMap<>();
     }
     /**
-     * Логгеры для записей
+     * Loggers for entries
      */
 
 
@@ -33,10 +33,10 @@ public class CacheHelper {
     static final Logger loggerError = LoggerFactory.getLogger("logger.error");
 
     /**
-     * Этот метод  кладет значение в определенный кэш
-     * @param cacheName - имя кэша
-     * @param key - ключ к объекту
-     * @param o - объект
+     * This method puts the object into cache
+     * @param cacheName -name of the  cache
+     * @param key - key to the object
+     * @param o - the object
      * @throws InterruptedException
      */
     public boolean putCache(String cacheName, String key, Object o) throws InterruptedException {
@@ -45,23 +45,21 @@ public class CacheHelper {
 
             userCache.get(cacheName).put(key, o);
             loggerInfo.info("Put into cache "+cacheName+" was success ");
-            return true;
-        } else {
 
+        } else {
 
             userCache.put(cacheName, new HashMap<>());
             userCache.get(cacheName).put(key, o);
 
             loggerInfo.info("Creation and Put into cache "+cacheName+" was success ");
 
-            return true;
-
         }
+        return true;
     }
 
     /**
      *
-     * @return расспечатывает кэш
+     * @return printed cache
      */
     @Override
     public String toString() {
@@ -71,10 +69,10 @@ public class CacheHelper {
     }
 
     /**
-     * Этот метод возвращает объект по запрашиваему ключу
-     * @param cacheName - имя кэша
-     * @param key - ключ к объекту
-     * @return - возвращает объект
+     * This method returns the object by the given cache name & key
+     * @param cacheName - name of the  cache
+     * @param key - key to the object
+     * @return - returns the object
      * @throws InterruptedException
      */
     public Object getCache(String cacheName, String key) throws InterruptedException {
@@ -89,8 +87,8 @@ public class CacheHelper {
     }
 
     /**
-     * метод ля получения размера кэша
-     * @return возвращает размер кэша
+     * this method returns the size
+     * @return - returns the quantity of elements
      */
 
     public int  getSize(){
@@ -100,7 +98,7 @@ public class CacheHelper {
 
 
     /**
-     * этот метод очищает весь кэш
+     * this method clears the  whole cache
      */
     public void clearCache(){
 
@@ -110,8 +108,8 @@ public class CacheHelper {
 
 
     /**
-     * этот метод очищает заданный кэш по имени
-     * @param cacheName - имя кэша
+     * this method clears the  certain cache by name
+     * @param cacheName - name of the  cache
      */
 
 

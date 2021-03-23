@@ -28,6 +28,7 @@ public class CacheTests {
     @Test
     public void putCacheTest() throws InterruptedException {
         Assert.assertTrue(cacheHelper.putCache(cacheName,key,o));
+        Assert.assertEquals(o, cacheHelper.getCache(cacheName,key));
 
     }
     //test #2

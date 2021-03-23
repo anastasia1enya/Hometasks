@@ -1,57 +1,57 @@
 package CacheHW;
 
-
-import com.google.common.cache.Cache;
-import org.ehcache.CacheManager;
-import org.ehcache.config.builders.CacheConfigurationBuilder;
-import org.ehcache.config.builders.CacheManagerBuilder;
-import org.ehcache.config.builders.ResourcePoolsBuilder;
-import org.ehcache.expiry.Expirations;
+import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Test;
 
-import java.time.Duration;
-import java.time.temporal.TemporalUnit;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.concurrent.TimeUnit;
 
 public class CacheTests {
 
-CacheHelper cacheHelper;
-    CacheManager cacheManager;
-    Cache<String, HashMap<String, Object>> userCache;
+    CacheHelper cacheHelper;
+    String cacheName = "TestCache1";
+    String key ="1.";
+    Object o = "Ivanov";
 
     @Before
-    public void init (){
-        cacheHelper = new CacheHelper();
+    public void init () throws InterruptedException {
 
-        HashMap<String, Object> testCache = new HashMap<>();
+       cacheHelper = new CacheHelper();
 
+       //for test# 2
+       cacheHelper.putCache(cacheName,key,o);
 
+       //for test #4
+        cacheHelper.putCache("TestDelete","000",true);
 
-            cacheManager = CacheManagerBuilder
-                    .newCacheManagerBuilder().build();
-            cacheManager.init();
+    }
+    //test #1
+    @Test
+    public void putCacheTest() throws InterruptedException {
+        Assert.assertTrue(cacheHelper.putCache(cacheName,key,o));
 
-            userCache = cacheManager
-                    .createCache("user-cache", CacheConfigurationBuilder
-                            .newCacheConfigurationBuilder(
-                                    String.class, Object.class,
-                                    ResourcePoolsBuilder.heap(10))
-                            .withExpiry(Expirations.timeToLiveExpiration(Duration.of(10, TemporalUnit.class))));
+    }
+    //test #2
+    @Test
+    public void getCacheTest() throws InterruptedException {
+        Assert.assertEquals(cacheHelper.getCache(cacheName,key),o);
 
+    }
+    //test #3
+    @Test
+    public void clearAllCacheTest() throws InterruptedException {
 
-        public Cache<Integer, User> getUserCache() {
-            return cacheManager.getCache("user-cache", Integer.class, User.class);
-        }
+        cacheHelper.clearCache();
+       Assert.assertEquals(cacheHelper.getSize(),0);
 
-        public void clearCache(){
-            cacheManager.getCache("user-cache", Integer.class, User.class).clear();
-        }
+    }
 
+    //test #4
+    @Test
+    public void clearCacheTest() throws InterruptedException {
 
-
+        cacheHelper.clearCache("TestDelete");
+        Assert.assertEquals(cacheHelper.getSize(),1);
+        Assert.assertFalse(cacheHelper.getSize()==0);
 
     }
 

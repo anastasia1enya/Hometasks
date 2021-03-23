@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) throws InterruptedException {
         CacheHelper ch = new CacheHelper();
 
-        ch.putCache("names","1", "Petrov");
+        System.out.println(ch.putCache("names", "1", "Petrov"));
 //        System.out.println(ch.toString());
         loggerInfo.info("Print of cache"+ ch.toString());
         ch.putCache("names","2", "Ivanov");

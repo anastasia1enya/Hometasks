@@ -89,6 +89,17 @@ public class CacheHelper {
     }
 
     /**
+     * метод ля получения размера кэша
+     * @return возвращает размер кэша
+     */
+
+    public int  getSize(){
+        return    userCache.size();
+    }
+
+
+
+    /**
      * этот метод очищает весь кэш
      */
     public void clearCache(){
@@ -97,10 +108,12 @@ public class CacheHelper {
        loggerWarn.warn("All is clear");
     }
 
+
     /**
      * этот метод очищает заданный кэш по имени
      * @param cacheName - имя кэша
      */
+
 
     public void clearCache(String cacheName){
       if (userCache.containsKey(cacheName)){
